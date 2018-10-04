@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './modules/material/material.module';
+import { BuscarEmpleadoComponent } from './components/buscar-empleado/buscar-empleado.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BuscarEmpleadoComponent
   ],
   imports: [
     BrowserModule,
