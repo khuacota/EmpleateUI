@@ -11,5 +11,8 @@ export class BuscarEmpleadoComponent implements OnInit {
 
   ngOnInit() {
   }
+  searchCourses(value: string) {
+
+  }
 
 }

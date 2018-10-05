@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './modules/material/material.module';
 import { ProfesionService } from './services/profesiones/profesion.service.ts.service';
 import { BuscarEmpleadoComponent } from './components/buscar-empleado/buscar-empleado.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { BuscarEmpleadoComponent } from './components/buscar-empleado/buscar-emp
   imports: [
     BrowserModule,
     MaterialModule,
+    BrowserAnimationsModule,
   ],
   providers: [ProfesionService],
   bootstrap: [AppComponent]
