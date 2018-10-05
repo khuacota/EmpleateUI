@@ -1,12 +1,15 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
 /tmp
 /out-tsc
 
 # dependencies
 /node_modules
+/e2e
+/.vs
+/.firebase
+/.firebaserc
 
 # IDEs and editors
 /.idea
@@ -19,7 +22,6 @@
 
 # IDE - VSCode
 .vscode/*
-.vs/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -38,4 +40,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-.vs/
+/package-lock.json
