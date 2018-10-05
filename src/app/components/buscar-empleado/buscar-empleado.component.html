@@ -1,0 +1,19 @@
+<img width="100" alt="Angular Logo" src="../../assets/search.png" class="center">
+
+<h3 class="center">Busca al profesional que necesitas!</h3>
+<p></p>
+<div>
+<form class="searcher">
+  <mat-form-field class="example-full-width">
+    <input type="text" placeholder="Ej. Sistemas" aria-label="Assigneee" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button mat-button class="button" href="/profesional/">Buscar</button>
+
+
+</form>
+</div>
