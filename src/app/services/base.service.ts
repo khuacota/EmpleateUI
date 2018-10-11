@@ -9,7 +9,7 @@ import { HttpErrorHandlerService } from './http-error-handler.service';
 })
 export abstract class BaseService {
 
-  // protected apiUrl = 'http://.azurewebsites.net';
+  // protected apiUrl = 'https://empleate.azurewebsites.net';
   protected apiUrl = 'https://localhost:44313';
   private headers: HttpHeaders;
   

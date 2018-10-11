@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfesionService } from '../../services/profesiones/profesion.service';
 
 @Component({
   selector: 'app-buscar-empleado',
@@ -6,13 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buscar-empleado.component.css']
 })
 export class BuscarEmpleadoComponent implements OnInit {
-
-  constructor() { }
+  profesionales: any;
+  constructor(private service: ProfesionService) { }
 
   ngOnInit() {
   }
   searchCourses(value: string) {
-
+    this.service.getProfesionalesByProfesion(value).subscribe(
+      response => {
+        this.profesionales = response;
+        console.log(this.profesionales);
+      }
+    );
   }
 
 }
