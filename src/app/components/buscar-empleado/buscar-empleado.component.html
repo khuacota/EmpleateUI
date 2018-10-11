@@ -1,20 +1,39 @@
-<nav class="navbar navbar-expand-xl principal">
-  <div class="logo navbar-brand center">
-    <img src="../../../../assets/img/logo.jpg" height="32">
-    Empleate
-  </div>
-  <div class="collapse navbar-collapse" id="navbarToggler">
-    <div class="navbar-nav right center">
-      <a class="nav-item nav-link active menu" href="#">Inicio</a>
-      <a class="nav-item nav-link menu" href="#">Empresas</a>
-      <a class="nav-item nav-link menu" href="#">Postulantes</a>
-      <form class="center size">
-        <mat-form-field appearance="legacy" class="search" color="warn">
-          <mat-icon matPrefix class="prefix">search</mat-icon>
-          <input matInput placeholder="Search" color="primary" #Search (change)="searchCourses(Search.value)">
-        </mat-form-field>
-      </form>
-    </div>
-  </div>
-</nav>
-<div class="separator"></div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sistema de Empleos</title>
+  </head>
+  <body>
+    <header class="navegacion">
+      <div class="ancho">
+      
+        <mat-toolbar class="navMenu">
+          <div class="logo">
+            <p><a href="#">Empleate</a></p>
+          </div>
+          <ul class="menu">
+            <li>
+              <a href="">Home</a>
+            </li>
+            <li>
+              <a href="">Profile</a>
+            </li>
+            <li>
+              <a href="">Network</a>
+            </li>
+            <li>
+              <a href="">Mensajes</a>
+            </li>
+          </ul>
+          <mat-form-field class="example-form-field">
+            <input matInput type="text" placeholder="buscar" [(ngModel)]="value">
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <a href="#" class="lupa"><i class="material-icons"> search</i></a>
+        </mat-toolbar> 
+      </div>
+    </header>
+  </body>
+</html>
