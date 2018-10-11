@@ -6,11 +6,14 @@
 .buttonbar{
 	background: #3f51b5;
 	color: #fff;	
+
 }
 
 .buttonbar:hover {
-  color: #CFD8DC;
+  color: #CFD8D0;
   cursor: pointer;
-    cursor: hand;
-  /*background-color:039be5 #CFD8DC;*/
+  cursor: hand;
+  /*background-color: #FFF000;*/
+  /*flex: 1 1 auto;*/
+
 }

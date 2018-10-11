@@ -9,13 +9,6 @@
   width: 100%;
 }
 
-.center {
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
 .button{
 	background: #3f51b5;
 	color: #fff;

@@ -5,13 +5,13 @@
   </h1>
 <mat-toolbar class='bar'>
   <nav>
-   <a class="buttonbar" routerLink="/perfil" routerLinkActive="active">Perfil</a>
-   <a class='buttonbar' routerLink="/buscador" routerLinkActive="active">Busca un profesional</a>
+   <a class='buttonbar' href='/inicio' routerLinkActive='active' mat-button>Inicio</a>
+   <a class="buttonbar" href="/perfil" mat-button>Perfil</a>
+   <a class='buttonbar' href="/buscar" mat-button>Busca un profesional</a>
   </nav>
  </mat-toolbar>
-
 </div>
 
 <div class="mat-app-background basic-container">
-<app-buscar-empleado>loading</app-buscar-empleado>
+<router-outlet></router-outlet>
 </div>
