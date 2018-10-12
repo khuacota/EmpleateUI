@@ -5,15 +5,36 @@
 <div>
 <form class="searcher">
   <mat-form-field class="example-full-width">
-    <input type="text" placeholder="Ej. Sistemas" aria-label="Assigneee" matInput [formControl]="myControl" [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+    <input #prof type="text" placeholder="Ej. Sistemas" aria-label="Assigneee" matInput [formControl]="myControl" [(ngModel)]="value" (keyup.enter)="buscarProfesionales(value)" >
+    <!--<mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
       <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-        {{option.name}}
+        /*{{option.name}}*/
       </mat-option>
-    </mat-autocomplete>
+    </mat-autocomplete>-->
   </mat-form-field>
-  <button mat-button class="button" href="/profesional/">Buscar</button>
+  <button mat-button class="button" (click)="buscarProfesionales(value)">Buscar</button>
 
-
+       <!-- <mat-toolbar class="navMenu">      
+        <mat-form-field class="example-form-field">
+          <input #prof matInput type="text" placeholder="buscar" [(ngModel)]="value" (keyup.enter)="buscarProfesionales(prof.value)">
+          <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+        <a class="lupa" (click)="buscarProfesionales(prof.value)"><i class="material-icons" >search</i></a>
+      </mat-toolbar>-->  
+   <div class="listGroup">
+    <div *ngFor="let item of profesionales" class="columns">
+      <div class="separator"></div>
+      <div class="column">
+        <h4 class="center">{{item.nombre}} {{item.apellidos}}</h4>
+        <h6 class="center">{{item.telefono}}</h6>
+        <p class="center">{{item.correo}}</p>
+      </div>
+    </div>
+    <div *ngIf="error" class="column">
+      <p class="center">No se encontraron coincidencias</p>
+    </div>
+  </div>
 </form>
 </div>

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { ProfesionService } from '../../services/profesiones/profesion.service.ts.service';
 
 export interface Profession {
   name: string;
@@ -14,6 +15,9 @@ export interface Profession {
 })
 
 export class BuscarEmpleadoComponent implements OnInit {
+
+/*	profesionales:any;
+	constructor(private service: ProfesionService){}*/
 
   myControl = new FormControl();
   options: Profession[] = [
@@ -39,5 +43,24 @@ export class BuscarEmpleadoComponent implements OnInit {
   private _filter(name: string): Profession[] {
     const filterValue = name.toLowerCase();
   	return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+  }
+  
+  profesionales: Array<any>;
+  error: Boolean;
+  constructor(private service: ProfesionService){
+  	this.error = false;
+  }
+  
+  buscarProfesionales(value: string) {
+  	this.service.getProfesionalesByProfesion(value).subscribe(
+  		response => {
+  			this.profesionales = response;
+  			console.log(this.profesionales);
+  			this.error = false;
+  			}, error => {
+        this.profesionales = [];
+        this.error = true;
+      }
+  	);
   }
 }

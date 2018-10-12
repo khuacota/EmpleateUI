@@ -20,18 +20,24 @@ import { MatButtonModule, MatListModule, MatIconModule, MatCardModule, MatMenuMo
 
 import { ProfesionService } from './services/profesiones/profesion.service.ts.service';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { BaseService } from './services/base.service';
+
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     BuscarEmpleadoComponent,
     PerfilComponent,
-    InicioComponent
+    InicioComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [ProfesionService],
   bootstrap: [AppComponent]

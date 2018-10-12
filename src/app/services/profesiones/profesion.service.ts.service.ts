@@ -17,7 +17,7 @@ export class ProfesionService extends BaseService {
       'profesiones'
     );
   }
-  public getCoursesByName(name: any): Observable<any> {
+  public getProfesionalesByProfesion(name: any): Observable<any> {
     return this.httpClient.get(`${this.apiUrl}/${this.endpoint}/${name}`).pipe(
       catchError(this.errorHandler.handleError)
     );
