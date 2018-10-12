@@ -6,7 +6,15 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-body {
-  background: url(./working.jpg);
+
+.center {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 }
+
+body {
+  background: url(assets/img/working.jpg);
+}
+
 
