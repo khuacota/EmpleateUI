@@ -6,10 +6,13 @@ import { MaterialModule } from './modules/material/material.module';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+
 import { BuscarEmpleadoComponent } from './components/buscar-empleado/buscar-empleado.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ProfesionService } from './services/profesiones/profesion.service.ts.service';
+//import { BaseService } from './services/base.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -26,8 +29,11 @@ import { ProfesionService } from './services/profesiones/profesion.service.ts.se
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    BrowserAnimationsModule
+    
+    BrowserAnimationsModule,
+    HttpClientModule,
   ],
+  
   providers: [ProfesionService],
   bootstrap: [AppComponent]
 })
