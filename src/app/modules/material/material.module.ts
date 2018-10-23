@@ -31,9 +31,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
     CommonModule,
     MatAutocompleteModule,
     MatDatepickerModule,
@@ -70,6 +72,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
   ],
   exports: [
+    BrowserAnimationsModule,
     MatAutocompleteModule,
     MatDatepickerModule,
     MatFormFieldModule,
