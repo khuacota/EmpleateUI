@@ -1,0 +1,23 @@
+<h4>Titulos: 
+        <button mat-mini-fab color="primary" (click)="addTitle()">
+          <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+        </button>
+      </h4>
+      <mat-list role="list">
+		  <mat-list-item role="listitem" *ngFor="let title of myTitles">
+		  	<mat-form-field>
+		      <mat-select placeholder="nivel de Titulos">
+		        <mat-option *ngFor="let grade of degrees" [value]="grade">
+		          {{grade}}
+		        </mat-option>
+		      </mat-select>
+		    </mat-form-field> 
+	  		<mat-form-field>
+		      <input matInput placeholder="Descripcion">
+		    </mat-form-field>
+		    <br/>
+		  </mat-list-item>
+		</mat-list>
+		
+
+      
