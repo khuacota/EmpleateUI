@@ -1,11 +1,8 @@
 .mat-form-field {
-  margin: 5px;
-  
-}
-
-.input {
+  margin-left: 5px;
   width: 50%;
 }
+
 form {
   border-bottom-style: solid;
   border-width: 2px;

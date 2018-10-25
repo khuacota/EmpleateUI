@@ -1,0 +1,24 @@
+<h4>
+  Experiencia:
+  <button mat-mini-fab color="primary" (click)="addExperience()">
+    <mat-icon aria-label="icon-button">add</mat-icon>
+  </button>
+</h4>
+    <form *ngFor="let experience of myExperiences" >
+      <mat-form-field>
+        <input matInput placeholder="Lugar">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Cargo">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Fecha Inicio">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker1" placeholder="Fecha Fin">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </form>

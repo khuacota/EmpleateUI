@@ -32,6 +32,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     MatAutocompleteModule,
     MatDatepickerModule,
+    MatDividerModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
@@ -75,6 +77,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatDatepickerModule,
+    MatDividerModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,

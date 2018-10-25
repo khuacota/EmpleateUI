@@ -8,13 +8,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormAcademicComponent } from './components/professional/form-academic/form-academic.component';
 import { InputLanguagesComponent } from './components/languages/input-languages/input-languages.component';
 import { AcademicTitleComponent } from './components/professional/form-academic/academic-title/academic-title.component';
+import { FormExpComponent } from './components/professional/form-academic/form-exp/form-exp.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormAcademicComponent,
     InputLanguagesComponent,
-    AcademicTitleComponent
+    AcademicTitleComponent,
+    FormExpComponent
   ],
   imports: [
     BrowserModule,
