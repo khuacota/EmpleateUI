@@ -1,0 +1,67 @@
+<mat-card class="center-card">
+	<mat-form-field class='normal'>
+		<input matInput placeholder="Profesión u ocupación">
+	</mat-form-field>
+	<mat-form-field class='largo'>
+		<textarea matInput placeholder="Descripción de trabajo:"></textarea>		
+	</mat-form-field>
+	<mat-form-field class='corto'>
+		<input matInput type="number" placeholder="Experiencia mínima en años:">
+	</mat-form-field>
+	<app-input-languages></app-input-languages>
+	<app-input-skills></app-input-skills>
+	<mat-form-field class='corto'>
+		<input matInput placeholder="Ciudad:">
+	</mat-form-field>
+
+	<br>Horarios:<br>
+	De:
+	<mat-form-field class='supercorto'>
+		<input matInput type="time" placeholder="inicio">
+	</mat-form-field>
+	A:
+	<mat-form-field class='supercorto'>
+		<input matInput type="time" placeholder="fin">
+	</mat-form-field>
+
+	<mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Fecha limite de postulacion">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-card-actions>
+    	<span class="example-spacer"></span>
+    	<button mat-raised-button color="accent">ENVIAR</button>
+  	</mat-card-actions>
+	<!--
+	<mat-form-field class="chips">	
+		<mat-chip-list #chipList>
+			<mat-chip color="accent" selected
+	            *ngFor="let language of languages"
+	            [selectable]="selectable"
+	            [removable]="removable"
+	            (removed)="remove(language)" >
+	            {{language}}
+	            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+	          </mat-chip>
+	          <input
+	            placeholder="Idiomas"
+	            #languageInput
+	            [formControl]="languageCtrl"
+	            [matAutocomplete]="auto"
+	            [matChipInputFor]="chipList"
+	            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+	            [matChipInputAddOnBlur]="addOnBlur"
+	            (matChipInputTokenEnd)="add($event)">
+		</mat-chip-list>
+		<mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+	          <mat-option *ngFor="let language of filteredLanguages | async" [value]="language">
+	            {{language}}
+	          </mat-option>
+	        </mat-autocomplete>
+	</mat-form-field>
+	<mat-form-field class='corto'>
+		<input matInput placeholder="Ciudad">
+	</mat-form-field>-->
+</mat-card>

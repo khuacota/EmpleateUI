@@ -9,6 +9,8 @@ import { FormAcademicComponent } from './components/professional/form-academic/f
 import { InputLanguagesComponent } from './components/languages/input-languages/input-languages.component';
 import { AcademicTitleComponent } from './components/professional/form-academic/academic-title/academic-title.component';
 import { FormExpComponent } from './components/professional/form-academic/form-exp/form-exp.component';
+import { OfertarTrabajoComponent } from './components/empresa/ofertar-trabajo/ofertar-trabajo.component';
+import { InputSkillsComponent } from './components/skills/input-skills/input-skills.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { FormExpComponent } from './components/professional/form-academic/form-e
     FormAcademicComponent,
     InputLanguagesComponent,
     AcademicTitleComponent,
-    FormExpComponent
+    FormExpComponent,
+    OfertarTrabajoComponent,
+    InputSkillsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,43 @@
+.center-card {
+  max-width: 30%;
+  margin: auto;
+}
+
+.chips {
+  width: 90%;
+}
+
+.corto {
+  margin-left: 5px;
+  width: 50%;
+}
+
+.supercorto {
+  margin-left: 5px;
+  margin-top: 10px;
+  width: 25%;
+}
+
+.largo {
+  margin-left: 5px;
+  width: 90%;
+}
+
+.normal {
+  margin-left: 5px;
+  width: 60%;
+}
+
+/*.mat-form-field {
+  margin-left: 5px;
+  width: 50%;
+}*/
+
+/*.example-margin {
+  margin: 10px;
+}*/
+
+/*form {
+  border-bottom-style: solid;
+  border-width: 2px;
+}*/
