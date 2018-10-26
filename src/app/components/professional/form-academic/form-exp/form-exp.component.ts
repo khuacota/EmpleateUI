@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-form-exp',
@@ -6,16 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form-exp.component.css']
 })
 export class FormExpComponent implements OnInit {
-  private myExperiences: Array<any>;
-  constructor() {
-    this.myExperiences = [];
+  expForm: FormGroup;
+  constructor(private fb: FormBuilder) {
+    this.expForm = this.fb.group({
+      lugar: ['', Validators.required],
+      cargo: ['', Validators.required],
+      inicio: [new Date(), Validators.required],
+      fin: [new Date(), Validators.required],
+    });
   }
 
   ngOnInit() {
   }
 
-  addExperience() {
-    let obj = { degree: "", description: "" };
-    this.myExperiences.push(obj);
-  }
 }

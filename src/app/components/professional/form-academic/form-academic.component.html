@@ -6,17 +6,28 @@
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Titulos</ng-template>
-      <app-academic-title></app-academic-title>
+      <h4>
+        añadir Titulo:
+        <button mat-mini-fab color="primary" (click)="addTitle()">
+          <mat-icon aria-label="icon-button">add</mat-icon>
+        </button>
+      </h4>
+      <app-academic-title *ngFor="let title of myTitles"></app-academic-title>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Experiencia</ng-template>
-      <app-form-exp></app-form-exp>
+      <h4>
+        añadir Experiencia:
+        <button mat-mini-fab color="primary" (click)="addExperience()">
+          <mat-icon aria-label="icon-button">add</mat-icon>
+        </button>
+      </h4>
+      <app-form-exp *ngFor="let experience of myExperiences"></app-form-exp>
     </mat-step>
   </mat-horizontal-stepper>
-    
     <mat-card-actions>
       <span class="example-spacer"></span>
-      <button mat-raised-button color="accent">ENVIAR</button>
+      <button mat-raised-button color="accent" (click)="submit()">ENVIAR</button>
     </mat-card-actions>
 </mat-card>
 

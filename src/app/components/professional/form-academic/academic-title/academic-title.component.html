@@ -1,11 +1,7 @@
-<h4>Titulos: 
-        <button mat-mini-fab color="primary" (click)="addTitle()">
-          <mat-icon aria-label="icon-button">add</mat-icon>
-        </button>
-      </h4>
-        <form *ngFor="let title of myTitles">
+
+        <form >
           <mat-form-field>
-            <mat-select placeholder="nivel de Titulos">
+            <mat-select placeholder="nivel de Titulo">
               <mat-option *ngFor="let grade of degrees" [value]="grade">
                 {{grade}}
               </mat-option>
