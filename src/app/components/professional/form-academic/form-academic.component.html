@@ -1,20 +1,22 @@
 <mat-card class="center-card">
-  <mat-tab-group>
-    <mat-tab label="Idiomas">
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step>
+      <ng-template matStepLabel>Idiomas</ng-template>
       <app-input-languages></app-input-languages>
-      {{languages}}
-    </mat-tab>
-    <mat-tab label="Titulos">
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Titulos</ng-template>
       <app-academic-title></app-academic-title>
-    </mat-tab>
-    <mat-tab label="Experiencia">
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Experiencia</ng-template>
       <app-form-exp></app-form-exp>
-
-    </mat-tab>
-  </mat-tab-group>
-  <mat-card-actions>
-    <span class="example-spacer"></span>
-    <button mat-raised-button color="accent">ENVIAR</button>
-  </mat-card-actions>
+    </mat-step>
+  </mat-horizontal-stepper>
+    
+    <mat-card-actions>
+      <span class="example-spacer"></span>
+      <button mat-raised-button color="accent">ENVIAR</button>
+    </mat-card-actions>
 </mat-card>
 
