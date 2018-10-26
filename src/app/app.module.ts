@@ -8,6 +8,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './modules/material/material.module';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 import { BuscarEmpleadoComponent } from './components/buscar-empleado/buscar-empleado.component';
 import { PerfilComponent } from  './components/perfil/perfil.component';
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
@@ -23,6 +26,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { BaseService } from './services/base.service';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ModificaPerfilComponent } from './components/modifica-perfil/modifica-perfil.component';
+
 
 
 @NgModule({
@@ -31,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     BuscarEmpleadoComponent,
     PerfilComponent,
     InicioComponent,
+    ModificaPerfilComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +44,7 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [ProfesionService],
   bootstrap: [AppComponent]

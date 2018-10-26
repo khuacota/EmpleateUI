@@ -5,13 +5,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { PerfilComponent } from '../../components/perfil/perfil.component';
 import { BuscarEmpleadoComponent } from '../../components/buscar-empleado/buscar-empleado.component';
 import { InicioComponent } from '../../components/inicio/inicio.component';
+import { ModificaPerfilComponent} from '../../components/modifica-perfil/modifica-perfil.component';
+
 
 
 const routes: Routes = [
 	{ path: '', component: InicioComponent},
 	{ path: 'perfil', component: PerfilComponent},
 	{ path: 'buscar', component: BuscarEmpleadoComponent},
-	{ path: 'inicio', component: InicioComponent}
+	{ path: 'inicio', component: InicioComponent},
+	{ path: 'modifica', component: ModificaPerfilComponent},
 ];
 
 @NgModule({

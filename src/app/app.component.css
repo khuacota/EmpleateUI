@@ -15,5 +15,14 @@
   cursor: hand;
   /*background-color: #FFF000;*/
   /*flex: 1 1 auto;*/
+}
 
+.active{
+	font-weight: bold;
+	background-color: #606fc7;
+}
+
+.button{
+	background: #3f51b5;
+	color: #fff;
 }
