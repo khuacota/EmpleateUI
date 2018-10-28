@@ -10,10 +10,16 @@ export class FormExpComponent implements OnInit {
   expForm: FormGroup;
   constructor(private fb: FormBuilder) {
     this.expForm = this.fb.group({
-      lugar: ['', Validators.required],
-      cargo: ['', Validators.required],
-      inicio: [new Date(), Validators.required],
-      fin: [new Date(), Validators.required],
+      lugar: ['', Validators.compose([
+        Validators.required,
+        Validators.pattern('[a-zA-Z0-9 ]*')
+      ])],
+      cargo: ['', Validators.compose([
+        Validators.required,
+        Validators.pattern('[a-zA-Z ]*')
+      ])],
+      inicio: ['', Validators.required],
+      fin: ['', Validators.required],
     });
   }
 

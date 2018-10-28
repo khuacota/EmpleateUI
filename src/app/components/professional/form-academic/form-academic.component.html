@@ -27,7 +27,7 @@
   </mat-horizontal-stepper>
     <mat-card-actions>
       <span class="example-spacer"></span>
-      <button mat-raised-button color="accent" (click)="submit()">ENVIAR</button>
+      <button mat-raised-button color="accent" (click)="submit()" [disabled]="disabled()">ENVIAR</button>
     </mat-card-actions>
 </mat-card>
 

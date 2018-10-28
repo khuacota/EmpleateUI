@@ -1,14 +1,23 @@
 
-        <form >
+        <form [formGroup]="academicForm">
           <mat-form-field>
-            <mat-select placeholder="nivel de Titulo">
+            <mat-select placeholder="nivel de Titulo" formControlName="grado">
               <mat-option *ngFor="let grade of degrees" [value]="grade">
                 {{grade}}
               </mat-option>
             </mat-select>
+            <mat-error *ngIf="academicForm.get('grado').hasError('required')">
+              este campo no puede quedar en <strong>blanco</strong>
+            </mat-error>
           </mat-form-field>
           <mat-form-field class="input">
-            <input matInput placeholder="Descripcion">
+            <input matInput placeholder="Descripcion" formControlName="descripcion">
+            <mat-error *ngIf="academicForm.get('descripcion').hasError('required')">
+              este campo no puede quedar en <strong>blanco</strong>
+            </mat-error>
+            <mat-error *ngIf="academicForm.get('descripcion').hasError('pattern')">
+              no ingrese valores <strong>invalidos</strong>
+            </mat-error>
           </mat-form-field>
           <br />
         </form>

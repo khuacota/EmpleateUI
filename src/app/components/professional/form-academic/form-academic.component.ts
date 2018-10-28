@@ -37,7 +37,18 @@ export class FormAcademicComponent implements AfterViewInit {
     this.myExperiences.push(obj);
   }
 
+  disabled() {
+    if (this.viewTitles) {
+
+      let titles = this.viewTitles.toArray();
+      let exps = this.viewExps.toArray();
+      let res = titles.length < 1 || this.languageChild.languages.length < 1;
+      return res || titles.some(e => e.academicForm.invalid) || exps.some(e => e.expForm.invalid);
+    }
+    return true;
+  }
+
   submit() {
-    console.log(this.viewTitles);
+    console.log(this.disabled());
   }
 }
