@@ -2,6 +2,10 @@ import { Component, ViewChild, AfterViewInit, QueryList, ViewChildren } from '@a
 import { InputLanguagesComponent } from "../../languages/input-languages/input-languages.component";
 import { AcademicTitleComponent } from "./academic-title/academic-title.component";
 import { FormExpComponent } from "./form-exp/form-exp.component";
+import { Experience } from '../../../models/experience';
+import { Title } from '../../../models/title';
+import { Language } from '../../../models/language';
+import { Academic } from '../../../models/academic';
 
 
 @Component({
@@ -13,7 +17,6 @@ export class FormAcademicComponent implements AfterViewInit {
   @ViewChild(InputLanguagesComponent) languageChild;
   @ViewChildren(AcademicTitleComponent) viewTitles: QueryList<AcademicTitleComponent>;
   @ViewChildren(FormExpComponent) viewExps: QueryList<FormExpComponent>;
-  private languages = [];
   private myTitles: Array<any>;
   private myExperiences: Array<any>;
 
@@ -23,7 +26,6 @@ export class FormAcademicComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.languages = this.languageChild.languages;
   }
 
   
@@ -49,6 +51,32 @@ export class FormAcademicComponent implements AfterViewInit {
   }
 
   submit() {
-    console.log(this.disabled());
+    let titles = this.viewTitles.toArray();
+    let exps = this.viewExps.toArray();
+    let experiences: Experience[] = [];
+    let titulos: Title[] = [];
+    let languages: Language[] = [];
+    for (let i = 0; i < exps.length; i++) {
+      let exp = exps[i].expForm.value;
+      exp.EmpleadoId = 1;
+      experiences.push(exp);
+    }
+    for (let i = 0; i < titles.length; i++) {
+      let title = titles[i].academicForm.value;
+      title.EmpleadoId = 1;
+      titulos.push(title);
+    }
+    for (let i = 0; i < this.languageChild.languages.length; i++) {
+      let language = new Language();
+      language.idioma = this.languageChild.languages[i];
+      language.EmpleadoId = 1;
+      languages.push(language);
+    }
+    let academic = new Academic();
+    academic.EmpleadoId = 1;
+    academic.Experiencias = experiences;
+    academic.Idiomas = languages;
+    academic.Titulos = titulos;
+    console.log(academic);
   }
 }
