@@ -6,6 +6,7 @@ import { Experience } from '../../../models/experience';
 import { Title } from '../../../models/title';
 import { Language } from '../../../models/language';
 import { Academic } from '../../../models/academic';
+import { AcademicService } from '../../../services/academic/academic.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class FormAcademicComponent implements AfterViewInit {
   private myTitles: Array<any>;
   private myExperiences: Array<any>;
 
-  constructor() {
+  constructor(private academicServ: AcademicService) {
     this.myTitles = [];
     this.myExperiences = [];
   }
@@ -50,6 +51,8 @@ export class FormAcademicComponent implements AfterViewInit {
     return true;
   }
 
+  /**get all the information of the childs components and put it all in a Academic object for send it 
+   * */
   submit() {
     let titles = this.viewTitles.toArray();
     let exps = this.viewExps.toArray();
@@ -78,5 +81,6 @@ export class FormAcademicComponent implements AfterViewInit {
     academic.Idiomas = languages;
     academic.Titulos = titulos;
     console.log(academic);
+    this.academicServ.postAcademicInfo(academic).subscribe();
   }
 }
