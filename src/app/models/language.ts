@@ -1,4 +1,4 @@
 export class Language {
   public EmpleadoId: number;
-  public idioma: string;
+  public Idioma: string;
 }

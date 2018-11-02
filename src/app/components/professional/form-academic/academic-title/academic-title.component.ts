@@ -11,8 +11,8 @@ export class AcademicTitleComponent implements OnInit {
   academicForm: FormGroup;
   constructor(private fb: FormBuilder) {
     this.academicForm = this.fb.group({
-      grado: ['', Validators.required],
-      descripcion: ['', Validators.compose([
+      Grado: ['', Validators.required],
+      Descripcion: ['', Validators.compose([
         Validators.required,
         Validators.pattern('[a-zA-Z0-9 ]*')
       ])]

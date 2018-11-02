@@ -1,7 +1,7 @@
 export class Experience {
   public EmpleadoId: number;
-  public lugar: string;
-  public cargo: string;
-  public inicio: Date;
-  public fin: Date;
+  public Lugar: string;
+  public Cargo: string;
+  public Inicio: Date;
+  public Fin: Date;
 }

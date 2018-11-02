@@ -71,7 +71,7 @@ export class FormAcademicComponent implements AfterViewInit {
     }
     for (let i = 0; i < this.languageChild.languages.length; i++) {
       let language = new Language();
-      language.idioma = this.languageChild.languages[i];
+      language.Idioma = this.languageChild.languages[i];
       language.EmpleadoId = 1;
       languages.push(language);
     }
