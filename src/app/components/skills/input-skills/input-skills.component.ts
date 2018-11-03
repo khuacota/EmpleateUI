@@ -64,7 +64,9 @@ export class InputSkillsComponent implements OnInit {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.skills.push(event.option.viewValue);
+    if (!this.skills.includes(event.option.viewValue)) {
+       this.skills.push(event.option.viewValue);
+    }
     this.skillInput.nativeElement.value = '';
     this.skillCtrl.setValue(null);
   }

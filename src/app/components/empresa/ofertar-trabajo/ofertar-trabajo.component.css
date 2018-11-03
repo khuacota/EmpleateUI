@@ -43,6 +43,10 @@ example-margin {
   margin: 10px;
 }
 
+.red {
+  color: red;
+}
+
 /*form {
   border-bottom-style: solid;
   border-width: 2px;

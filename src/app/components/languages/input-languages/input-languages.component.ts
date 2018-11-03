@@ -62,7 +62,9 @@ export class InputLanguagesComponent implements OnInit {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.languages.push(event.option.viewValue);
+    if (!this.languages.includes(event.option.viewValue)) {
+       this.languages.push(event.option.viewValue);
+    }
     this.languageInput.nativeElement.value = '';
     this.languageCtrl.setValue(null);
   }

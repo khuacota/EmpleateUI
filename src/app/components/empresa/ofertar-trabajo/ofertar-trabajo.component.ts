@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { InputLanguagesComponent } from "../../languages/input-languages/input-languages.component";
 import { InputSkillsComponent } from "../../skills/input-skills/input-skills.component";
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-ofertar-trabajo',
@@ -15,7 +16,33 @@ export class OfertarTrabajoComponent implements AfterViewInit {
   @ViewChild(InputSkillsComponent) skillChild;
   private skills = [];
 
-  constructor() {
+  expForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+
+    this.expForm = this.fb.group({
+      profesion: ['', Validators.compose([
+        Validators.required,
+        Validators.pattern('[a-zA-Z ]*')
+      ])],
+      descripcion: ['', Validators.required],
+      ciudad: ['', Validators.compose([
+        Validators.required,
+        Validators.pattern('[a-zA-Z ]*')
+      ])],
+
+      inicio: ['', Validators.required],
+      fin: ['', Validators.required], 
+      
+      experiencia:['5',Validators.compose([
+        Validators.min(0),
+        Validators.max(20),
+        ])],
+
+      limite: ['', Validators.required],
+
+
+    });
 
   }
 
