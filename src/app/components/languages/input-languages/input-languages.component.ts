@@ -1,7 +1,7 @@
 
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {Component, Input, OnInit, ElementRef, ViewChild} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormControl, FormBuilder, Validators, FormGroup} from '@angular/forms';
 import {MatAutocompleteSelectedEvent, MatChipInputEvent, MatAutocomplete} from '@angular/material';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
@@ -26,7 +26,7 @@ export class InputLanguagesComponent implements OnInit {
   @ViewChild('languageInput') languageInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
     this.filteredLanguages = this.languageCtrl.valueChanges.pipe(
         startWith(null),
         map((language: string | null) => language ? this._filter(language) : this.alllanguages.slice()));
@@ -41,7 +41,10 @@ export class InputLanguagesComponent implements OnInit {
 
       // Add our language
       if ((value || '').trim()) {
-        this.languages.push(value.trim());
+        if (this.alllanguages.includes(value.trim()) && !this.languages.includes(value.trim())) {
+          this.languages.push(value.trim());
+        }
+        
       }
 
       // Reset the input value
@@ -54,16 +57,18 @@ export class InputLanguagesComponent implements OnInit {
   }
 
   remove(language: string): void {
+
     const index = this.languages.indexOf(language);
 
-    if (index >= 0) {
+    if (index >= 0 && this.languages.length>1) {
       this.languages.splice(index, 1);
     }
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
     if (!this.languages.includes(event.option.viewValue)) {
-       this.languages.push(event.option.viewValue);
+
+      this.languages.push(event.option.viewValue);
     }
     this.languageInput.nativeElement.value = '';
     this.languageCtrl.setValue(null);
@@ -74,6 +79,7 @@ export class InputLanguagesComponent implements OnInit {
 
     return this.alllanguages.filter(language => language.toLowerCase().indexOf(filterValue) === 0);
   }
+
   ngOnInit() {
   }
 

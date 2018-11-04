@@ -4,23 +4,23 @@
             *ngFor="let language of languages"
             [selectable]="selectable"
             [removable]="removable"
-            (removed)="remove(language)" >
+            (removed)="remove(language)">
             {{language}}
             <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
           </mat-chip>
           <input
             placeholder="Idiomas"
             #languageInput
-            [formControl]="languageCtrl"
+            [formControl]="languageCtrl"            
             [matAutocomplete]="auto"
             [matChipInputFor]="chipList"
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
             [matChipInputAddOnBlur]="addOnBlur"
-            (matChipInputTokenEnd)="add($event)">
-        </mat-chip-list>
+            (matChipInputTokenEnd)="add($event)" >
+        </mat-chip-list>        
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
           <mat-option *ngFor="let language of filteredLanguages | async" [value]="language">
             {{language}}
           </mat-option>
-        </mat-autocomplete>
+        </mat-autocomplete>        
       </mat-form-field>

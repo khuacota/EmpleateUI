@@ -9,7 +9,7 @@
         </mat-error>
 	</mat-form-field>
 	<mat-form-field class='normal'>
-		<textarea class='red' matInput placeholder="Descripción de trabajo:" formControlName='descripcion'></textarea>
+		<textarea matInput placeholder="Descripción de trabajo:" formControlName='descripcion'></textarea>
 		<mat-error *ngIf="expForm.get('descripcion').hasError('required')">
           este campo no puede quedar en <strong>blanco</strong>
         </mat-error>
@@ -18,11 +18,15 @@
 		<input matInput type="number" placeholder="Experiencia mínima en años:" formControlName='experiencia'>
 		<mat-error *ngIf="expForm.get('experiencia').hasError('min')">
           la experiencia no puede ser <strong>menor a cero</strong>
-        </mat-error>
-        <mat-error *ngIf="expForm.get('experiencia').hasError('max')">
+    </mat-error>
+    <mat-error *ngIf="expForm.get('experiencia').hasError('max')">
           la experiencia no puede ser <strong>mayor a 20</strong>
-        </mat-error>
+    </mat-error>
+    <mat-error *ngIf="expForm.get('experiencia').hasError('required')">
+          la experiencia no puede quedar en <strong>blanco</strong>
+    </mat-error>
 	</mat-form-field>
+  
 	<app-input-languages></app-input-languages>
 	<app-input-skills></app-input-skills>
 	<mat-form-field class='normal'>
@@ -52,19 +56,24 @@
 	</mat-form-field>
 
 	<mat-form-field class='corto'>
-        <input matInput [matDatepicker]="picker" placeholder="Fecha limite de postulacion" formControlName='limite'> 
+        <input matInput [matDatepicker]="picker" placeholder="Fecha limite de postulacion" formControlName='limite' [min]="minDate">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-error *ngIf="expForm.get('limite').hasError('required')">
-          este campo no puede quedar en <strong>blanco</strong>
+          formato <strong>invalido</strong>, use el icono para una mejor experiencia
         </mat-error>
     </mat-form-field>
 
-    <mat-card-actions>
+    <mat-card-actions >
     	<!--<span class="example-spacer"></span>-->
-    	<button mat-raised-button color="accent">Cancelar</button>		
-  	</mat-card-actions>
-  	<mat-card-actions class="leftt">
-  		<button mat-raised-button color="accent" >Enviar</button>    	
+      <div class='testt'>
+        <div  style='float: left;'>
+    	     <button mat-raised-button color="accent" >Cancelar</button>
+        </div>
+      <!--<span class="example-spacer"> </span>-->
+        <div style='float: right;'>
+          <button mat-raised-button color="accent" [disabled]="expForm.invalid">Enviar</button>  		
+        </div>
+      </div>
   	</mat-card-actions>
 </mat-card>

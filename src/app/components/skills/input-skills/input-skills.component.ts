@@ -58,7 +58,7 @@ export class InputSkillsComponent implements OnInit {
   remove(skill: string): void {
     const index = this.skills.indexOf(skill);
 
-    if (index >= 0) {
+    if (index >= 0 && this.skills.length>1) {
       this.skills.splice(index, 1);
     }
   }

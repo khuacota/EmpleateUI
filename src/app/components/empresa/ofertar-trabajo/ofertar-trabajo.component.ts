@@ -17,6 +17,8 @@ export class OfertarTrabajoComponent implements AfterViewInit {
   private skills = [];
 
   expForm: FormGroup;
+  today =  new Date();
+  minDate = new Date(this.today.setDate(this.today.getDate() + 1));
 
   constructor(private fb: FormBuilder) {
 
@@ -25,7 +27,9 @@ export class OfertarTrabajoComponent implements AfterViewInit {
         Validators.required,
         Validators.pattern('[a-zA-Z ]*')
       ])],
+
       descripcion: ['', Validators.required],
+
       ciudad: ['', Validators.compose([
         Validators.required,
         Validators.pattern('[a-zA-Z ]*')
@@ -37,6 +41,7 @@ export class OfertarTrabajoComponent implements AfterViewInit {
       experiencia:['5',Validators.compose([
         Validators.min(0),
         Validators.max(20),
+        Validators.required,
         ])],
 
       limite: ['', Validators.required],

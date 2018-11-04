@@ -11,6 +11,7 @@ import { AcademicTitleComponent } from './components/professional/form-academic/
 import { FormExpComponent } from './components/professional/form-academic/form-exp/form-exp.component';
 import { OfertarTrabajoComponent } from './components/empresa/ofertar-trabajo/ofertar-trabajo.component';
 import { InputSkillsComponent } from './components/skills/input-skills/input-skills.component';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { InputSkillsComponent } from './components/skills/input-skills/input-ski
     MaterialModule,
     AppRoutingModule,
   ],
-  providers: [ProfesionService],
+  providers: [ProfesionService,{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
