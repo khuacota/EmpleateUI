@@ -7,6 +7,7 @@ import { Title } from '../../../models/title';
 import { Language } from '../../../models/language';
 import { Academic } from '../../../models/academic';
 import { AcademicService } from '../../../services/academic/academic.service';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -20,10 +21,12 @@ export class FormAcademicComponent implements AfterViewInit {
   @ViewChildren(FormExpComponent) viewExps: QueryList<FormExpComponent>;
   private myTitles: Array<any>;
   private myExperiences: Array<any>;
+  private userId: number;
 
-  constructor(private academicServ: AcademicService) {
+  constructor(private academicServ: AcademicService, public snackBar: MatSnackBar) {
     this.myTitles = [];
     this.myExperiences = [];
+    this.userId = 1;
   }
 
   ngAfterViewInit() {
@@ -61,26 +64,37 @@ export class FormAcademicComponent implements AfterViewInit {
     let languages: Language[] = [];
     for (let i = 0; i < exps.length; i++) {
       let exp = exps[i].expForm.value;
-      exp.EmpleadoId = 1;
+      exp.EmpleadoId = this.userId;
       experiences.push(exp);
     }
     for (let i = 0; i < titles.length; i++) {
       let title = titles[i].academicForm.value;
-      title.EmpleadoId = 1;
+      title.EmpleadoId = this.userId;
       titulos.push(title);
     }
     for (let i = 0; i < this.languageChild.languages.length; i++) {
       let language = new Language();
       language.Idioma = this.languageChild.languages[i];
-      language.EmpleadoId = 1;
+      language.EmpleadoId = this.userId;
       languages.push(language);
     }
     let academic = new Academic();
-    academic.EmpleadoId = 1;
+    academic.EmpleadoId = this.userId;
     academic.Experiencias = experiences;
     academic.Idiomas = languages;
     academic.Titulos = titulos;
     console.log(academic);
-    this.academicServ.postAcademicInfo(academic).subscribe();
+    this.academicServ.postAcademicInfo(academic).subscribe(res => {
+      this.snackBar.open("registro completado correctamente", "", {
+        duration: 2000,
+        panelClass: ['green-snackbar']
+      });
+    }, error => {
+      this.snackBar.open("error", "", {
+        duration: 2000,
+        panelClass: ['red-snackbar']
+      });
+      console.log(error);
+    });
   }
 }
