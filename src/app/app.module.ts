@@ -13,12 +13,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfesionService } from './services/profesiones/profesion.service.ts.service';
 //import { BaseService } from './services/base.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { RegistroEmpleadoBasicoComponent } from './components/registro-empleado-basico/registro-empleado-basico.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BuscarEmpleadoComponent,
+    NavbarComponent,
+    RegistroEmpleadoBasicoComponent,
   ],
   imports: [
     BrowserModule,

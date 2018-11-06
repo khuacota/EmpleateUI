@@ -1,0 +1,69 @@
+.logo {
+  width: 50%;
+  height: 70px;
+  margin: auto;
+  padding-top: 15px;
+  box-sizing: border-box;
+}
+
+.ancho {
+  width: 85%;
+  height:65px;
+  margin: auto;
+}
+
+.logo p a {
+  font-size: 40px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.navegacion {
+  width: 100%;
+  //margin: 30px auto;
+  background: #37474f;
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-form-field {
+  width: 20%;
+}
+
+.navMenu {
+  background:#37474f;
+}
+
+.menu > li {
+  display: inline-block;
+  text-align: right;
+}
+
+  .menu > li > a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: white;
+  }
+
+.menu li a:hover {
+  color: #ff5722;
+  transition: all .3s;
+}
+
+.lupa > i {
+  text-decoration: none;
+  color: #353535;
+}
+
+.lupa i:hover {
+  color: #CE7D35;
+  transition: all .3s;
+}

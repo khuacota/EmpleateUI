@@ -1,0 +1,108 @@
+<div class="container">
+  <mat-card>
+  <mat-horizontal-stepper [linear]="isLinear" #stepper style="text-align:center">
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel></ng-template>
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Nombre" formControlName="firstCtrl" required>
+            <mat-icon matSuffix>person</mat-icon>
+
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Apellido " formControlName="firstCtrl" required>
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="firstCtrl" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-button matStepperNext>Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel></ng-template>
+        <div class="example-container">
+          <mat-form-field>
+            <mat-select placeholder="Estado civil" formControlName="secondCtrl" required>
+              <mat-option value="option">Soltero</mat-option>
+              <mat-option value="option">Casado</mat-option>
+              <mat-option value="option">Divorciado</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <mat-form-field>
+            <mat-select placeholder="Sexo" formControlName="secondCtrl" required>
+              <mat-option value="option">Masculino</mat-option>
+              <mat-option value="option">Femenino</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Direccion " formControlName="secondCtrl" required>
+            <mat-icon matSuffix>room</mat-icon>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-button matStepperPrevious>Atras</button>
+          <button mat-button matStepperNext>Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel></ng-template>
+        <div class="example-container">
+          <mat-form-field hintLabel="Max 10 caracteres numericos">
+            <input matInput #input maxlength="10" placeholder="Telefono celular" required>
+            <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+            <mat-icon matSuffix>call</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Enter your email" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <img src="./working.jpg"  style=" width:20%;height:20%">
+          <br />
+            <input type="file" (change)="onFileSelected($event )">  
+            <mat-icon matSuffix style="padding-left:10px; ">archive</mat-icon>
+         
+        </div>
+        <div>
+          <button mat-button matStepperPrevious>Atras</button>
+          <button mat-button matStepperNext>Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel></ng-template>
+      Registro Terminado.
+      <div>
+        <button mat-button matStepperPrevious>Atras</button>
+        <button mat-button (click)="stepper.reset()">Reiniciar</button>
+      </div>
+      <button mat-button style="background:blue">Guardar</button>
+
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</mat-card>
+
+</div>
