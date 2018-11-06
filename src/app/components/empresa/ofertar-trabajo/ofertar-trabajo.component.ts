@@ -60,4 +60,8 @@ export class OfertarTrabajoComponent implements AfterViewInit {
     this.skills = this.skillChild.skills;
   }
 
+  sumit(){
+    //let languages: Language[] = [];
+  }
+
 }
