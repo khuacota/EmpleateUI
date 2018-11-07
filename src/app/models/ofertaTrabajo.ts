@@ -1,4 +1,4 @@
-import { Language } from "./language";
+import { LanguageJob } from "./language";
 import { Skill } from "./skill";
 
 export class OfertaTrabajo{
@@ -7,7 +7,7 @@ export class OfertaTrabajo{
 	public Profesion: string;
 	public Descripcion: string;
 	public ExperienciaMin: number;
-	public IdiomasReq: Array<Language>;
+	public IdiomasReq: Array<LanguageJob>;
 	public HabilidadesReq: Array<Skill>;
 	public Ciudad: string;
 	//public HoraInicio: DateTime;

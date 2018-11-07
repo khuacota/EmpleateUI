@@ -1,20 +1,32 @@
 <mat-card class="center-card">
-  <mat-tab-group>
-    <mat-tab label="Idiomas">
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step>
+      <ng-template matStepLabel>Idiomas</ng-template>
       <app-input-languages></app-input-languages>
-      {{languages}}
-    </mat-tab>
-    <mat-tab label="Titulos">
-      <app-academic-title></app-academic-title>
-    </mat-tab>
-    <mat-tab label="Experiencia">
-      <app-form-exp></app-form-exp>
-
-    </mat-tab>
-  </mat-tab-group>
-  <mat-card-actions>
-    <span class="example-spacer"></span>
-    <button mat-raised-button color="accent">ENVIAR</button>
-  </mat-card-actions>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Titulos</ng-template>
+      <h4>
+        añadir Titulo:
+        <button mat-mini-fab color="primary" (click)="addTitle()">
+          <mat-icon aria-label="icon-button">add</mat-icon>
+        </button>
+      </h4>
+      <app-academic-title *ngFor="let title of myTitles"></app-academic-title>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Experiencia</ng-template>
+      <h4>
+        añadir Experiencia:
+        <button mat-mini-fab color="primary" (click)="addExperience()">
+          <mat-icon aria-label="icon-button">add</mat-icon>
+        </button>
+      </h4>
+      <app-form-exp *ngFor="let experience of myExperiences"></app-form-exp>
+    </mat-step>
+  </mat-horizontal-stepper>
+    <mat-card-actions>
+      <span class="example-spacer"></span>
+      <button mat-raised-button color="accent" (click)="submit()" [disabled]="disabled()">ENVIAR</button>
+    </mat-card-actions>
 </mat-card>
-

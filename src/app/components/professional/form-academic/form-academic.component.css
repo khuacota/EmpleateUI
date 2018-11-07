@@ -5,3 +5,11 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.green-snackbar {
+  background: #50DD33;
+}
+
+.red-snackbar {
+  background: #F44336;
+}

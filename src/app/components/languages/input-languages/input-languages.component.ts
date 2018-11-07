@@ -1,7 +1,6 @@
-
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {Component, Input, OnInit, ElementRef, ViewChild} from '@angular/core';
-import {FormControl, FormBuilder, Validators, FormGroup} from '@angular/forms';
+import {FormControl} from '@angular/forms';
 import {MatAutocompleteSelectedEvent, MatChipInputEvent, MatAutocomplete} from '@angular/material';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
@@ -26,7 +25,7 @@ export class InputLanguagesComponent implements OnInit {
   @ViewChild('languageInput') languageInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
-  constructor(private fb: FormBuilder) {
+  constructor() {
     this.filteredLanguages = this.languageCtrl.valueChanges.pipe(
         startWith(null),
         map((language: string | null) => language ? this._filter(language) : this.alllanguages.slice()));
@@ -57,10 +56,9 @@ export class InputLanguagesComponent implements OnInit {
   }
 
   remove(language: string): void {
-
     const index = this.languages.indexOf(language);
 
-    if (index >= 0 && this.languages.length>1) {
+    if (index >= 0) {
       this.languages.splice(index, 1);
     }
   }

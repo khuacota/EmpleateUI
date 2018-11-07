@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { InputLanguagesComponent } from "../../languages/input-languages/input-languages.component";
 import { InputSkillsComponent } from "../../skills/input-skills/input-skills.component";
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { Language } from '../../../models/language';
+import { LanguageJob } from '../../../models/language';
 import { Skill } from '../../../models/skill';
 import { OfertaTrabajo } from '../../../models/ofertaTrabajo';
 
@@ -70,9 +70,9 @@ export class OfertarTrabajoComponent implements AfterViewInit {
   }
 
   submit(){
-    let languages: Language[] = [];
+    let languages: LanguageJob[] = [];
      for (let i = 0; i < this.languageChild.languages.length; i++) {
-      let language = new Language();
+      let language = new LanguageJob();
       language.Idioma = this.languageChild.languages[i];
       language.OfertaId = this.userId;
       languages.push(language);

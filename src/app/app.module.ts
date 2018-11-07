@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './modules/material/material.module';
 import { ProfesionService } from './services/profesiones/profesion.service.ts.service';
@@ -12,6 +12,8 @@ import { FormExpComponent } from './components/professional/form-academic/form-e
 import { OfertarTrabajoComponent } from './components/empresa/ofertar-trabajo/ofertar-trabajo.component';
 import { InputSkillsComponent } from './components/skills/input-skills/input-skills.component';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import { AcademicService } from './services/academic/academic.service';
+import { HttpErrorHandlerService } from './services/http-error-handler.service';
 
 @NgModule({
   declarations: [
@@ -25,10 +27,11 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     MaterialModule,
     AppRoutingModule,
   ],
-  providers: [ProfesionService,{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
+  providers: [ProfesionService,{provide: MAT_DATE_LOCALE, useValue: 'en-GB'},AcademicService, HttpErrorHandlerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
