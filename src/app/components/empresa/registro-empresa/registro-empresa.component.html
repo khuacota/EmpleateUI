@@ -16,7 +16,13 @@
     </mat-form-field>
 
     <mat-form-field class='corto'>
-      <input matInput placeholder="Rubro:">
+      <mat-select placeholder="Rubro" formControlName="Rubro">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+        <mat-error *ngIf="empresaForm.get('Rubro').hasError('required')">
+        </mat-error>
+      </mat-select>
     </mat-form-field>
 
     <mat-form-field class='corto1'>

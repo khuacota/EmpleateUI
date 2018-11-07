@@ -4,12 +4,24 @@ import { InputLanguagesComponent } from "../../languages/input-languages/input-l
 import { InputSkillsComponent } from "../../skills/input-skills/input-skills.component";
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
+export interface Food {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-registro-empresa',
   templateUrl: './registro-empresa.component.html',
   styleUrls: ['./registro-empresa.component.css']
 })
 export class RegistroEmpresaComponent implements OnInit {
+
+
+  foods: Food[] = [
+    { value: 'Alimenticio', viewValue: 'Alimenticio' },
+    { value: 'Automovilistico', viewValue: 'Automovilistico' },
+    { value: 'Social', viewValue: 'Social' }
+  ];
 
   /**visible = true;
   selectable = true;
@@ -46,8 +58,7 @@ export class RegistroEmpresaComponent implements OnInit {
       ])],
 
       Rubro: ['', Validators.compose([
-        Validators.required,
-        Validators.pattern('[a-zA-Z0-9 ]+')
+        Validators.required
       ])],
 
       Ciudad: ['', Validators.compose([
@@ -122,7 +133,8 @@ export class RegistroEmpresaComponent implements OnInit {
     ngOnInit() {
     }*/
 
-  ngAfterViewInit() {
+
+  ngOnInit() {
   }
 
   submitdata() {
