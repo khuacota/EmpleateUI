@@ -1,3 +1,66 @@
-<p>
-  registro-empresa works!
-</p>
+<mat-card class="center-card">
+
+  <form [formGroup]="empresaForm">
+    <mat-form-field class='normal'>
+      <input formControlName="NombreEmpresa" matInput placeholder="Nombre Empresa">
+      <mat-error *ngIf="empresaForm.get('NombreEmpresa').hasError('required')">
+        Campo vacio
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class='largo'>
+      <textarea formControlName="DescripcionEmpresa" matInput placeholder="Descripción Empresa:"></textarea>
+      <mat-error *ngIf="empresaForm.get('DescripcionEmpresa').hasError('required')">
+        Campo vacio
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class='corto'>
+      <input matInput placeholder="Rubro:">
+    </mat-form-field>
+
+    <mat-form-field class='corto1'>
+      <input type="number" formControlName="telefono" matInput placeholder="Telefono de Referencia:">
+      <mat-error *ngIf="empresaForm.get('telefono').hasError('max')">
+        telefono invalido
+      </mat-error>
+      <mat-error *ngIf="empresaForm.get('telefono').hasError('min')">
+        telefono invalido
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class='corto2'>
+      <input type="email" formControlName="Correo" matInput placeholder="Correo de Referencia:">
+      <mat-error *ngIf="empresaForm.get('Correo').hasError('pattern')">
+        Ingrese un correo valido
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class='corto3'>
+      <input formControlName="Ciudad" matInput placeholder="Ciudad:">
+      <mat-error *ngIf="empresaForm.get('Ciudad').hasError('pattern')">
+        No valido
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class='URL'>
+      <input formControlName="URL" matInput placeholder="URL:">
+      <mat-error *ngIf="empresaForm.get('URL').hasError('pattern')">
+        URL ERROR
+      </mat-error>
+    </mat-form-field>
+
+
+    <input type="file" formControlName="Imagen" accept="image/png, image/jpeg">
+
+  </form>
+
+
+
+  <mat-card-actions>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="accent" (click)="submitdata()" [disabled]="empresaForm.invalid">ENVIAR</button>
+    <button mat-raised-button color="accent">CANCELAR</button>
+  </mat-card-actions>
+
+</mat-card>
