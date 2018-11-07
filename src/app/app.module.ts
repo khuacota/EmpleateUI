@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './modules/material/material.module';
 import { ProfesionService } from './services/profesiones/profesion.service.ts.service';
@@ -12,6 +12,8 @@ import { FormExpComponent } from './components/professional/form-academic/form-e
 import { OfertarTrabajoComponent } from './components/empresa/ofertar-trabajo/ofertar-trabajo.component';
 import { InputSkillsComponent } from './components/skills/input-skills/input-skills.component';
 import { RegistroEmpresaComponent } from './components/empresa/registro-empresa/registro-empresa.component';
+import { AcademicService } from './services/academic/academic.service';
+import { HttpErrorHandlerService } from './services/http-error-handler.service';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,11 @@ import { RegistroEmpresaComponent } from './components/empresa/registro-empresa/
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     MaterialModule,
     AppRoutingModule,
   ],
-  providers: [ProfesionService],
+  providers: [ProfesionService, AcademicService, HttpErrorHandlerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

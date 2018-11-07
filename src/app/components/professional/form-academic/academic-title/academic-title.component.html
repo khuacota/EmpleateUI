@@ -1,18 +1,23 @@
-<h4>Titulos: 
-        <button mat-mini-fab color="primary" (click)="addTitle()">
-          <mat-icon aria-label="icon-button">add</mat-icon>
-        </button>
-      </h4>
-        <form *ngFor="let title of myTitles">
+
+        <form [formGroup]="academicForm">
           <mat-form-field>
-            <mat-select placeholder="nivel de Titulos">
+            <mat-select placeholder="nivel de Titulo" formControlName="Grado">
               <mat-option *ngFor="let grade of degrees" [value]="grade">
                 {{grade}}
               </mat-option>
             </mat-select>
+            <mat-error *ngIf="academicForm.get('Grado').hasError('required')">
+              este campo no puede quedar en <strong>blanco</strong>
+            </mat-error>
           </mat-form-field>
           <mat-form-field class="input">
-            <input matInput placeholder="Descripcion">
+            <input matInput placeholder="Descripcion" formControlName="Descripcion">
+            <mat-error *ngIf="academicForm.get('Descripcion').hasError('required')">
+              este campo no puede quedar en <strong>blanco</strong>
+            </mat-error>
+            <mat-error *ngIf="academicForm.get('Descripcion').hasError('pattern')">
+              no ingrese valores <strong>invalidos</strong>
+            </mat-error>
           </mat-form-field>
           <br />
         </form>

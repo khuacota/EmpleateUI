@@ -41,7 +41,10 @@ export class InputLanguagesComponent implements OnInit {
 
       // Add our language
       if ((value || '').trim()) {
-        this.languages.push(value.trim());
+        if (this.alllanguages.includes(value.trim()) && !this.languages.includes(value.trim())) {
+          this.languages.push(value.trim());
+        }
+        
       }
 
       // Reset the input value
@@ -74,6 +77,7 @@ export class InputLanguagesComponent implements OnInit {
 
     return this.alllanguages.filter(language => language.toLowerCase().indexOf(filterValue) === 0);
   }
+
   ngOnInit() {
   }
 
