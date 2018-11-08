@@ -53,8 +53,13 @@
   position: initial;
 }
 
-
 .elB {
   border-bottom: groove;
 }
 
+.testt {
+  width: 100%;
+  display: inline-block;
+  overflow: auto;
+  white-space: nowrap;
+}
