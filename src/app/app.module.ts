@@ -14,6 +14,7 @@ import { InputSkillsComponent } from './components/skills/input-skills/input-ski
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { AcademicService } from './services/academic/academic.service';
 import { HttpErrorHandlerService } from './services/http-error-handler.service';
+import { OfertaTrabajoService } from './services/ofertatrabajo/oferta-trabajo.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { HttpErrorHandlerService } from './services/http-error-handler.service';
     MaterialModule,
     AppRoutingModule,
   ],
-  providers: [ProfesionService,{provide: MAT_DATE_LOCALE, useValue: 'en-GB'},AcademicService, HttpErrorHandlerService],
+  providers: [ProfesionService,{provide: MAT_DATE_LOCALE, useValue: 'en-GB'},AcademicService, HttpErrorHandlerService, OfertaTrabajoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

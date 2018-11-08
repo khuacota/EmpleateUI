@@ -5,6 +5,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { LanguageJob } from '../../../models/language';
 import { Skill } from '../../../models/skill';
 import { OfertaTrabajo } from '../../../models/ofertaTrabajo';
+import { OfertaTrabajoService } from '../../../services/ofertatrabajo/oferta-trabajo.service';
 
 @Component({
   selector: 'app-ofertar-trabajo',
@@ -25,7 +26,7 @@ export class OfertarTrabajoComponent implements AfterViewInit {
   today =  new Date();
   minDate = new Date(this.today.setDate(this.today.getDate() + 1));
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private ofertaServ: OfertaTrabajoService) {
 
     this.expForm = this.fb.group({
       Profesion: ['', Validators.compose([
@@ -94,6 +95,7 @@ export class OfertarTrabajoComponent implements AfterViewInit {
     //ofertaTrabajo.Descripcion = titulos;
     ofertaTrabajo.HabilidadesReq = skills;
     console.log(ofertaTrabajo);
+    this.ofertaServ.post(ofertaTrabajo).subscribe();
   }
 
 }
