@@ -1,10 +1,11 @@
+
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span>Empleate</span>
     <span class="example-spacer"></span>
     <button mat-button color="accent" class="mainBotons"><mat-icon>home</mat-icon></button>
     <a mat-raised-button color="accent" routerLink="/RAcademic">pruebaRegistrar</a>
-
+    <a mat-raised-button color="accent" routerLink="/OfertarTrabajo">pruebaOfertarTrabajo</a>
     <a mat-raised-button color="accent" [matMenuTriggerFor]="menuPerfil" class="mainBotons">Prueba Perfil</a>
     <mat-menu #menuPerfil="matMenu">
       <button mat-menu-item routerLink="/">Ver Perfil</button>
@@ -20,3 +21,5 @@
 
 
 <router-outlet class="bodyContainer"></router-outlet>
+
+
