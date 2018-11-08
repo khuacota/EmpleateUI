@@ -3,13 +3,19 @@
     <span>Empleate</span>
     <span class="example-spacer"></span>
     <a mat-raised-button color="accent" routerLink="/RAcademic">pruebaRegistrar</a>
+    
+    <a mat-raised-button color="accent" [matMenuTriggerFor]="menuPerfil" class="mainBotons">Prueba Perfil</a>
+    <mat-menu #menuPerfil="matMenu">
+      <button mat-menu-item routerLink="/">Ver Perfil</button>
+      <button mat-menu-item routerLink="/RBasic">Actualizar Perfil</button>
+    </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>
-<app-navbar></app-navbar>
+<!--<app-navbar></app-navbar>
 
-  <div class="container" style="padding:60px 250px 10px 250px ">
-    <app-registro-empleado-basico></app-registro-empleado-basico>
-  </div>
+<div class="container" style="padding:60px 250px 10px 250px ">
+  <app-registro-empleado-basico></app-registro-empleado-basico>
+</div>-->
 
 
 <router-outlet class="bodyContainer"></router-outlet>

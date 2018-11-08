@@ -33,10 +33,8 @@ export class RegistroEmpleadoBasicoComponent implements OnInit {
       fechaNacimiento: ['', Validators.compose([
         Validators.required,
         //Validators.pattern('[a-zA-Z0-9 ]+')
-      ])]
-     });
-     this.secondFormGroup = this._formBuilder.group({
-       //secondCtrl: ['', Validators.required],
+      ])],
+     
        estadoCivil: ['', Validators.compose([
          Validators.required,
          Validators.pattern('[a-zA-Z0-9 ]+')
@@ -48,26 +46,30 @@ export class RegistroEmpleadoBasicoComponent implements OnInit {
        direccion: ['', Validators.compose([
          Validators.required
 
-       ])]
-     });
-     this.thirdFormGroup = this._formBuilder.group({
-       thirdCtrl: ['', Validators.required],
+       ])],
+    
        telefonoCelular: ['', Validators.compose([
          Validators.required, Validators.max(99999999), Validators.min(9999999)
 
-       ])]
+      ])],
+
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+
+      img: ['', Validators.compose([
+        Validators.required
+      ])]
      });
 
   }
-  email = new FormControl('', [Validators.required, Validators.email]);
+  
 
-  getErrorMessage() {
+  /*getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
       this.email.hasError('email') ? 'Not a valid email' :
         '';
-  }
+  }*/
   submit() {
-    console.log(this.firstFormGroup.value, this.secondFormGroup.value, this.thirdFormGroup.value);
+    console.log(this.firstFormGroup.value);
   }
   disable() {
     return false;

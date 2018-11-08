@@ -40,13 +40,10 @@ import { RegistroEmpleadoBasicoComponent } from './components/registro-empleado-
     HttpClientModule,
     MaterialModule,
     LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
+    MaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    AppRoutingModule
 
   ],
   providers: [ProfesionService, AcademicService, HttpErrorHandlerService],
