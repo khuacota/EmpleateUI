@@ -5,6 +5,6 @@ export class Empresa {
   public Direccion: string;
   public Telefono: number;
   public Correo: string;
-  public Web: string;
+  public Url: string;
   public Imagen: string;
 }

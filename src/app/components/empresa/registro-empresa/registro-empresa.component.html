@@ -54,7 +54,7 @@
 
       <mat-form-field class='corto3'>
         <input formControlName="direccion" matInput placeholder="Direccion:">
-        <mat-error *ngIf="empresaForm.get('direccion).hasError('pattern')">
+        <mat-error *ngIf="empresaForm.get('direccion').hasError('pattern')">
           No valido
         </mat-error>
         <mat-error *ngIf="empresaForm.get('direccion').hasError('required')">

@@ -1,8 +1,9 @@
 
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { InputLanguagesComponent } from "../../languages/input-languages/input-languages.component";
-import { InputSkillsComponent } from "../../skills/input-skills/input-skills.component";
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Empresa } from '../../../models/empresa';
+import { EmpresaService } from '../../../services/empresa/empresa.service';
+import { MatSnackBar } from '@angular/material';
 
 export interface Food {
   value: string;
@@ -25,15 +26,9 @@ export class RegistroEmpresaComponent implements OnInit {
     { value: 'Limpieza', viewValue: 'Limpieza' },
     { value: 'Hardware', viewValue: 'Hardware' }
   ];
-
-  @ViewChild(InputLanguagesComponent) languageChild;
-  private languages = [];
-
-  @ViewChild(InputSkillsComponent) skillChild;
-  private skills = [];
   empresaForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private service: EmpresaService, public snackBar: MatSnackBar) {
     this.empresaForm = this.fb.group({
       nombre: ['', Validators.compose([
         Validators.required,
@@ -70,9 +65,6 @@ export class RegistroEmpresaComponent implements OnInit {
       url: ['', Validators.compose([
         Validators.pattern("(http://|https://)?(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9]*.[a-z]{3}.?([a-z]+)?")
       ])]
-
-      //  Inicio: ['', Validators.required],
-      //  Fin: ['', Validators.required],
     });
   }
 
@@ -88,7 +80,27 @@ export class RegistroEmpresaComponent implements OnInit {
     var correo: string = this.empresaForm.get('correo').value;
     var web: string = this.empresaForm.get('url').value;
     var imagen: string = this.empresaForm.get('imagen').value;
-    
-    console.log(this.empresaForm.value);
+    let empresa = new Empresa();
+    empresa.Nombre = nombre;
+    empresa.Descripcion = descripcion;
+    empresa.Rubro = rubro;
+    empresa.Direccion = direccion;
+    empresa.Telefono = parseInt(telefono);
+    empresa.Correo = correo;
+    empresa.Imagen = imagen;
+    empresa.Url = web;
+    empresa.Imagen = imagen;
+    this.service.postEmpresa(empresa).subscribe(res => {
+      this.snackBar.open("registro completado correctamente", "", {
+        duration: 2000,
+        panelClass: ['green-snackbar']
+      });
+    }, error => {
+      this.snackBar.open("error", "", {
+        duration: 2000,
+        panelClass: ['red-snackbar']
+      });
+      console.log(error);
+    });
   }
 }
