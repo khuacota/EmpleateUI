@@ -9,7 +9,7 @@ import { Academic } from '../../models/academic';
 @Injectable({
   providedIn: 'root'
 })
-export class AcademicService extends BaseService  {
+export class AcademicService extends BaseService {
 
   constructor(public httpClient: HttpClient, public errorHandler: HttpErrorHandlerService) {
     super(

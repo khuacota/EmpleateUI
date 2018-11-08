@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { EmpleadoService } from '../../../services/empleado/informacion-basica.service';
+import { Empleado } from '../../../models/empleado';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -15,7 +18,7 @@ export class RegistroEmpleadoBasicoComponent implements OnInit {
   empleadoForm: FormGroup;
 
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: FormBuilder, private service: EmpleadoService, public snackBar: MatSnackBar) {
 
   }
 
@@ -70,6 +73,41 @@ export class RegistroEmpleadoBasicoComponent implements OnInit {
   }*/
   submit() {
     console.log(this.firstFormGroup.value);
+    var Nombre: string = this.firstFormGroup.get('nombreEmpleado').value;
+    var Apellidos: string = this.firstFormGroup.get('apellidoEmpleado').value;
+    var FechaNacimiento: Date = this.firstFormGroup.get('fechaNacimiento').value;
+    var Genero: string = this.firstFormGroup.get('sexo').value;
+    var EstadoCivil: string = this.firstFormGroup.get('estadoCivil').value;
+    var Celular: number = this.firstFormGroup.get('numeroTelefono').value;
+    var Ciudad: string = this.firstFormGroup.get('ciudad').value;
+    var Direccion: string = this.firstFormGroup.get('direccion').value;
+    var Correo: string = this.firstFormGroup.get('email').value;
+    var Imagen: string = this.firstFormGroup.get('img').value;
+
+    let empleado = new Empleado();
+    empleado.Nombre = Nombre;
+    empleado.Apellidos = Apellidos;
+    empleado.FechaNacimiento = FechaNacimiento;
+    empleado.Genero = Genero;
+    empleado.EstadoCivil = EstadoCivil;
+    empleado.Celular = Number(Celular);
+    empleado.EstadoCivil = EstadoCivil;
+    empleado.Ciudad = Ciudad;
+    empleado.Direccion = Direccion;
+    empleado.Correo = Correo;
+    empleado.Imagen = Imagen;
+    
+    this.service.postEmpleado(empleado).subscribe(res => {
+      this.snackBar.open("registro completado correctamente", "", {
+        duration: 2000,
+        panelClass: ['green-snackbar']
+      });
+    }, error => {
+      this.snackBar.open("error", "", {
+        duration: 2000,
+        panelClass: ['red-snackbar']
+      });
+    });
   }
   disable() {
     return false;

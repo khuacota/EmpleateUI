@@ -19,9 +19,11 @@ import { AcademicTitleComponent } from './components/professional/form-academic/
 import { FormExpComponent } from './components/professional/form-academic/form-exp/form-exp.component';
 import { OfertarTrabajoComponent } from './components/empresa/ofertar-trabajo/ofertar-trabajo.component';
 import { InputSkillsComponent } from './components/skills/input-skills/input-skills.component';
+import { RegistroEmpresaComponent } from './components/empresa/registro-empresa/registro-empresa.component';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { AcademicService } from './services/academic/academic.service';
 import { HttpErrorHandlerService } from './services/http-error-handler.service';
+import { EmpresaService } from './services/empresa/empresa.service';
 import { OfertaTrabajoService } from './services/ofertatrabajo/oferta-trabajo.service';
 //import { BaseService } from './services/base.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -37,6 +39,7 @@ import { RegistroEmpleadoBasicoComponent } from './components/registro-empleado-
     FormExpComponent,
     OfertarTrabajoComponent,
     InputSkillsComponent,
+    RegistroEmpresaComponent,
 
     BuscarEmpleadoComponent,
     NavbarComponent,
@@ -53,7 +56,7 @@ import { RegistroEmpleadoBasicoComponent } from './components/registro-empleado-
     AppRoutingModule
 
   ],
-  providers: [ProfesionService,{provide: MAT_DATE_LOCALE, useValue: 'en-GB'},AcademicService, HttpErrorHandlerService, OfertaTrabajoService],
+  providers: [ProfesionService, AcademicService, HttpErrorHandlerService, EmpresaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
