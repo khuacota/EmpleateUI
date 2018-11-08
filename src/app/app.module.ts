@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -33,9 +34,9 @@ import { RegistroEmpleadoBasicoComponent } from './components/registro-empleado-
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    
     BrowserAnimationsModule,
     HttpClientModule,
+
   ],
   
   providers: [ProfesionService],

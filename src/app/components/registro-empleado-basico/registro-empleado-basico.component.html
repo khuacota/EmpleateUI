@@ -1,32 +1,30 @@
-<div class="container">
+<div class="container" >
   <mat-card>
-  <mat-horizontal-stepper [linear]="isLinear" #stepper style="text-align:center">
+  <mat-horizontal-stepper [linear]="!isLinear" #stepper >
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel></ng-template>
         <div class="example-container">
           <mat-form-field>
-            <input matInput placeholder="Nombre" formControlName="firstCtrl" required>
+            <input matInput placeholder="Nombre" formControlName="nombreEmpleado" required>
             <mat-icon matSuffix>person</mat-icon>
 
           </mat-form-field>
         </div>
         <div class="example-container">
           <mat-form-field>
-            <input matInput placeholder="Apellido " formControlName="firstCtrl" required>
+            <input matInput placeholder="Apellido " formControlName="apellidoEmpleado" required>
             <mat-icon matSuffix>person</mat-icon>
           </mat-form-field>
         </div>
         <div class="example-container">
           <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="firstCtrl" required>
+            <input matInput [matDatepicker]="picker" placeholder="fechaNacimiento" formControlName="fechaNacimiento" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
-        <div>
-          <button mat-button matStepperNext>Siguiente</button>
-        </div>
+
       </form>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
@@ -34,7 +32,7 @@
         <ng-template matStepLabel></ng-template>
         <div class="example-container">
           <mat-form-field>
-            <mat-select placeholder="Estado civil" formControlName="secondCtrl" required>
+            <mat-select placeholder="Estado civil" formControlName="estadoCivil" required>
               <mat-option value="option">Soltero</mat-option>
               <mat-option value="option">Casado</mat-option>
               <mat-option value="option">Divorciado</mat-option>
@@ -43,7 +41,7 @@
         </div>
         <div class="example-container">
           <mat-form-field>
-            <mat-select placeholder="Sexo" formControlName="secondCtrl" required>
+            <mat-select placeholder="Sexo" formControlName="sexo" required>
               <mat-option value="option">Masculino</mat-option>
               <mat-option value="option">Femenino</mat-option>
             </mat-select>
@@ -51,13 +49,9 @@
         </div>
         <div class="example-container">
           <mat-form-field>
-            <input matInput placeholder="Direccion " formControlName="secondCtrl" required>
+            <input matInput placeholder="Direccion " formControlName="direccion" required>
             <mat-icon matSuffix>room</mat-icon>
           </mat-form-field>
-        </div>
-        <div>
-          <button mat-button matStepperPrevious>Atras</button>
-          <button mat-button matStepperNext>Siguiente</button>
         </div>
       </form>
     </mat-step>
@@ -65,15 +59,15 @@
       <form [formGroup]="thirdFormGroup">
         <ng-template matStepLabel></ng-template>
         <div class="example-container">
-          <mat-form-field hintLabel="Max 10 caracteres numericos">
-            <input matInput #input maxlength="10" placeholder="Telefono celular" required>
-            <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+          <mat-form-field hintLabel="Max 9 caracteres numericos">
+            <input matInput #input maxlength="9" placeholder="Telefono celular" formControlName="telefonoCelular" required>
+            
             <mat-icon matSuffix>call</mat-icon>
           </mat-form-field>
         </div>
         <div class="example-container">
           <mat-form-field>
-            <input matInput placeholder="Enter your email" [formControl]="email" required>
+            <input matInput placeholder="Ingresa tu email" [formControl]="email" required>
             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             <mat-icon matSuffix>email</mat-icon>
           </mat-form-field>
@@ -84,21 +78,21 @@
             <input type="file" (change)="onFileSelected($event )">  
             <mat-icon matSuffix style="padding-left:10px; ">archive</mat-icon>
          
-        </div>
-        <div>
-          <button mat-button matStepperPrevious>Atras</button>
-          <button mat-button matStepperNext>Siguiente</button>
-        </div>
+        </div>  
       </form>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel></ng-template>
       Registro Terminado.
       <div>
-        <button mat-button matStepperPrevious>Atras</button>
-        <button mat-button (click)="stepper.reset()">Reiniciar</button>
+       
+
+        <mat-card-actions>
+          <span class="example-spacer"></span>
+          <button mat-raised-button color="accent" (click)="submit()" [disabled]="disable()">ENVIAR</button>
+          <button mat-raised-button color="accent" (click)="stepper.reset()">REINICIAR</button>
+        </mat-card-actions>
       </div>
-      <button mat-button style="background:blue">Guardar</button>
 
     </mat-step>
   </mat-horizontal-stepper>

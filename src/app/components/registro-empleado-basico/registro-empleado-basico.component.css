@@ -1,3 +1,4 @@
+/*style="text-align:center"*/
 #custom-button {
   padding: 10px;
   color: white;
@@ -47,4 +48,17 @@ input#btn_enviar {
   width: 100%;
   height: 100%;
   opacity: 0;
+}
+
+
+.center-card {
+  max-width: 30%;
+  margin: auto;
+}
+.mat-form-field {
+  margin-left: 5px;
+  width: 50%;
+}
+.example-spacer {
+  flex: 1 1 auto;
 }
