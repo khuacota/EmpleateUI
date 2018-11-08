@@ -9,7 +9,7 @@ import { RegistroEmpresaComponent } from './components/empresa/registro-empresa/
 const routes: Routes = [
   { path: 'RAcademic', component: FormAcademicComponent },
   { path: 'OfertarTrabajo', component: OfertarTrabajoComponent },
-  { path: 'RegistroE', component: RegistroEmpresaComponent },
+  { path: 'RegistroEmpresa', component: RegistroEmpresaComponent },
 ];
 @NgModule({
   imports: [

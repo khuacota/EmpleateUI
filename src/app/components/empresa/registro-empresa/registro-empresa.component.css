@@ -47,6 +47,13 @@
   width: 80%;
 }
 
+.img {
+  margin-left: 5px;
+  margin-top: 10px;
+  margin-bottom: 28px;
+  width: 80%;
+}
+
 .example-spacer {
   margin-left: initial;
   width: 20%;
@@ -58,7 +65,9 @@
 }
 
 .testt {
-  width: 100%;
+  margin-left: 25px;
+  width: 85%;
+  margin-bottom:20px;
   display: inline-block;
   overflow: auto;
   white-space: nowrap;

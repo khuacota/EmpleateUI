@@ -15,7 +15,7 @@ export class EmpresaService extends BaseService {
     super(
       httpClient,
       errorHandler,
-      'Empresa'
+      'empresas'
     );
   }
 

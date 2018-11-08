@@ -90,6 +90,7 @@ export class RegistroEmpresaComponent implements OnInit {
     empresa.Imagen = imagen;
     empresa.Url = web;
     empresa.Imagen = imagen;
+    console.log(empresa);
     this.service.postEmpresa(empresa).subscribe(res => {
       this.snackBar.open("registro completado correctamente", "", {
         duration: 2000,
