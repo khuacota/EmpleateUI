@@ -85,7 +85,7 @@ export class RegistroEmpresaComponent implements OnInit {
     empresa.Descripcion = descripcion;
     empresa.Rubro = rubro;
     empresa.Direccion = direccion;
-    empresa.Telefono = parseInt(telefono);
+    empresa.Telefono = Number(telefono);
     empresa.Correo = correo;
     empresa.Imagen = imagen;
     empresa.Url = web;
@@ -100,7 +100,6 @@ export class RegistroEmpresaComponent implements OnInit {
         duration: 2000,
         panelClass: ['red-snackbar']
       });
-      console.log(error);
     });
   }
 }

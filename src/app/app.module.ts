@@ -14,6 +14,7 @@ import { InputSkillsComponent } from './components/skills/input-skills/input-ski
 import { RegistroEmpresaComponent } from './components/empresa/registro-empresa/registro-empresa.component';
 import { AcademicService } from './services/academic/academic.service';
 import { HttpErrorHandlerService } from './services/http-error-handler.service';
+import { EmpresaService } from './services/empresa/empresa.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { HttpErrorHandlerService } from './services/http-error-handler.service';
     MaterialModule,
     AppRoutingModule,
   ],
-  providers: [ProfesionService, AcademicService, HttpErrorHandlerService],
+  providers: [ProfesionService, AcademicService, HttpErrorHandlerService, EmpresaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
