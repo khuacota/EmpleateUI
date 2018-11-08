@@ -1,17 +1,21 @@
 <mat-card class="center-card">
 
+    <mat-card-title class="titulo">
+      PERFIL DE EMPRESA
+    </mat-card-title>
+
   <form [formGroup]="empresaForm">
     <mat-form-field class='normal'>
-      <input formControlName="NombreEmpresa" matInput placeholder="Nombre Empresa">
+      <input formControlName="NombreEmpresa" matInput placeholder="Nombre">
       <mat-error *ngIf="empresaForm.get('NombreEmpresa').hasError('required')">
-        Campo vacio
+        Nombre requerido
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class='largo'>
       <textarea formControlName="DescripcionEmpresa" matInput placeholder="Descripción Empresa:"></textarea>
       <mat-error *ngIf="empresaForm.get('DescripcionEmpresa').hasError('required')">
-        Campo vacio
+        Descripcion requerido
       </mat-error>
     </mat-form-field>
 
@@ -26,12 +30,15 @@
     </mat-form-field>
 
     <mat-form-field class='corto1'>
-      <input type="number" formControlName="telefono" matInput placeholder="Telefono de Referencia:">
+      <input formControlName="telefono" matInput placeholder="Telefono de Referencia:">
       <mat-error *ngIf="empresaForm.get('telefono').hasError('max')">
         telefono invalido
       </mat-error>
       <mat-error *ngIf="empresaForm.get('telefono').hasError('min')">
         telefono invalido
+      </mat-error>
+      <mat-error *ngIf="empresaForm.get('telefono').hasError('required')">
+        Telefono requerido
       </mat-error>
     </mat-form-field>
 
@@ -40,12 +47,18 @@
       <mat-error *ngIf="empresaForm.get('Correo').hasError('pattern')">
         Ingrese un correo valido
       </mat-error>
+      <mat-error *ngIf="empresaForm.get('Correo').hasError('required')">
+        Correo requerido
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class='corto3'>
       <input formControlName="Ciudad" matInput placeholder="Ciudad:">
       <mat-error *ngIf="empresaForm.get('Ciudad').hasError('pattern')">
         No valido
+      </mat-error>
+      <mat-error *ngIf="empresaForm.get('Ciudad').hasError('required')">
+        Ciudad requerida
       </mat-error>
     </mat-form-field>
 

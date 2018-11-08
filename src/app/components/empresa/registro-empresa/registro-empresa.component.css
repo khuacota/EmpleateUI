@@ -3,8 +3,8 @@
   margin: auto;
 }
 
-.chips {
-  width: 90%;
+.titulo {
+  text-align: center;
 }
 
 .corto {
@@ -37,12 +37,6 @@
   width: 100%;
 }
 
-.supercorto {
-  margin-left: 5px;
-  margin-top: 10px;
-  width: 25%;
-}
-
 .largo {
   margin-left: 5px;
   width: 90%;
@@ -59,14 +53,8 @@
   position: initial;
 }
 
-.example-spacer1 {
-  margin-left: 150px;
-}
 
 .elB {
   border-bottom: groove;
 }
 
-.foto {
-  border-image: auto;
-}
