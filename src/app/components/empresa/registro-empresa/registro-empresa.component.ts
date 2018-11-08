@@ -44,7 +44,7 @@ export class RegistroEmpresaComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.empresaForm = this.fb.group({
-      NombreEmpresa: ['', Validators.compose([
+      nombre: ['', Validators.compose([
         Validators.required,
         Validators.pattern('[a-zA-Z0-9 ]+')
       ])],
@@ -52,31 +52,31 @@ export class RegistroEmpresaComponent implements OnInit {
         Validators.required, Validators.max(99999999), Validators.min(9999999)
 
       ])],
-      DescripcionEmpresa: ['', Validators.compose([
+      descripcion: ['', Validators.compose([
         Validators.required
 
       ])],
 
-      Rubro: ['', Validators.compose([
+      rubro: ['', Validators.compose([
         Validators.required
       ])],
 
-      Ciudad: ['', Validators.compose([
+      direccion: ['', Validators.compose([
         Validators.required,
         Validators.pattern('[a-zA-Z]+')
       ])],
 
 
-      Correo: ['', Validators.compose([
+      correo: ['', Validators.compose([
         Validators.required,
         Validators.pattern("[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}")
       ])],
 
-      Imagen: ['', Validators.compose([
+      imagen: ['', Validators.compose([
         Validators.required
       ])],
 
-      URL: ['', Validators.compose([
+      url: ['', Validators.compose([
         Validators.required,
         Validators.pattern("(http://|https://)?(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9]*.[a-z]{3}.?([a-z]+)?")
       ])]
@@ -137,7 +137,16 @@ export class RegistroEmpresaComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitdata() {
+  registrar() {
+    var nombre: string = this.empresaForm.get('nombre').value;
+    var descripcion: string = this.empresaForm.get('descripcion').value;
+    var rubro: string = this.empresaForm.get('rubro').value;
+    var direccion: string = this.empresaForm.get('direccion').value;
+    var telefono: string = this.empresaForm.get('telefono').value;
+    var correo: string = this.empresaForm.get('correo').value;
+    var web: string = this.empresaForm.get('url').value;
+    var imagen: string = this.empresaForm.get('imagen').value;
+    
     console.log(this.empresaForm.value);
   }
 }

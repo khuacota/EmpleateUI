@@ -2,25 +2,25 @@
 
   <form [formGroup]="empresaForm">
     <mat-form-field class='normal'>
-      <input formControlName="NombreEmpresa" matInput placeholder="Nombre Empresa">
-      <mat-error *ngIf="empresaForm.get('NombreEmpresa').hasError('required')">
+      <input formControlName="nombre" matInput placeholder="Nombre Empresa">
+      <mat-error *ngIf="empresaForm.get('nombre').hasError('required')">
         Campo vacio
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class='largo'>
-      <textarea formControlName="DescripcionEmpresa" matInput placeholder="Descripción Empresa:"></textarea>
-      <mat-error *ngIf="empresaForm.get('DescripcionEmpresa').hasError('required')">
+      <textarea formControlName="descripcion" matInput placeholder="Descripción Empresa:"></textarea>
+      <mat-error *ngIf="empresaForm.get('descripcion').hasError('required')">
         Campo vacio
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class='corto'>
-      <mat-select placeholder="Rubro" formControlName="Rubro">
+      <mat-select placeholder="Rubro" formControlName="rubro">
         <mat-option *ngFor="let food of foods" [value]="food.value">
           {{food.viewValue}}
         </mat-option>
-        <mat-error *ngIf="empresaForm.get('Rubro').hasError('required')">
+        <mat-error *ngIf="empresaForm.get('rubro').hasError('required')">
         </mat-error>
       </mat-select>
     </mat-form-field>
@@ -36,28 +36,28 @@
     </mat-form-field>
 
     <mat-form-field class='corto2'>
-      <input type="email" formControlName="Correo" matInput placeholder="Correo de Referencia:">
-      <mat-error *ngIf="empresaForm.get('Correo').hasError('pattern')">
+      <input type="email" formControlName="correo" matInput placeholder="Correo de Referencia:">
+      <mat-error *ngIf="empresaForm.get('correo').hasError('pattern')">
         Ingrese un correo valido
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class='corto3'>
-      <input formControlName="Ciudad" matInput placeholder="Ciudad:">
-      <mat-error *ngIf="empresaForm.get('Ciudad').hasError('pattern')">
+      <input formControlName="direccion" matInput placeholder="Direccion:">
+      <mat-error *ngIf="empresaForm.get('direccion').hasError('pattern')">
         No valido
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class='URL'>
-      <input formControlName="URL" matInput placeholder="URL:">
-      <mat-error *ngIf="empresaForm.get('URL').hasError('pattern')">
+      <input formControlName="url" matInput placeholder="URL:">
+      <mat-error *ngIf="empresaForm.get('url').hasError('pattern')">
         URL ERROR
       </mat-error>
     </mat-form-field>
 
 
-    <input type="file" formControlName="Imagen" accept="image/png, image/jpeg">
+    <input type="file" formControlName="imagen" accept="image/png, image/jpeg">
 
   </form>
 
@@ -65,7 +65,7 @@
 
   <mat-card-actions>
     <span class="example-spacer"></span>
-    <button mat-raised-button color="accent" (click)="submitdata()" [disabled]="empresaForm.invalid">ENVIAR</button>
+    <button mat-raised-button color="accent" (click)="registrar()" [disabled]="empresaForm.invalid">ENVIAR</button>
     <button mat-raised-button color="accent">CANCELAR</button>
   </mat-card-actions>
 
