@@ -1,4 +1,3 @@
-
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {Component, Input, OnInit, ElementRef, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
@@ -66,7 +65,7 @@ export class InputLanguagesComponent implements OnInit {
 
   selected(event: MatAutocompleteSelectedEvent): void {
     if (!this.languages.includes(event.option.viewValue)) {
-       this.languages.push(event.option.viewValue);
+      this.languages.push(event.option.viewValue);
     }
     this.languageInput.nativeElement.value = '';
     this.languageCtrl.setValue(null);
