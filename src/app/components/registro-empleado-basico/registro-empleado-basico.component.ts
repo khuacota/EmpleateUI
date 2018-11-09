@@ -27,11 +27,11 @@ export class RegistroEmpleadoBasicoComponent implements OnInit {
       //firstCtrl: ['',Validators.required],
       nombreEmpleado: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('[a-zA-Z0-9 ]+')
+        //Validators.pattern('[a-zA-Z0-9 ]+')
       ])],
       apellidoEmpleado: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('[a-zA-Z0-9 ]+')
+        //Validators.pattern('[a-zA-Z0-9 ]+')
       ])],
       fechaNacimiento: ['', Validators.compose([
         Validators.required
@@ -50,12 +50,12 @@ export class RegistroEmpleadoBasicoComponent implements OnInit {
 
        direccion: ['', Validators.compose([
          Validators.required,
-         Validators.pattern('[a-zA-Z0-9 ]+')
+         //Validators.pattern('[a-zA-Z0-9 ]+')
        ])],
 
       ciudad: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('[a-zA-Z0-9 ]+')
+        //Validators.pattern('[a-zA-Z0-9 ]+')
       ])],
     
        telefonoCelular: ['', Validators.compose([
@@ -85,7 +85,7 @@ export class RegistroEmpleadoBasicoComponent implements OnInit {
     var FechaNacimiento: Date = this.firstFormGroup.get('fechaNacimiento').value;
     var Genero: string = this.firstFormGroup.get('sexo').value;
     var EstadoCivil: string = this.firstFormGroup.get('estadoCivil').value;
-    var Celular: number = this.firstFormGroup.get('numeroTelefono').value;
+    var Celular: number = this.firstFormGroup.get('telefonoCelular').value;
     var Ciudad: string = this.firstFormGroup.get('ciudad').value;
     var Direccion: string = this.firstFormGroup.get('direccion').value;
     var Correo: string = this.firstFormGroup.get('email').value;
