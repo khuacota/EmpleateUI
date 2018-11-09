@@ -28,6 +28,7 @@ import { OfertaTrabajoService } from './services/ofertatrabajo/oferta-trabajo.se
 //import { BaseService } from './services/base.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegistroEmpleadoBasicoComponent } from './components/registro-empleado-basico/registro-empleado-basico.component';
+import { InformacionBasicaService } from './services/empleado/informacion-basica.service';
 
 
 @NgModule({
@@ -56,7 +57,12 @@ import { RegistroEmpleadoBasicoComponent } from './components/registro-empleado-
     AppRoutingModule
 
   ],
-  providers: [ProfesionService, AcademicService, HttpErrorHandlerService, EmpresaService],
+  providers: [ProfesionService,
+    AcademicService,
+    HttpErrorHandlerService,
+    EmpresaService,
+    InformacionBasicaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
