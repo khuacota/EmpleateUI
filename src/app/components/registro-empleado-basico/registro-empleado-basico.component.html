@@ -1,112 +1,118 @@
-<div class="container"  style="padding:60px 250px 10px 250px ">
-  <mat-card style="text-align:center">
-    <ng-template matStepLabel></ng-template>
-    <strong>REGISTRO INFORMACION BASICA</strong>
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel></ng-template>
-      <div class="example-container">
-        <mat-form-field>
-          <input matInput placeholder="Nombre" formControlName="nombreEmpleado" required>
-          <mat-error *ngIf="firstFormGroup.get('nombreEmpleado').hasError('required')">
-            este campo no puede quedar en <strong>blanco</strong>
-          </mat-error>
-        
-          <mat-icon matSuffix>person</mat-icon>
 
-        </mat-form-field>
-      </div>
-      <div class="example-container">
-        <mat-form-field>
-          <input matInput placeholder="Apellido " formControlName="apellidoEmpleado" required>
-          <mat-error *ngIf="firstFormGroup.get('apellidoEmpleado').hasError('required')">
-            este campo no puede quedar en <strong>blanco</strong>
-          </mat-error>
-          <mat-icon matSuffix>person</mat-icon>
-        </mat-form-field>
-      </div>
-      <div class="example-container">
-        <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="fechaNacimiento" formControlName="fechaNacimiento" required>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <mat-error *ngIf="firstFormGroup.get('fechaNacimiento').hasError('required')">
-            este campo no puede quedar en <strong>blanco</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <!--
-  </form>
-  <form [formGroup]="secondFormGroup">-->
-      <ng-template matStepLabel></ng-template>
-      <div class="example-container">
-        <mat-form-field>
-          <mat-select placeholder="Estado civil" formControlName="estadoCivil" required>
-            <mat-option value="option">Soltero</mat-option>
-            <mat-option value="option">Casado</mat-option>
-            <mat-option value="option">Divorciado</mat-option>
-          </mat-select>
-          <mat-error *ngIf="firstFormGroup.get('estadoCivil').hasError('required')">
-            este campo no puede quedar en <strong>blanco</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div class="example-container">
-        <mat-form-field>
-          <mat-select placeholder="Sexo" formControlName="sexo" required>
-            <mat-option value="option">Masculino</mat-option>
-            <mat-option value="option">Femenino</mat-option>
-          </mat-select>
-          <mat-error *ngIf="firstFormGroup.get('sexo').hasError('required')">
-            este campo no puede quedar en <strong>blanco</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div class="example-container">
-        <mat-form-field>
-          <input matInput placeholder="Direccion " formControlName="direccion" required>
-          <mat-error *ngIf="firstFormGroup.get('direccion').hasError('required')">
-            este campo no puede quedar en <strong>blanco</strong>
-          </mat-error>
-          <mat-icon matSuffix>room</mat-icon>
-        </mat-form-field>
-      </div>
-      <!--</form>
-  <form [formGroup]="thirdFormGroup">-->
-      <ng-template matStepLabel></ng-template>
-      <div class="example-container">
-        <mat-form-field hintLabel="Max 9 caracteres numericos">
-          <input matInput #input maxlength="9" placeholder="Telefono celular" formControlName="telefonoCelular" required>
-          <mat-error *ngIf="firstFormGroup.get('telefonoCelular').hasError('required')">
-            este campo no puede quedar en <strong>blanco</strong>
-          </mat-error>
-          <mat-icon matSuffix>call</mat-icon>
-        </mat-form-field>
-      </div>
-      <div class="example-container">
-        <mat-form-field>
-          <input matInput placeholder="Ingresa tu email" formControlName="email" required>
-          <mat-error *ngIf="firstFormGroup.get('email').hasError('required')">
-            este campo no puede quedar en <strong>blanco</strong>
-          </mat-error>
-          <mat-icon matSuffix>email</mat-icon>
-        </mat-form-field>
-      </div>
-      <div class="example-container">
-        <img src="./working.jpg" style=" width:20%;height:20%">
-        <br />
-        <input type="file" (change)="onFileSelected($event )" formControlName="img" accept="image/png, image/jpeg" required>
-        <mat-error *ngIf="firstFormGroup.get('img').hasError('required')">
+<mat-card  class="center-card">
+  <ng-template matStepLabel></ng-template>
+  <strong>REGISTRO INFORMACION BASICA</strong>
+  <form [formGroup]="firstFormGroup">
+    <ng-template matStepLabel></ng-template>
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Nombre" formControlName="nombreEmpleado" required>
+        <mat-error *ngIf="firstFormGroup.get('nombreEmpleado').hasError('required')">
           este campo no puede quedar en <strong>blanco</strong>
         </mat-error>
-        <mat-icon matSuffix style="padding-left:10px; ">archive</mat-icon>
-      </div>
-    </form>
-    <div>
-      <mat-card-actions>
-        <span class="example-spacer"></span>
-        <button mat-raised-button color="accent">CANCELAR</button>
-        <button mat-raised-button color="accent" (click)="submit()" [disabled]="firstFormGroup.invalid">ENVIAR</button>
-      </mat-card-actions>
+
+        <mat-icon matSuffix>person</mat-icon>
+
+      </mat-form-field>
     </div>
-  </mat-card>
-</div>
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Apellido " formControlName="apellidoEmpleado" required>
+        <mat-error *ngIf="firstFormGroup.get('apellidoEmpleado').hasError('required')">
+          este campo no puede quedar en <strong>blanco</strong>
+        </mat-error>
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="fechaNacimiento" formControlName="fechaNacimiento" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="firstFormGroup.get('fechaNacimiento').hasError('required')">
+          este campo no puede quedar en <strong>blanco</strong>
+        </mat-error>
+        <mat-icon matSuffix>cake</mat-icon>
+      </mat-form-field>
+    </div>
+    <ng-template matStepLabel></ng-template>
+    <div class="example-container">
+      <mat-form-field>
+        <mat-select placeholder="Estado civil" formControlName="estadoCivil" required>
+          <mat-option value="option">Soltero</mat-option>
+          <mat-option value="option">Casado</mat-option>
+          <mat-option value="option">Divorciado</mat-option>
+        </mat-select>
+        <mat-error *ngIf="firstFormGroup.get('estadoCivil').hasError('required')">
+          este campo no puede quedar en <strong>blanco</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="example-container">
+      <mat-form-field>
+        <mat-select placeholder="Sexo" formControlName="sexo" required>
+          <mat-option value="option">Masculino</mat-option>
+          <mat-option value="option">Femenino</mat-option>
+
+        </mat-select>
+        <mat-error *ngIf="firstFormGroup.get('sexo').hasError('required')">
+          este campo no puede quedar en <strong>blanco</strong>
+        </mat-error>
+        <mat-icon matSuffix>wc</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Direccion " formControlName="direccion" required>
+        <mat-error *ngIf="firstFormGroup.get('direccion').hasError('required')">
+          este campo no puede quedar en <strong>blanco</strong>
+        </mat-error>
+        <mat-icon matSuffix>directions</mat-icon>
+      </mat-form-field>
+    </div>
+    <ng-template matStepLabel></ng-template>
+    <div class="example-container">
+      <mat-form-field hintLabel="Max 8 caracteres numericos">
+        <input matInput #input maxlength="8" placeholder="Telefono celular" formControlName="telefonoCelular" required>
+        <mat-error *ngIf="firstFormGroup.get('telefonoCelular').hasError('required')">
+          este campo no puede quedar en <strong>blanco</strong>
+        </mat-error>
+        <mat-icon matSuffix>call</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Ciudad" formControlName="ciudad" required>
+        <mat-error *ngIf="firstFormGroup.get('ciudad').hasError('required')">
+          este campo no puede quedar en <strong>blanco</strong>
+        </mat-error>
+        <mat-icon matSuffix>room</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Ingresa tu email" formControlName="email" required>
+        <mat-error *ngIf="firstFormGroup.get('email').hasError('required')">
+          este campo no puede quedar en <strong>blanco</strong>
+        </mat-error>
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="example-container">
+      <img src="./working.jpg" style=" width:20%;height:20%">
+      <br />
+      <input type="file" (change)="onFileSelected($event )" formControlName="img" accept="image/png, image/jpeg" required>
+      <mat-error *ngIf="firstFormGroup.get('img').hasError('required')">
+        este campo no puede quedar en <strong>blanco</strong>
+      </mat-error>
+      <mat-icon matSuffix style="padding-left:10px; ">archive</mat-icon>
+    </div>
+  </form>
+  <div>
+    <mat-card-actions>
+      <span class="example-spacer"></span>
+      <button mat-raised-button color="accent">CANCELAR</button>
+      <button mat-raised-button color="accent" (click)="submit()" [disabled]="firstFormGroup.invalid">ENVIAR</button>
+    </mat-card-actions>
+  </div>
+</mat-card>

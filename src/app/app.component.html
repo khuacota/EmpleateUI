@@ -3,17 +3,17 @@
   <mat-toolbar-row>
     <span>Empleate</span>
     <span class="example-spacer"></span>
-    <a mat-raised-button color="accent"  class="encabezado" routerLink="/RAcademic">pruebaRegistrar</a>
+    <button mat-button color="accent" class="mainBotons"><mat-icon>home</mat-icon></button>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/RAcademic">pruebaRegistrar</a>
     <a mat-raised-button color="accent" class="encabezado" routerLink="/OfertarTrabajo">pruebaOfertarTrabajo</a>
     <a mat-raised-button color="accent" class="encabezado" routerLink="/RegistroEmpresa">RegistroEmpresa</a>
-    <button mat-button color="accent" class="mainBotons"><mat-icon>home</mat-icon></button>
-    <a mat-raised-button color="accent" routerLink="/RAcademic">pruebaRegistrar</a>
-    <a mat-raised-button color="accent" routerLink="/OfertarTrabajo">pruebaOfertarTrabajo</a>
-    <a mat-raised-button color="accent" [matMenuTriggerFor]="menuPerfil" class="mainBotons">Prueba Perfil</a>
-    <mat-menu #menuPerfil="matMenu">
-      <button mat-menu-item routerLink="/">Ver Perfil</button>
-      <button mat-menu-item routerLink="/RBasic">Actualizar Perfil</button>
-    </mat-menu>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/RBasic">Registro basico de usuario</a>
+    <!--<a mat-raised-button color="accent" [matMenuTriggerFor]="menuPerfil" class="mainBotons encabezado">Prueba Perfil</a>
+  <mat-menu #menuPerfil="matMenu">
+    <button mat-menu-item routerLink="/">Ver Perfil</button>
+    <button mat-menu-item routerLink="/RBasic">Actualizar Perfil</button>
+  </mat-menu>
+      -->
   </mat-toolbar-row>
 </mat-toolbar>
 <!--<app-navbar></app-navbar>

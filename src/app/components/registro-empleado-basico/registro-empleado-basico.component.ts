@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { EmpleadoService } from '../../../services/empleado/informacion-basica.service';
-import { Empleado } from '../../../models/empleado';
+import { InformacionBasicaService } from '../../services/empleado/informacion-basica.service';
+import { Empleado } from '../../models/empleado';
 import { MatSnackBar } from '@angular/material';
 
 
@@ -18,7 +18,7 @@ export class RegistroEmpleadoBasicoComponent implements OnInit {
   empleadoForm: FormGroup;
 
 
-  constructor(private _formBuilder: FormBuilder, private service: EmpleadoService, public snackBar: MatSnackBar) {
+  constructor(private _formBuilder: FormBuilder, private service: InformacionBasicaService, public snackBar: MatSnackBar) {
 
   }
 
@@ -34,22 +34,29 @@ export class RegistroEmpleadoBasicoComponent implements OnInit {
         Validators.pattern('[a-zA-Z0-9 ]+')
       ])],
       fechaNacimiento: ['', Validators.compose([
-        Validators.required,
-        //Validators.pattern('[a-zA-Z0-9 ]+')
+        Validators.required
+        
       ])],
      
        estadoCivil: ['', Validators.compose([
-         Validators.required,
-         Validators.pattern('[a-zA-Z0-9 ]+')
-       ])],
-       sexo: ['', Validators.compose([
-         Validators.required,
-         Validators.pattern('[a-zA-Z0-9 ]+')
-       ])],
-       direccion: ['', Validators.compose([
          Validators.required
+         
+      ])],
 
+       sexo: ['', Validators.compose([
+         Validators.required
+         
+      ])],
+
+       direccion: ['', Validators.compose([
+         Validators.required,
+         Validators.pattern('[a-zA-Z0-9 ]+')
        ])],
+
+      ciudad: ['', Validators.compose([
+        Validators.required,
+        Validators.pattern('[a-zA-Z0-9 ]+')
+      ])],
     
        telefonoCelular: ['', Validators.compose([
          Validators.required, Validators.max(99999999), Validators.min(9999999)
