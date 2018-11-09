@@ -36,3 +36,4 @@ import { OfertaTrabajoService } from './services/ofertatrabajo/oferta-trabajo.se
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
