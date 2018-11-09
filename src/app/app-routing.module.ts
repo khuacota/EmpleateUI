@@ -11,8 +11,7 @@ const routes: Routes = [
   { path: 'RAcademic', component: FormAcademicComponent },
   { path: 'OfertarTrabajo', component: OfertarTrabajoComponent },
   { path: 'RegistroEmpresa', component: RegistroEmpresaComponent },
-  { path: 'RAcademic', component: FormAcademicComponent },
-  { path: 'RBasic', component: RegistroEmpleadoBasicoComponent}
+  { path: 'RBasic', component: RegistroEmpleadoBasicoComponent }
 ];
 @NgModule({
   imports: [

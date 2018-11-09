@@ -23,9 +23,8 @@ import { RegistroEmpresaComponent } from './components/empresa/registro-empresa/
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { AcademicService } from './services/academic/academic.service';
 import { HttpErrorHandlerService } from './services/http-error-handler.service';
-import { EmpresaService } from './services/empresa/empresa.service';
 import { OfertaTrabajoService } from './services/ofertatrabajo/oferta-trabajo.service';
-//import { BaseService } from './services/base.service';
+import { EmpresaService } from './services/empresa/empresa.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegistroEmpleadoBasicoComponent } from './components/registro-empleado-basico/registro-empleado-basico.component';
 import { InformacionBasicaService } from './services/empleado/informacion-basica.service';
@@ -57,12 +56,9 @@ import { InformacionBasicaService } from './services/empleado/informacion-basica
     AppRoutingModule
 
   ],
-  providers: [ProfesionService,
-    AcademicService,
-    HttpErrorHandlerService,
-    EmpresaService,
-    InformacionBasicaService
-  ],
+
+  providers: [ProfesionService, { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }, AcademicService, HttpErrorHandlerService, OfertaTrabajoService, EmpresaService, InformacionBasicaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
