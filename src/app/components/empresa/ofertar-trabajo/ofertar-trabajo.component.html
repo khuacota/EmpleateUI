@@ -1,4 +1,7 @@
 <mat-card class="center-card" [formGroup]="expForm">
+  <mat-card-title class="titulo">
+      OFERTA TRABAJO
+    </mat-card-title>
 	<mat-form-field class='normal'>
 		<input matInput placeholder="Profesión u ocupación"  formControlName="Profesion">
 		<mat-error *ngIf="expForm.get('Profesion').hasError('required')">
