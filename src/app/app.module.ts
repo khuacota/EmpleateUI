@@ -15,6 +15,8 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
 import { AcademicService } from './services/academic/academic.service';
 import { HttpErrorHandlerService } from './services/http-error-handler.service';
 import { OfertaTrabajoService } from './services/ofertatrabajo/oferta-trabajo.service';
+import { RegistroEmpresaComponent } from './components/empresa/registro-empresa/registro-empresa.component';
+import { EmpresaService } from './services/empresa/empresa.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { OfertaTrabajoService } from './services/ofertatrabajo/oferta-trabajo.se
     FormExpComponent,
     OfertarTrabajoComponent,
     InputSkillsComponent,
+    RegistroEmpresaComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { OfertaTrabajoService } from './services/ofertatrabajo/oferta-trabajo.se
     MaterialModule,
     AppRoutingModule,
   ],
-  providers: [ProfesionService,{provide: MAT_DATE_LOCALE, useValue: 'en-GB'},AcademicService, HttpErrorHandlerService, OfertaTrabajoService],
+  providers: [ProfesionService,{provide: MAT_DATE_LOCALE, useValue: 'en-GB'},AcademicService, HttpErrorHandlerService, OfertaTrabajoService, EmpresaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
