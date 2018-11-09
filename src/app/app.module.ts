@@ -9,8 +9,12 @@ import { FormAcademicComponent } from './components/professional/form-academic/f
 import { InputLanguagesComponent } from './components/languages/input-languages/input-languages.component';
 import { AcademicTitleComponent } from './components/professional/form-academic/academic-title/academic-title.component';
 import { FormExpComponent } from './components/professional/form-academic/form-exp/form-exp.component';
+import { OfertarTrabajoComponent } from './components/empresa/ofertar-trabajo/ofertar-trabajo.component';
+import { InputSkillsComponent } from './components/skills/input-skills/input-skills.component';
+import { RegistroEmpresaComponent } from './components/empresa/registro-empresa/registro-empresa.component';
 import { AcademicService } from './services/academic/academic.service';
 import { HttpErrorHandlerService } from './services/http-error-handler.service';
+import { EmpresaService } from './services/empresa/empresa.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import { HttpErrorHandlerService } from './services/http-error-handler.service';
     FormAcademicComponent,
     InputLanguagesComponent,
     AcademicTitleComponent,
-    FormExpComponent
+    FormExpComponent,
+    OfertarTrabajoComponent,
+    InputSkillsComponent,
+    RegistroEmpresaComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,7 @@ import { HttpErrorHandlerService } from './services/http-error-handler.service';
     MaterialModule,
     AppRoutingModule,
   ],
-  providers: [ProfesionService, AcademicService, HttpErrorHandlerService],
+  providers: [ProfesionService, AcademicService, HttpErrorHandlerService, EmpresaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
