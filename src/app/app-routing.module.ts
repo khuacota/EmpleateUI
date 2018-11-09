@@ -8,10 +8,10 @@ import { RegistroEmpleadoBasicoComponent } from './components/registro-empleado-
 
 
 const routes: Routes = [
-  { path: 'RAcademic', component: FormAcademicComponent },
-  { path: 'OfertarTrabajo', component: OfertarTrabajoComponent },
+  { path: 'InformacionAcademica', component: FormAcademicComponent },
+  { path: 'OfertaTrabajo', component: OfertarTrabajoComponent },
   { path: 'RegistroEmpresa', component: RegistroEmpresaComponent },
-  { path: 'RBasic', component: RegistroEmpleadoBasicoComponent }
+  { path: 'InformacionBasica', component: RegistroEmpleadoBasicoComponent }
 ];
 @NgModule({
   imports: [

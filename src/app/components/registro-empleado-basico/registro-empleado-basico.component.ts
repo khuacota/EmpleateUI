@@ -79,7 +79,6 @@ export class RegistroEmpleadoBasicoComponent implements OnInit {
         '';
   }*/
   submit() {
-    console.log(this.firstFormGroup.value);
     var Nombre: string = this.firstFormGroup.get('nombreEmpleado').value;
     var Apellidos: string = this.firstFormGroup.get('apellidoEmpleado').value;
     var FechaNacimiento: Date = this.firstFormGroup.get('fechaNacimiento').value;
@@ -103,21 +102,20 @@ export class RegistroEmpleadoBasicoComponent implements OnInit {
     empleado.Direccion = Direccion;
     empleado.Correo = Correo;
     empleado.Imagen = Imagen;
-    
+
+    console.log(this.firstFormGroup.value);
     this.service.postEmpleado(empleado).subscribe(res => {
       this.snackBar.open("registro completado correctamente", "", {
         duration: 2000,
         panelClass: ['green-snackbar']
       });
+      console.log("aqui");
     }, error => {
       this.snackBar.open("error", "", {
         duration: 2000,
         panelClass: ['red-snackbar']
       });
     });
-  }
-  disable() {
-    return false;
   }
   onFileSelected(event) {
     console.log(event);

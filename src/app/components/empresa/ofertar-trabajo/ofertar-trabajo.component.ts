@@ -35,14 +35,14 @@ export class OfertarTrabajoComponent implements AfterViewInit {
     this.expForm = this.fb.group({
       Profesion: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('[a-zA-Z ]*')
+        Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*')
       ])],
 
       Descripcion: ['', Validators.required],
 
       Ciudad: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('[a-zA-Z ]*')
+        Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*')
       ])],
 
       HoraInicio: ['', Validators.required],
