@@ -6,6 +6,7 @@ import { LanguageJob } from '../../../models/language';
 import { Skill } from '../../../models/skill';
 import { OfertaTrabajo } from '../../../models/ofertaTrabajo';
 import { OfertaTrabajoService } from '../../../services/ofertatrabajo/oferta-trabajo.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-ofertar-trabajo',
@@ -26,7 +27,7 @@ export class OfertarTrabajoComponent implements AfterViewInit {
   today =  new Date();
   minDate = new Date(this.today.setDate(this.today.getDate() + 1));
 
-  constructor(private fb: FormBuilder,private ofertaServ: OfertaTrabajoService) {
+  constructor(private fb: FormBuilder,private ofertaServ: OfertaTrabajoService, public snackBar: MatSnackBar) {
 
     this.expForm = this.fb.group({
       Profesion: ['', Validators.compose([
@@ -95,7 +96,18 @@ export class OfertarTrabajoComponent implements AfterViewInit {
     //ofertaTrabajo.Descripcion = titulos;
     ofertaTrabajo.HabilidadesReq = skills;
     console.log(ofertaTrabajo);
-    this.ofertaServ.post(ofertaTrabajo).subscribe();
+    this.ofertaServ.post(ofertaTrabajo).subscribe(res => {
+      this.snackBar.open("registro completado correctamente", "", {
+        duration: 2000,
+        panelClass: ['green-snackbar']
+      });
+    }, error => {
+      this.snackBar.open("error", "", {
+        duration: 2000,
+        panelClass: ['red-snackbar']
+      });
+      console.log(error);
+    });
   }
 
 }
