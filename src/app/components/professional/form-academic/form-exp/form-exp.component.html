@@ -18,19 +18,19 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="date" [matDatepicker]="picker" placeholder="Fecha Inicio" formControlName="Inicio">
+        <input matInput [matDatepicker]="picker" placeholder="Fecha Inicio" formControlName="Inicio" [max]="maxDate">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-error *ngIf="expForm.get('Inicio').hasError('required')">
-          este campo no puede quedar en <strong>blanco</strong>
+          formato <strong>invalido</strong>, use el icono para una mejor experiencia
         </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="date" [matDatepicker]="picker1" placeholder="Fecha Fin" formControlName="Fin">
+        <input matInput [matDatepicker]="picker1" placeholder="Fecha Fin" formControlName="Fin" [max]="maxDate">
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
         <mat-error *ngIf="expForm.get('Fin').hasError('required')">
-          este campo no puede quedar en <strong>blanco</strong>
+          formato <strong>invalido</strong>, use el icono para una mejor experiencia
         </mat-error>
       </mat-form-field>
     </form>

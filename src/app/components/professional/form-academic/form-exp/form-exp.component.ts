@@ -8,6 +8,8 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class FormExpComponent implements OnInit {
   expForm: FormGroup;
+  today = new Date();
+  maxDate = new Date(this.today.setDate(this.today.getDate() - 1));
   constructor(private fb: FormBuilder) {
     this.expForm = this.fb.group({
       Lugar: ['', Validators.compose([
