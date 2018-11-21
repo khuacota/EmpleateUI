@@ -58,7 +58,7 @@ export class InputLanguagesComponent implements OnInit {
   remove(language: string): void {
     const index = this.languages.indexOf(language);
 
-    if (index >= 0) {
+    if (index >= 0 && this.languages.length>1) {
       this.languages.splice(index, 1);
     }
   }
