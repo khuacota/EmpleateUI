@@ -8,11 +8,14 @@ import { OfertaTrabajo } from '../../../models/ofertaTrabajo';
 import { OfertaTrabajoService } from '../../../services/ofertatrabajo/oferta-trabajo.service';
 import { MatSnackBar } from '@angular/material';
 
+
 @Component({
   selector: 'app-ofertar-trabajo',
   templateUrl: './ofertar-trabajo.component.html',
   styleUrls: ['./ofertar-trabajo.component.css']
 })
+
+
 export class OfertarTrabajoComponent implements AfterViewInit {
 
   @ViewChild(InputLanguagesComponent) languageChild;
