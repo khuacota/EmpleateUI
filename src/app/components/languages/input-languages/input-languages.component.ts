@@ -12,6 +12,7 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class InputLanguagesComponent implements OnInit {
 
+  @Input() label: string;
   visible = true;
   selectable = true;
   removable = true;
@@ -19,8 +20,9 @@ export class InputLanguagesComponent implements OnInit {
   separatorKeysCodes: number[] = [ENTER, COMMA];
   languageCtrl = new FormControl();
   filteredLanguages: Observable<string[]>;
-  languages: string[] = ['español','ingles'];
-  alllanguages: string[] = ['español', 'ingles', 'frances', 'ruso'];
+  @Input() languages: string[]=[];
+  @Input() alllanguages: string[]=[];
+  @Input() minElements: number ;
 
   @ViewChild('languageInput') languageInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
@@ -43,6 +45,9 @@ export class InputLanguagesComponent implements OnInit {
         if (this.alllanguages.includes(value.trim()) && !this.languages.includes(value.trim())) {
           this.languages.push(value.trim());
         }
+        if (this.alllanguages.length == 0 && !this.languages.includes(value.trim())) {
+          this.languages.push(value.trim());
+        }
         
       }
 
@@ -58,7 +63,7 @@ export class InputLanguagesComponent implements OnInit {
   remove(language: string): void {
     const index = this.languages.indexOf(language);
 
-    if (index >= 0) {
+    if (index >= 0 && this.languages.length > this.minElements) {
       this.languages.splice(index, 1);
     }
   }

@@ -4,17 +4,21 @@
     </mat-card-title>
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
     <mat-step>
-      <ng-template matStepLabel>Idiomas</ng-template>
-      <app-input-languages></app-input-languages>
-    </mat-step>
+      <ng-template matStepLabel>General</ng-template>
+      <app-input-languages [label]="'idiomas'" [minElements]="1" [languages]="languages" [alllanguages]="alllanguages"></app-input-languages>
+      <app-input-languages [label]="'habilidades'" [minElements]="0" [languages]="skills" [alllanguages]="allskills"></app-input-languages>
+      </mat-step>
     <mat-step>
-      <ng-template matStepLabel>Titulos</ng-template>
+      <ng-template matStepLabel>Area de enfoque</ng-template>
+      <app-input-languages [label]="'Ocupaciones'" [minElements]="0"></app-input-languages>
       <h4>
         añadir Titulo:
         <button mat-mini-fab color="primary" (click)="addTitle()">
           <mat-icon aria-label="icon-button">add</mat-icon>
         </button>
       </h4>
+
+
       <app-academic-title *ngFor="let title of myTitles"></app-academic-title>
     </mat-step>
     <mat-step>
