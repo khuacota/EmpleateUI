@@ -17,7 +17,7 @@ import { FormAcademicComponent } from './components/professional/form-academic/f
 import { InputLanguagesComponent } from './components/languages/input-languages/input-languages.component';
 import { AcademicTitleComponent } from './components/professional/form-academic/academic-title/academic-title.component';
 import { FormExpComponent } from './components/professional/form-academic/form-exp/form-exp.component';
-import { OfertarTrabajoComponent } from './components/empresa/ofertar-trabajo/ofertar-trabajo.component';
+import { JobOfferComponent } from './components/empresa/ofertar-trabajo/ofertar-trabajo.component';
 import { InputSkillsComponent } from './components/skills/input-skills/input-skills.component';
 import { RegistroEmpresaComponent } from './components/empresa/registro-empresa/registro-empresa.component';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
@@ -37,7 +37,7 @@ import { InformacionBasicaService } from './services/empleado/informacion-basica
     InputLanguagesComponent,
     AcademicTitleComponent,
     FormExpComponent,
-    OfertarTrabajoComponent,
+    JobOfferComponent,
     InputSkillsComponent,
     RegistroEmpresaComponent,
 

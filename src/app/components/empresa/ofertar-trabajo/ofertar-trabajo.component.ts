@@ -4,7 +4,7 @@ import { InputSkillsComponent } from "../../skills/input-skills/input-skills.com
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { LanguageJob } from '../../../models/language';
 import { Skill } from '../../../models/skill';
-import { OfertaTrabajo } from '../../../models/ofertaTrabajo';
+import { JobOffer } from '../../../models/ofertaTrabajo';
 import { OfertaTrabajoService } from '../../../services/ofertatrabajo/oferta-trabajo.service';
 import { MatSnackBar } from '@angular/material';
 
@@ -16,7 +16,7 @@ import { MatSnackBar } from '@angular/material';
 })
 
 
-export class OfertarTrabajoComponent implements AfterViewInit {
+export class JobOfferComponent implements AfterViewInit {
 
   @ViewChild(InputLanguagesComponent) languageChild;
   //private languages = [];
@@ -33,28 +33,28 @@ export class OfertarTrabajoComponent implements AfterViewInit {
   constructor(private fb: FormBuilder,private ofertaServ: OfertaTrabajoService, public snackBar: MatSnackBar) {
 
     this.expForm = this.fb.group({
-      Profesion: ['', Validators.compose([
+      Profession: ['', Validators.compose([
         Validators.required,
         Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*')
       ])],
 
-      Descripcion: ['', Validators.required],
+      Description: ['', Validators.required],
 
-      Ciudad: ['', Validators.compose([
+      City: ['', Validators.compose([
         Validators.required,
         Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*')
       ])],
 
-      HoraInicio: ['', Validators.required],
-      HoraFin: ['', Validators.required], 
+      StartTime: ['', Validators.required],
+      EndTime: ['', Validators.required], 
       
-      ExperienciaMin:['5',Validators.compose([
+      MinExperience:['5',Validators.compose([
         Validators.min(0),
         Validators.max(20),
         Validators.required,
         ])],
 
-      FechaLimite: ['', Validators.required],
+      Deadline: ['', Validators.required],
 
 
     });
@@ -91,15 +91,15 @@ export class OfertarTrabajoComponent implements AfterViewInit {
       skills.push(skill);
     }
 
-    let ofertaTrabajo = new OfertaTrabajo();
-    ofertaTrabajo = this.expForm.value;
-    ofertaTrabajo.EmpresaId = this.userId;
-    //ofertaTrabajo.Profesion = professions;
-    ofertaTrabajo.IdiomasReq = languages;
-    //ofertaTrabajo.Descripcion = titulos;
-    ofertaTrabajo.HabilidadesReq = skills;
-    console.log(ofertaTrabajo);
-    this.ofertaServ.post(ofertaTrabajo).subscribe(res => {
+    let jobOffer = new JobOffer();
+    jobOffer = this.expForm.value;
+    jobOffer.CompanyId = this.userId;
+    //JobOffer.Profession = professions;
+    jobOffer.ReqLanguages = languages;
+    //JobOffer.Description = titulos;
+    jobOffer.ReqSkills = skills;
+    console.log(jobOffer);
+    this.ofertaServ.post(jobOffer).subscribe(res => {
       this.snackBar.open("registro completado correctamente", "", {
         duration: 2000,
         panelClass: ['green-snackbar']

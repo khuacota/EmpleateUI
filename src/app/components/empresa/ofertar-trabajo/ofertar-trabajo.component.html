@@ -1,31 +1,31 @@
 <mat-card class="center-card" [formGroup]="expForm">
-  <mat-card-title class="titulo">
+  <mat-card-title class="tittle">
       OFERTA TRABAJO
     </mat-card-title>
 	<mat-form-field class='normal'>
-		<input matInput placeholder="Profesión u ocupación"  formControlName="Profesion">
-		<mat-error *ngIf="expForm.get('Profesion').hasError('required')">
+		<input matInput placeholder="Profesión u ocupación"  formControlName="Profession">
+		<mat-error *ngIf="expForm.get('Profession').hasError('required')">
           este campo no puede quedar en <strong>blanco</strong>
         </mat-error>
-        <mat-error *ngIf="expForm.get('Profesion').hasError('pattern')">
+        <mat-error *ngIf="expForm.get('Profession').hasError('pattern')">
           no ingrese valores <strong>invalidos</strong>
         </mat-error>
 	</mat-form-field>
 	<mat-form-field class='normal'>
-		<textarea matInput placeholder="Descripción de trabajo:" formControlName='Descripcion'></textarea>
-		<mat-error *ngIf="expForm.get('Descripcion').hasError('required')">
+		<textarea matInput placeholder="Descripción de trabajo:" formControlName='Description'></textarea>
+		<mat-error *ngIf="expForm.get('Description').hasError('required')">
           este campo no puede quedar en <strong>blanco</strong>
         </mat-error>
 	</mat-form-field>		     
 	<mat-form-field class='normal'>
-		<input matInput type="number" placeholder="Experiencia mínima en años:" formControlName='ExperienciaMin'>
-		<mat-error *ngIf="expForm.get('ExperienciaMin').hasError('min')">
+		<input matInput type="number" placeholder="Experiencia mínima en años:" formControlName='MinExperience'>
+		<mat-error *ngIf="expForm.get('MinExperience').hasError('min')">
           la experiencia no puede ser <strong>menor a cero</strong>
     </mat-error>
-    <mat-error *ngIf="expForm.get('ExperienciaMin').hasError('max')">
+    <mat-error *ngIf="expForm.get('MinExperience').hasError('max')">
           la experiencia no puede ser <strong>mayor a 20</strong>
     </mat-error>
-    <mat-error *ngIf="expForm.get('ExperienciaMin').hasError('required')">
+    <mat-error *ngIf="expForm.get('MinExperience').hasError('required')">
           la experiencia no puede quedar en <strong>blanco</strong>
     </mat-error>
 	</mat-form-field>
@@ -33,36 +33,36 @@
 	<app-input-languages></app-input-languages>
 	<app-input-skills></app-input-skills>
 	<mat-form-field class='normal'>
-		<input matInput placeholder="Ciudad:" formControlName='Ciudad'>
-		<mat-error *ngIf="expForm.get('Ciudad').hasError('required')">
+		<input matInput placeholder="Ciudad:" formControlName='City'>
+		<mat-error *ngIf="expForm.get('City').hasError('required')">
           este campo no puede quedar en <strong>blanco</strong>
         </mat-error>
-        <mat-error *ngIf="expForm.get('Ciudad').hasError('pattern')">
+        <mat-error *ngIf="expForm.get('City').hasError('pattern')">
           no ingrese valores <strong>invalidos</strong>
         </mat-error>
 	</mat-form-field>
 
 	<br>Horarios:<br>
 	De:
-	<mat-form-field class='supercorto'>
-		<input matInput type="time" placeholder="inicio" formControlName='HoraInicio'>
-		<mat-error *ngIf="expForm.get('HoraInicio').hasError('required')">
+	<mat-form-field class='extraShort'>
+		<input matInput type="time" placeholder="inicio" formControlName='StartTime'>
+		<mat-error *ngIf="expForm.get('StartTime').hasError('required')">
           este campo no puede quedar en <strong>blanco</strong>
         </mat-error>
 	</mat-form-field>
 	A:
-	<mat-form-field class='supercorto'>
-		<input matInput type="time" placeholder="fin" formControlName='HoraFin'>
-		<mat-error *ngIf="expForm.get('HoraFin').hasError('required')">
+	<mat-form-field class='extraShort'>
+		<input matInput type="time" placeholder="fin" formControlName='EndTime'>
+		<mat-error *ngIf="expForm.get('EndTime').hasError('required')">
           este campo no puede quedar en <strong>blanco</strong>
         </mat-error>
 	</mat-form-field>
 
-	<mat-form-field class='corto'>
-        <input matInput [matDatepicker]="picker" placeholder="Fecha limite de postulacion" formControlName='FechaLimite' [min]="minDate">
+	<mat-form-field class='short'>
+        <input matInput [matDatepicker]="picker" placeholder="Fecha limite de postulacion" formControlName='Deadline' [min]="minDate">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="expForm.get('FechaLimite').hasError('required')">
+        <mat-error *ngIf="expForm.get('Deadline').hasError('required')">
           formato <strong>invalido</strong>, use el icono para una mejor experiencia
         </mat-error>
     </mat-form-field>

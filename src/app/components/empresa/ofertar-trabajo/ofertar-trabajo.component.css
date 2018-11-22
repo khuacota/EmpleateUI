@@ -7,18 +7,18 @@
   width: 90%;
 }
 
-.corto {
+.short {
   margin-left: 5px;
   width: 63%;
 }
 
-.supercorto {
+.extraShort {
   margin-left: 5px;
   margin-top: 10px;
   width: 25%;
 }
 
-.largo {
+.long {
   margin-left: 5px;
   width: 90%;
 }
@@ -34,10 +34,6 @@
   align-items: center;
 }
 
-/*.mat-form-field {
-  margin-left: 5px;
-  width: 50%;
-}*/
 
 example-margin {
   margin: 10px;
@@ -47,10 +43,6 @@ example-margin {
   color: red;
 }
 
-/*form {
-  border-bottom-style: solid;
-  border-width: 2px;
-}*/
 
 
 .example-spacer {
