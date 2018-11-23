@@ -18,7 +18,7 @@ import { SkillEmp } from '../../../models/skillEmp';
   styleUrls: ['./form-academic.component.css']
 })
 export class FormAcademicComponent implements AfterViewInit {
-  @ViewChild(InputChipsComponent) inputChips;
+  @ViewChildren(InputChipsComponent) inputChips;
   @ViewChildren(AcademicTitleComponent) viewTitles: QueryList<AcademicTitleComponent>;
   @ViewChildren(FormExpComponent) viewExps: QueryList<FormExpComponent>;
   private myTitles: Array<any>;

@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-input-languages',
-  templateUrl: './input-languages.component.html',
-  styleUrls: ['./input-languages.component.scss']
+  selector: 'app-input-chips',
+  templateUrl: './input-chips.component.html',
+  styleUrls: ['./input-chips.component.scss']
 })
 export class InputChipsComponent implements OnInit {
 

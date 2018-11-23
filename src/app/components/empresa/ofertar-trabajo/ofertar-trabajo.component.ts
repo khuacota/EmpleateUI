@@ -27,6 +27,8 @@ export class JobOfferComponent implements AfterViewInit {
   expForm: FormGroup;
   today =  new Date();
   minDate = new Date(this.today.setDate(this.today.getDate() + 1));
+  private languages: string[] = ['español', 'ingles'];
+  private alllanguages: string[] = ['español', 'ingles', 'frances', 'ruso'];
 
   constructor(private fb: FormBuilder,private ofertaServ: OfertaTrabajoService, public snackBar: MatSnackBar) {
 

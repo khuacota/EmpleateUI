@@ -5,12 +5,12 @@
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
     <mat-step>
       <ng-template matStepLabel>General</ng-template>
-      <app-input-languages [label]="'idiomas'" [minElements]="1" [languages]="languages" [alllanguages]="alllanguages"></app-input-languages>
-      <app-input-languages [label]="'habilidades'" [minElements]="0" [languages]="skills" [alllanguages]="allskills"></app-input-languages>
+      <app-input-chips [label]="'idiomas'" [minElements]="1" [languages]="languages" [alllanguages]="alllanguages"></app-input-chips>
+      <app-input-chips [label]="'habilidades'" [minElements]="0" [languages]="skills" [alllanguages]="allskills"></app-input-chips>
       </mat-step>
     <mat-step>
       <ng-template matStepLabel>Conocimientos</ng-template>
-      <app-input-languages [label]="'Ocupaciones'" [minElements]="0"></app-input-languages>
+      <app-input-chips [label]="'Ocupaciones'" [minElements]="0"></app-input-chips>
       <h4>
         añadir Titulo:
         <button mat-mini-fab color="primary" (click)="addTitle()">
