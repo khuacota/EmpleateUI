@@ -3,26 +3,11 @@
   margin: auto;
 }
 
-.titulo {
+.tittle {
   text-align: center;
 }
 
-.corto {
-  margin-left: 5px;
-  width: 80%;
-}
-
-.corto1 {
-  margin-left: 5px;
-  width: 80%;
-}
-
-.corto2 {
-  margin-left: 5px;
-  width: 80%;
-}
-
-.corto3 {
+.short {
   margin-left: 5px;
   width: 80%;
 }
@@ -37,7 +22,7 @@
   width: 100%;
 }
 
-.largo {
+.long {
   margin-left: 5px;
   width: 90%;
 }
@@ -53,13 +38,6 @@
   margin-bottom: 28px;
   width: 80%;
 }
-
-.example-spacer {
-  margin-left: initial;
-  width: 20%;
-  position: initial;
-}
-
 .elB {
   border-bottom: groove;
 }

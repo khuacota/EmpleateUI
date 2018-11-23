@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { InputLanguagesComponent } from "../../languages/input-languages/input-languages.component";
+import { InputChipsComponent } from "../../inputs/input-chips/input-chips.component";
 import { InputSkillsComponent } from "../../skills/input-skills/input-skills.component";
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { LanguageJob } from '../../../models/language';
@@ -18,11 +18,9 @@ import { MatSnackBar } from '@angular/material';
 
 export class JobOfferComponent implements AfterViewInit {
 
-  @ViewChild(InputLanguagesComponent) languageChild;
-  //private languages = [];
+  @ViewChild(InputChipsComponent) languageChild;
 
   @ViewChild(InputSkillsComponent) skillChild;
-  //private skills = [];
 
   private userId: number;
 

@@ -4,7 +4,7 @@ import { HttpErrorHandlerService } from '../http-error-handler.service';
 import { BaseService } from '../base.service';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators';
-import { Empresa } from '../../models/empresa';
+import { Company } from '../../models/empresa';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class EmpresaService extends BaseService {
     );
   }
 
-  public postEmpresa(data: Empresa): Observable<any> {
+  public postEmpresa(data: Company): Observable<any> {
     return this.httpClient.post(`${this.apiUrl}/${this.endpoint}`, data).pipe(
       catchError(this.errorHandler.handleError)
     );

@@ -1,10 +1,10 @@
-export class Empresa {
-  public Nombre: string;
-  public Descripcion: string;
-  public Rubro: string;
-  public Direccion: string;
-  public Telefono: number;
-  public Correo: string;
+export class Company {
+  public Name: string;
+  public Description: string;
+  public Entry: string;
+  public Address: string;
+  public Phone: number;
+  public Email: string;
   public Url: string;
-  public Imagen: string;
+  public Image: string;
 }

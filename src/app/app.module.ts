@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfesionService } from './services/profesiones/profesion.service.ts.service';
 import { AppRoutingModule } from './app-routing.module';
 import { FormAcademicComponent } from './components/professional/form-academic/form-academic.component';
-import { InputLanguagesComponent } from './components/languages/input-languages/input-languages.component';
+import { InputChipsComponent } from './components/inputs/input-chips/input-chips.component';
 import { AcademicTitleComponent } from './components/professional/form-academic/academic-title/academic-title.component';
 import { FormExpComponent } from './components/professional/form-academic/form-exp/form-exp.component';
 import { JobOfferComponent } from './components/empresa/ofertar-trabajo/ofertar-trabajo.component';
@@ -34,7 +34,7 @@ import { InformacionBasicaService } from './services/empleado/informacion-basica
   declarations: [
     AppComponent,
     FormAcademicComponent,
-    InputLanguagesComponent,
+    InputChipsComponent,
     AcademicTitleComponent,
     FormExpComponent,
     JobOfferComponent,

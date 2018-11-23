@@ -1,5 +1,5 @@
 import { Component, ViewChild, AfterViewInit, QueryList, ViewChildren } from '@angular/core';
-import { InputLanguagesComponent } from "../../languages/input-languages/input-languages.component";
+import { InputChipsComponent } from "../../inputs/input-chips/input-chips.component";
 import { AcademicTitleComponent } from "./academic-title/academic-title.component";
 import { FormExpComponent } from "./form-exp/form-exp.component";
 import { Experience } from '../../../models/experience';
@@ -16,7 +16,7 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./form-academic.component.css']
 })
 export class FormAcademicComponent implements AfterViewInit {
-  @ViewChild(InputLanguagesComponent) languageChild;
+  @ViewChild(InputChipsComponent) languageChild;
   @ViewChildren(AcademicTitleComponent) viewTitles: QueryList<AcademicTitleComponent>;
   @ViewChildren(FormExpComponent) viewExps: QueryList<FormExpComponent>;
   private myTitles: Array<any>;
