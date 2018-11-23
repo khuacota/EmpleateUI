@@ -1,17 +1,18 @@
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {Component, Input, OnInit, ElementRef, ViewChild} from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {MatAutocompleteSelectedEvent, MatChipInputEvent, MatAutocomplete} from '@angular/material';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MatAutocompleteSelectedEvent, MatChipInputEvent, MatAutocomplete } from '@angular/material';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-input-chips',
-  templateUrl: './input-chips.component.html',
-  styleUrls: ['./input-chips.component.scss']
+  selector: 'app-input-languages',
+  templateUrl: './input-languages.component.html',
+  styleUrls: ['./input-languages.component.scss']
 })
 export class InputChipsComponent implements OnInit {
 
+  @Input() label: string;
   visible = true;
   selectable = true;
   removable = true;
@@ -19,16 +20,17 @@ export class InputChipsComponent implements OnInit {
   separatorKeysCodes: number[] = [ENTER, COMMA];
   languageCtrl = new FormControl();
   filteredLanguages: Observable<string[]>;
-  languages: string[] = ['español','ingles'];
-  alllanguages: string[] = ['español', 'ingles', 'frances', 'ruso'];
+  @Input() languages: string[] = [];
+  @Input() alllanguages: string[] = [];
+  @Input() minElements: number;
 
   @ViewChild('languageInput') languageInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   constructor() {
     this.filteredLanguages = this.languageCtrl.valueChanges.pipe(
-        startWith(null),
-        map((language: string | null) => language ? this._filter(language) : this.alllanguages.slice()));
+      startWith(null),
+      map((language: string | null) => language ? this._filter(language) : this.alllanguages.slice()));
   }
 
   add(event: MatChipInputEvent): void {
@@ -43,7 +45,10 @@ export class InputChipsComponent implements OnInit {
         if (this.alllanguages.includes(value.trim()) && !this.languages.includes(value.trim())) {
           this.languages.push(value.trim());
         }
-        
+        if (this.alllanguages.length == 0 && !this.languages.includes(value.trim())) {
+          this.languages.push(value.trim());
+        }
+
       }
 
       // Reset the input value
@@ -58,7 +63,7 @@ export class InputChipsComponent implements OnInit {
   remove(language: string): void {
     const index = this.languages.indexOf(language);
 
-    if (index >= 0) {
+    if (index >= 0 && this.languages.length > this.minElements) {
       this.languages.splice(index, 1);
     }
   }
