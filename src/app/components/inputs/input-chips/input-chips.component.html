@@ -9,7 +9,7 @@
             <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
           </mat-chip>
           <input
-            placeholder="Idiomas"
+            placeholder="{{label}}"
             #languageInput
             [formControl]="languageCtrl"            
             [matAutocomplete]="auto"
