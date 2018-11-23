@@ -1,17 +1,17 @@
 <mat-form-field class="example-chip-list">
         <mat-chip-list #chipList>
           <mat-chip color="accent" selected
-            *ngFor="let language of languages"
+            *ngFor="let item of items"
             [selectable]="selectable"
             [removable]="removable"
-            (removed)="remove(language)">
-            {{language}}
+            (removed)="remove(item)">
+            {{item}}
             <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
           </mat-chip>
           <input
             placeholder="{{label}}"
-            #languageInput
-            [formControl]="languageCtrl"            
+            #itemInput
+            [formControl]="itemCtrl"            
             [matAutocomplete]="auto"
             [matChipInputFor]="chipList"
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
@@ -19,8 +19,8 @@
             (matChipInputTokenEnd)="add($event)" >
         </mat-chip-list>        
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-          <mat-option *ngFor="let language of filteredLanguages | async" [value]="language">
-            {{language}}
+          <mat-option *ngFor="let item of filtereditems | async" [value]="item">
+            {{item}}
           </mat-option>
         </mat-autocomplete>        
       </mat-form-field>

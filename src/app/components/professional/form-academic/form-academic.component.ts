@@ -58,10 +58,10 @@ export class FormAcademicComponent implements AfterViewInit {
       let res: boolean;
       for (let i = 0; i < inputsChips.length; i++) {
         if (inputsChips[i].label == 'idiomas') {
-          res = res || inputsChips[i].languages.length < 1;
+          res = res || inputsChips[i].items.length < 1;
         }
         if (inputsChips[i].label == 'Ocupaciones') {
-          res = res || (inputsChips[i].languages.length < 1 && titles.length < 1);
+          res = res || (inputsChips[i].items.length < 1 && titles.length < 1);
         }
       }
       return res || titles.some(e => e.academicForm.invalid) || exps.some(e => e.expForm.invalid);
@@ -92,25 +92,25 @@ export class FormAcademicComponent implements AfterViewInit {
     let inputsChips = this.inputChips.toArray();
     for (let i = 0; i < inputsChips.length; i++) {
       if (inputsChips[i].label == 'idiomas') {
-        for (let j = 0; j < inputsChips[i].languages.length; j++) {
+        for (let j = 0; j < inputsChips[i].items.length; j++) {
           let language = new Language();
-          language.Language = inputsChips[i].languages[j];
+          language.Language = inputsChips[i].items[j];
           language.EmployeeId = this.userId;
           languages.push(language);
         }
       }
       if (inputsChips[i].label == 'habilidades') {
-        for (let j = 0; j < inputsChips[i].languages.length; j++) {
+        for (let j = 0; j < inputsChips[i].items.length; j++) {
           let habilidad = new SkillEmp();
-          habilidad.Skill = inputsChips[i].languages[j];
+          habilidad.Skill = inputsChips[i].items[j];
           habilidad.EmployeeId = this.userId;
           skills.push(habilidad);
         }
       }
       if (inputsChips[i].label == 'Ocupaciones') {
-        for (let j = 0; j < inputsChips[i].languages.length; j++) {
+        for (let j = 0; j < inputsChips[i].items.length; j++) {
           let ocupacion = new OccupationEmp();
-          ocupacion.Occupation = inputsChips[i].languages[j];
+          ocupacion.Occupation = inputsChips[i].items[j];
           ocupacion.EmployeeId = this.userId;
           occupations.push(ocupacion);
         }

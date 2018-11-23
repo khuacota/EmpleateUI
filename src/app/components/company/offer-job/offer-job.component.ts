@@ -70,15 +70,15 @@ export class JobOfferComponent implements AfterViewInit {
   }*/
 
   ngAfterViewInit() {
-  //  this.languages = this.languageChild.languages;
+  //  this.items = this.languageChild.items;
   //  this.skills = this.skillChild.skills;
   }
 
   submit(){
     let languages: LanguageJob[] = [];
-     for (let i = 0; i < this.languageChild.languages.length; i++) {
+     for (let i = 0; i < this.languageChild.items.length; i++) {
       let language = new LanguageJob();
-      language.Idioma = this.languageChild.languages[i];
+      language.Idioma = this.languageChild.items[i];
       language.OfertaId = this.userId;
       languages.push(language);
     }

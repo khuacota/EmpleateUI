@@ -17,20 +17,21 @@ export class InputChipsComponent implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
+  @Input() strict: boolean = true;
   separatorKeysCodes: number[] = [ENTER, COMMA];
-  languageCtrl = new FormControl();
-  filteredLanguages: Observable<string[]>;
-  @Input() languages: string[] = [];
-  @Input() alllanguages: string[] = [];
+  itemCtrl = new FormControl();
+  filteredItems: Observable<string[]>;
+  @Input() items: string[] = [];
+  @Input() allItems: string[] = [];
   @Input() minElements: number;
 
-  @ViewChild('languageInput') languageInput: ElementRef<HTMLInputElement>;
+  @ViewChild('itemInput') itemInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   constructor() {
-    this.filteredLanguages = this.languageCtrl.valueChanges.pipe(
+    this.filteredItems = this.itemCtrl.valueChanges.pipe(
       startWith(null),
-      map((language: string | null) => language ? this._filter(language) : this.alllanguages.slice()));
+      map((language: string | null) => language ? this._filter(language) : this.allItems.slice()));
   }
 
   add(event: MatChipInputEvent): void {
@@ -42,13 +43,13 @@ export class InputChipsComponent implements OnInit {
 
       // Add our language
       if ((value || '').trim()) {
-        if (this.alllanguages.includes(value.trim()) && !this.languages.includes(value.trim())) {
-          this.languages.push(value.trim());
+        if (this.allItems.includes(value.trim()) && !this.items.includes(value.trim())) {
+          this.items.push(value.trim());
         }
-        if (this.alllanguages.length == 0 && !this.languages.includes(value.trim())) {
-          this.languages.push(value.trim());
+        if (!this.strict && !this.items.includes(value.trim())) {
+          this.items.push(value.trim());
         }
-
+          
       }
 
       // Reset the input value
@@ -56,31 +57,31 @@ export class InputChipsComponent implements OnInit {
         input.value = '';
       }
 
-      this.languageCtrl.setValue(null);
+      this.itemCtrl.setValue(null);
     }
   }
 
   remove(language: string): void {
-    const index = this.languages.indexOf(language);
+    const index = this.items.indexOf(language);
 
-    if (index >= 0 && this.languages.length > this.minElements) {
-      this.languages.splice(index, 1);
+    if (index >= 0 && this.items.length > this.minElements) {
+      this.items.splice(index, 1);
     }
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    if (!this.languages.includes(event.option.viewValue)) {
+    if (!this.items.includes(event.option.viewValue)) {
 
-      this.languages.push(event.option.viewValue);
+      this.items.push(event.option.viewValue);
     }
-    this.languageInput.nativeElement.value = '';
-    this.languageCtrl.setValue(null);
+    this.itemInput.nativeElement.value = '';
+    this.itemCtrl.setValue(null);
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.alllanguages.filter(language => language.toLowerCase().indexOf(filterValue) === 0);
+    return this.allItems.filter(language => language.toLowerCase().indexOf(filterValue) === 0);
   }
 
   ngOnInit() {
