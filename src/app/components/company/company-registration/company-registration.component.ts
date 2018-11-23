@@ -6,11 +6,11 @@ import { EmpresaService } from '../../../services/empresa/empresa.service';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
-  selector: 'app-registro-empresa',
-  templateUrl: './registro-empresa.component.html',
-  styleUrls: ['./registro-empresa.component.css']
+  selector: 'app-company-registration',
+  templateUrl: './company-registration.component.html',
+  styleUrls: ['./company-registration.component.css']
 })
-export class RegistroEmpresaComponent implements OnInit {
+export class CompanyRegistrationComponent implements OnInit {
 
 
   entrys: string[] = ['Alimenticio','Automovilistico','Social','Software','Limpieza','Hardware'];

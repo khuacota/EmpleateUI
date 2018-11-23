@@ -12,10 +12,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class RegistroEmpleadoBasicoComponent implements OnInit {
   isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
-  empleadoForm: FormGroup;
+  employeeForm: FormGroup;
 
 
   constructor(private _formBuilder: FormBuilder, private service: InformacionBasicaService, public snackBar: MatSnackBar) {
@@ -23,49 +20,49 @@ export class RegistroEmpleadoBasicoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
+    this.employeeForm = this._formBuilder.group({
       //firstCtrl: ['',Validators.required],
-      nombreEmpleado: ['', Validators.compose([
+      Name: ['', Validators.compose([
         Validators.required,
         //Validators.pattern('[a-zA-Z0-9 ]+')
       ])],
-      apellidoEmpleado: ['', Validators.compose([
+      LastName: ['', Validators.compose([
         Validators.required,
         //Validators.pattern('[a-zA-Z0-9 ]+')
       ])],
-      fechaNacimiento: ['', Validators.compose([
+      Birthdate: ['', Validators.compose([
         Validators.required
         
       ])],
      
-       estadoCivil: ['', Validators.compose([
+       CivilStatus: ['', Validators.compose([
          Validators.required
          
       ])],
 
-       sexo: ['', Validators.compose([
+       Gender: ['', Validators.compose([
          Validators.required
          
       ])],
 
-       direccion: ['', Validators.compose([
+       Address: ['', Validators.compose([
          Validators.required,
          //Validators.pattern('[a-zA-Z0-9 ]+')
        ])],
 
-      ciudad: ['', Validators.compose([
+      City: ['', Validators.compose([
         Validators.required,
         //Validators.pattern('[a-zA-Z0-9 ]+')
       ])],
     
-       telefonoCelular: ['', Validators.compose([
+       Phone: ['', Validators.compose([
          Validators.required, Validators.max(99999999), Validators.min(9999999)
 
       ])],
 
-      email: ['', Validators.compose([Validators.required, Validators.email])],
+      Email: ['', Validators.compose([Validators.required, Validators.email])],
 
-      img: ['', Validators.compose([
+      Img: ['', Validators.compose([
         Validators.required
       ])]
      });
@@ -74,37 +71,26 @@ export class RegistroEmpleadoBasicoComponent implements OnInit {
   
 
   /*getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('email') ? 'Not a valid email' :
+    return this.Email.hasError('required') ? 'You must enter a value' :
+      this.Email.hasError('Email') ? 'Not a valid Email' :
         '';
   }*/
   submit() {
-    var Nombre: string = this.firstFormGroup.get('nombreEmpleado').value;
-    var Apellidos: string = this.firstFormGroup.get('apellidoEmpleado').value;
-    var FechaNacimiento: Date = this.firstFormGroup.get('fechaNacimiento').value;
-    var Genero: string = this.firstFormGroup.get('sexo').value;
-    var EstadoCivil: string = this.firstFormGroup.get('estadoCivil').value;
-    var Celular: number = this.firstFormGroup.get('telefonoCelular').value;
-    var Ciudad: string = this.firstFormGroup.get('ciudad').value;
-    var Direccion: string = this.firstFormGroup.get('direccion').value;
-    var Correo: string = this.firstFormGroup.get('email').value;
-    var Imagen: string = this.firstFormGroup.get('img').value;
 
     let empleado = new Empleado();
-    empleado.Nombre = Nombre;
-    empleado.Apellidos = Apellidos;
-    empleado.FechaNacimiento = FechaNacimiento;
-    empleado.Genero = Genero;
-    empleado.EstadoCivil = EstadoCivil;
-    empleado.Celular = Number(Celular);
-    empleado.EstadoCivil = EstadoCivil;
-    empleado.Ciudad = Ciudad;
-    empleado.Direccion = Direccion;
-    empleado.Correo = Correo;
-    empleado.Imagen = Imagen;
+    empleado.Nombre = this.employeeForm.get('Name').value;
+    empleado.Apellidos = this.employeeForm.get('LastName').value;
+    empleado.FechaNacimiento = this.employeeForm.get('Birthdate').value;
+    empleado.Genero = this.employeeForm.get('Gender').value;
+    empleado.EstadoCivil = this.employeeForm.get('CivilStatus').value;
+    empleado.Celular = this.employeeForm.get('Phone').value;
+    empleado.Ciudad = this.employeeForm.get('City').value;
+    empleado.Direccion = this.employeeForm.get('Address').value;
+    empleado.Correo = this.employeeForm.get('Email').value;
+    empleado.Imagen = this.employeeForm.get('Img').value;
 
-    console.log(this.firstFormGroup.value);
-    this.service.postEmpleado(empleado).subscribe(res => {
+    console.log(empleado);
+    this.service.post(empleado).subscribe(res => {
       this.snackBar.open("registro completado correctamente", "", {
         duration: 2000,
         panelClass: ['green-snackbar']

@@ -18,10 +18,6 @@ export class InformacionBasicaService extends BaseService {
       'empleados'
     );
   }
-
-  public postEmpleado(data: Empleado): Observable<any> {
-    return this.httpClient.post(`${this.apiUrl}/${this.endpoint}`, data).pipe(
-      catchError(this.errorHandler.handleError)
-    );
-  }
+  
+  
 }

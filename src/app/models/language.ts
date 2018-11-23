@@ -3,6 +3,6 @@ export class LanguageJob {
   public Idioma: string;
 }
 export class Language {
-  public EmpleadoId: number;
-  public Idioma: string;
+  public EmployeeId: number;
+  public Language: string;
 }

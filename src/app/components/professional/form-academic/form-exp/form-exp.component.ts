@@ -12,16 +12,16 @@ export class FormExpComponent implements OnInit {
   maxDate = new Date(this.today.setDate(this.today.getDate() - 1));
   constructor(private fb: FormBuilder) {
     this.expForm = this.fb.group({
-      Lugar: ['', Validators.compose([
+      Place: ['', Validators.compose([
         Validators.required,
         Validators.pattern('[a-zA-Z0-9 ]*')
       ])],
-      Cargo: ['', Validators.compose([
+      Position: ['', Validators.compose([
         Validators.required,
         Validators.pattern('[a-zA-Z ]*')
       ])],
-      Inicio: ['', Validators.required],
-      Fin: ['', Validators.required],
+      Start: ['', Validators.required],
+      End: ['', Validators.required],
     });
   }
 

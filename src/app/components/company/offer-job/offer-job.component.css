@@ -1,0 +1,57 @@
+.center-card {
+  max-width: 30%;
+  margin: auto;
+}
+
+.chips {
+  width: 90%;
+}
+
+.short {
+  margin-left: 5px;
+  width: 63%;
+}
+
+.extraShort {
+  margin-left: 5px;
+  margin-top: 10px;
+  width: 25%;
+}
+
+.long {
+  margin-left: 5px;
+  width: 90%;
+}
+
+.normal {
+  margin-left: 5px;
+  width: 80%;
+}
+
+.leftt {
+  display: flex;
+  stify-content: flex-end;
+  align-items: center;
+}
+
+
+example-margin {
+  margin: 10px;
+}
+
+.red {
+  color: red;
+}
+
+
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.testt{
+  width: 100%;
+  display:inline-block;
+  overflow: auto;
+  white-space: nowrap;  
+}

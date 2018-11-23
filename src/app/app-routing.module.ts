@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormAcademicComponent } from './components/professional/form-academic/form-academic.component';
-import { JobOfferComponent} from './components/empresa/ofertar-trabajo/ofertar-trabajo.component';
-import { RegistroEmpresaComponent } from './components/empresa/registro-empresa/registro-empresa.component';
+import { JobOfferComponent } from './components/company/offer-job/offer-job.component';
+import { CompanyRegistrationComponent } from './components/company/company-registration/company-registration.component';
 import { RegistroEmpleadoBasicoComponent } from './components/registro-empleado-basico/registro-empleado-basico.component';
 
 
 const routes: Routes = [
   { path: 'InformacionAcademica', component: FormAcademicComponent },
   { path: 'OfertaTrabajo', component: JobOfferComponent },
-  { path: 'RegistroEmpresa', component: RegistroEmpresaComponent },
+  { path: 'RegistroEmpresa', component: CompanyRegistrationComponent },
   { path: 'InformacionBasica', component: RegistroEmpleadoBasicoComponent }
 ];
 @NgModule({

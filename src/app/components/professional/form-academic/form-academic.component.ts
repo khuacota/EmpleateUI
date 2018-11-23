@@ -3,12 +3,12 @@ import { InputChipsComponent } from "../../inputs/input-chips/input-chips.compon
 import { AcademicTitleComponent } from "./academic-title/academic-title.component";
 import { FormExpComponent } from "./form-exp/form-exp.component";
 import { Experience } from '../../../models/experience';
-import { Title } from '../../../models/title';
+import { Degree } from '../../../models/Degree';
 import { Language } from '../../../models/language';
 import { Academic } from '../../../models/academic';
 import { AcademicService } from '../../../services/academic/academic.service';
 import { MatSnackBar } from '@angular/material';
-import { OcupacionEmp } from '../../../models/ocupacionEmp';
+import { OccupationEmp } from '../../../models/ocupacionEmp';
 import { SkillEmp } from '../../../models/skillEmp';
 
 
@@ -75,10 +75,10 @@ export class FormAcademicComponent implements AfterViewInit {
     let titles = this.viewTitles.toArray();
     let exps = this.viewExps.toArray();
     let experiences: Experience[] = [];
-    let titulos: Title[] = [];
+    let degrees: Degree[] = [];
     let languages: Language[] = [];
-    let habilidades: SkillEmp[] = [];
-    let ocupaciones: OcupacionEmp[] = [];
+    let skills: SkillEmp[] = [];
+    let occupations: OccupationEmp[] = [];
     for (let i = 0; i < exps.length; i++) {
       let exp = exps[i].expForm.value;
       exp.EmpleadoId = this.userId;
@@ -87,42 +87,42 @@ export class FormAcademicComponent implements AfterViewInit {
     for (let i = 0; i < titles.length; i++) {
       let title = titles[i].academicForm.value;
       title.EmpleadoId = this.userId;
-      titulos.push(title);
+      degrees.push(title);
     }
     let inputsChips = this.inputChips.toArray();
     for (let i = 0; i < inputsChips.length; i++) {
       if (inputsChips[i].label == 'idiomas') {
         for (let j = 0; j < inputsChips[i].languages.length; j++) {
           let language = new Language();
-          language.Idioma = inputsChips[i].languages[j];
-          language.EmpleadoId = this.userId;
+          language.Language = inputsChips[i].languages[j];
+          language.EmployeeId = this.userId;
           languages.push(language);
         }
       }
       if (inputsChips[i].label == 'habilidades') {
         for (let j = 0; j < inputsChips[i].languages.length; j++) {
           let habilidad = new SkillEmp();
-          habilidad.Habilidad = inputsChips[i].languages[j];
-          habilidad.EmpleadoId = this.userId;
-          habilidades.push(habilidad);
+          habilidad.Skill = inputsChips[i].languages[j];
+          habilidad.EmployeeId = this.userId;
+          skills.push(habilidad);
         }
       }
       if (inputsChips[i].label == 'Ocupaciones') {
         for (let j = 0; j < inputsChips[i].languages.length; j++) {
-          let ocupacion = new OcupacionEmp();
-          ocupacion.Ocupacion = inputsChips[i].languages[j];
-          ocupacion.EmpleadoId = this.userId;
-          ocupaciones.push(ocupacion);
+          let ocupacion = new OccupationEmp();
+          ocupacion.Occupation = inputsChips[i].languages[j];
+          ocupacion.EmployeeId = this.userId;
+          occupations.push(ocupacion);
         }
       }
     }
     let academic = new Academic();
-    academic.EmpleadoId = this.userId;
-    academic.Experiencias = experiences;
-    academic.Idiomas = languages;
-    academic.Titulos = titulos;
-    academic.Ocupaciones = ocupaciones;
-    academic.Habilidades = habilidades;
+    academic.EmployeeId = this.userId;
+    academic.Experiences = experiences;
+    academic.Languages = languages;
+    academic.Degrees = degrees;
+    academic.Occupations = occupations;
+    academic.Skills = skills;
     console.log(academic);
     this.academicServ.postAcademicInfo(academic).subscribe(res => {
       this.snackBar.open("registro completado correctamente", "", {
