@@ -1,8 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Company } from '../../../models/empresa';
-import { EmpresaService } from '../../../services/empresa/empresa.service';
+import { Company } from '../../../models/company';
+import { CompanyService } from '../../../services/company/company.service';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
@@ -16,7 +16,7 @@ export class CompanyRegistrationComponent implements OnInit {
   entrys: string[] = ['Alimenticio','Automovilistico','Social','Software','Limpieza','Hardware'];
   companyForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private service: EmpresaService, public snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder, private service: CompanyService, public snackBar: MatSnackBar) {
     this.companyForm = this.fb.group({
       Name: ['', Validators.compose([
         Validators.required,

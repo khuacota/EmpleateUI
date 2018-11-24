@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { InformacionBasicaService } from './informacion-basica.service';
+import { BasicInformationService } from './informacion-basica.service';
 
 describe('InformacionBasicaService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [InformacionBasicaService]
+      providers: [BasicInformationService]
     });
   });
 
-  it('should be created', inject([InformacionBasicaService], (service: InformacionBasicaService) => {
+  it('should be created', inject([BasicInformationService], (service: BasicInformationService) => {
     expect(service).toBeTruthy();
   }));
 });

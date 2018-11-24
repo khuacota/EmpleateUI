@@ -1,5 +1,5 @@
 export class Degree {
-  public grado: string;
-  public Descripcion: string;
-  public EmpleadoId: string;
+  public degree: string;
+  public Description: string;
+  public EmployeeId: string;
 }

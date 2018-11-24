@@ -3,12 +3,12 @@ import { InputChipsComponent } from "../../inputs/input-chips/input-chips.compon
 import { AcademicTitleComponent } from "./academic-title/academic-title.component";
 import { FormExpComponent } from "./form-exp/form-exp.component";
 import { Experience } from '../../../models/experience';
-import { Degree } from '../../../models/Degree';
+import { Degree } from '../../../models/degree';
 import { Language } from '../../../models/language';
 import { Academic } from '../../../models/academic';
 import { AcademicService } from '../../../services/academic/academic.service';
 import { MatSnackBar } from '@angular/material';
-import { OccupationEmp } from '../../../models/ocupacionEmp';
+import { OccupationEmp } from '../../../models/occupationEmp';
 import { SkillEmp } from '../../../models/skillEmp';
 
 
@@ -81,12 +81,12 @@ export class FormAcademicComponent implements AfterViewInit {
     let occupations: OccupationEmp[] = [];
     for (let i = 0; i < exps.length; i++) {
       let exp = exps[i].expForm.value;
-      exp.EmpleadoId = this.userId;
+      exp.EmployeeId = this.userId;
       experiences.push(exp);
     }
     for (let i = 0; i < titles.length; i++) {
       let title = titles[i].academicForm.value;
-      title.EmpleadoId = this.userId;
+      title.EmployeeId = this.userId;
       degrees.push(title);
     }
     let inputsChips = this.inputChips.toArray();

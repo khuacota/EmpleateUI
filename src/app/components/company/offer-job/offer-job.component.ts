@@ -4,8 +4,8 @@ import { InputSkillsComponent } from "../../skills/input-skills/input-skills.com
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { LanguageJob } from '../../../models/language';
 import { Skill } from '../../../models/skill';
-import { JobOffer } from '../../../models/ofertaTrabajo';
-import { OfertaTrabajoService } from '../../../services/ofertatrabajo/oferta-trabajo.service';
+import { JobOffer } from '../../../models/jobOffer';
+import { JobOfferService } from '../../../services/jobOffer/job-offer.service';
 import { MatSnackBar } from '@angular/material';
 
 
@@ -30,7 +30,7 @@ export class JobOfferComponent implements AfterViewInit {
   private languages: string[] = ['español', 'ingles'];
   private alllanguages: string[] = ['español', 'ingles', 'frances', 'ruso'];
 
-  constructor(private fb: FormBuilder,private ofertaServ: OfertaTrabajoService, public snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder,private ofertaServ: JobOfferService, public snackBar: MatSnackBar) {
 
     this.expForm = this.fb.group({
       Profession: ['', Validators.compose([
@@ -78,16 +78,16 @@ export class JobOfferComponent implements AfterViewInit {
     let languages: LanguageJob[] = [];
      for (let i = 0; i < this.languageChild.items.length; i++) {
       let language = new LanguageJob();
-      language.Idioma = this.languageChild.items[i];
-      language.OfertaId = this.userId;
+      language.Language = this.languageChild.items[i];
+      language.OfferId = this.userId;
       languages.push(language);
     }
 
     let skills: Skill[] = [];
      for (let i = 0; i < this.skillChild.skills.length; i++) {
       let skill = new Skill();
-      skill.Habilidad = this.skillChild.skills[i];
-      skill.OfertaId = this.userId;
+      skill.Skill = this.skillChild.skills[i];
+      skill.OfferId = this.userId;
       skills.push(skill);
     }
 

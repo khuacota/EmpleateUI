@@ -4,22 +4,20 @@ import { HttpErrorHandlerService } from '../http-error-handler.service';
 import { BaseService } from '../base.service';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators';
+import { Employee } from '../../models/employee';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProfesionService extends BaseService {
+export class BasicInformationService extends BaseService {
 
   constructor(httpClient: HttpClient, errorHandler: HttpErrorHandlerService) {
     super(
       httpClient,
       errorHandler,
-      'profesiones'
+      'empleados'
     );
   }
-  public getProfesionalesByProfesion(name: any): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/${this.endpoint}/${name}`).pipe(
-      catchError(this.errorHandler.handleError)
-    );
-  }
+  
+  
 }

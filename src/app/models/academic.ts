@@ -1,7 +1,7 @@
 import { Experience } from "./experience";
 import { Language } from "./language";
 import { Degree } from "./Degree";
-import { OccupationEmp } from "./ocupacionEmp";
+import { OccupationEmp } from "./occupationEmp";
 import { SkillEmp } from "./skillEmp";
 
 export class Academic {

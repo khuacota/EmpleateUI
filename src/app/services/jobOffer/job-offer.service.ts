@@ -4,12 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { HttpErrorHandlerService } from '../http-error-handler.service';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators';
-import { JobOffer } from '../../models/ofertaTrabajo';
+import { JobOffer } from '../../models/jobOffer';
 
 @Injectable({
   providedIn: 'root'
 })
-export class OfertaTrabajoService extends BaseService {
+export class JobOfferService extends BaseService {
 
   constructor(public httpClient: HttpClient, public errorHandler: HttpErrorHandlerService) {
     super(

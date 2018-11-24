@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { InformacionBasicaService } from '../../services/empleado/informacion-basica.service';
-import { Empleado } from '../../models/empleado';
+import { BasicInformationService } from '../../services/employee/basic-information.service';
+import { Employee } from '../../models/employee';
 import { MatSnackBar } from '@angular/material';
 
 
 @Component({
-  selector: 'app-registro-empleado-basico',
-  templateUrl: './registro-empleado-basico.component.html',
-  styleUrls: ['./registro-empleado-basico.component.css']
+  selector: 'app-employee-basic-registration',
+  templateUrl: './employee-basic-registration.component.html',
+  styleUrls: ['./employee-basic-registration.component.css']
 })
-export class RegistroEmpleadoBasicoComponent implements OnInit {
+export class EmployeeBasicRegistrationComponent implements OnInit {
   isLinear = false;
   employeeForm: FormGroup;
 
 
-  constructor(private _formBuilder: FormBuilder, private service: InformacionBasicaService, public snackBar: MatSnackBar) {
+  constructor(private _formBuilder: FormBuilder, private service: BasicInformationService, public snackBar: MatSnackBar) {
 
   }
 
@@ -77,17 +77,17 @@ export class RegistroEmpleadoBasicoComponent implements OnInit {
   }*/
   submit() {
 
-    let empleado = new Empleado();
-    empleado.Nombre = this.employeeForm.get('Name').value;
-    empleado.Apellidos = this.employeeForm.get('LastName').value;
-    empleado.FechaNacimiento = this.employeeForm.get('Birthdate').value;
-    empleado.Genero = this.employeeForm.get('Gender').value;
-    empleado.EstadoCivil = this.employeeForm.get('CivilStatus').value;
-    empleado.Celular = this.employeeForm.get('Phone').value;
-    empleado.Ciudad = this.employeeForm.get('City').value;
-    empleado.Direccion = this.employeeForm.get('Address').value;
-    empleado.Correo = this.employeeForm.get('Email').value;
-    empleado.Imagen = this.employeeForm.get('Img').value;
+    let empleado = new Employee();
+    empleado.Name = this.employeeForm.get('Name').value;
+    empleado.LastName = this.employeeForm.get('LastName').value;
+    empleado.Birthdate = this.employeeForm.get('Birthdate').value;
+    empleado.Gender = this.employeeForm.get('Gender').value;
+    empleado.CivilStatus = this.employeeForm.get('CivilStatus').value;
+    empleado.Phone = this.employeeForm.get('Phone').value;
+    empleado.City = this.employeeForm.get('City').value;
+    empleado.Direction = this.employeeForm.get('Address').value;
+    empleado.Email = this.employeeForm.get('Email').value;
+    empleado.Image = this.employeeForm.get('Img').value;
 
     console.log(empleado);
     this.service.post(empleado).subscribe(res => {
