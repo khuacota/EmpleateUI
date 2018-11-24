@@ -28,6 +28,7 @@ import { EmpresaService } from './services/empresa/empresa.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegistroEmpleadoBasicoComponent } from './components/registro-empleado-basico/registro-empleado-basico.component';
 import { InformacionBasicaService } from './services/empleado/informacion-basica.service';
+import { SearchEmploymentComponent } from './components/search-employment/search-employment.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { InformacionBasicaService } from './services/empleado/informacion-basica
     BuscarEmpleadoComponent,
     NavbarComponent,
     RegistroEmpleadoBasicoComponent,
+    SearchEmploymentComponent,
   ],
   imports: [
     BrowserModule,

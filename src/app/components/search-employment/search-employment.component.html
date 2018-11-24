@@ -1,0 +1,22 @@
+<mat-card class="center-card">
+  <mat-card-title>
+      OFERTA TRABAJO
+  </mat-card-title>
+  <img width="100" src="../../assets/search.png" class="center">
+  <h3 class="center">Busca un empleo en la empresa que deseas</h3>
+  <div>
+    <form [formGroup]="searchFormGroup" class="searcher">
+      <mat-form-field class="searcher">      
+        <input matInput placeholder="Busca por empresa..." formControlName="searchWord" (keyup.enter)="searchEmployment()"/>       
+      </mat-form-field>
+      <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <span>
+        <i class="fa fa-search left-icon" (click)="searchEmployment()"></i>
+      </span>
+    </form>
+    <div *ngFor="let item of offers">
+      <!--inserta tu postular aqui xD-->
+    </div>
+  </div>
+</mat-card>
