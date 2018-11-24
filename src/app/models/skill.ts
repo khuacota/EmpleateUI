@@ -1,4 +1,4 @@
 export class Skill{
-	public OfertaId: number;
-	public Habilidad: string;
+	public OfferId: number;
+	public Skill: string;
 }

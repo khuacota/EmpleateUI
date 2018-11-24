@@ -1,8 +1,8 @@
 export class LanguageJob {
-  public OfertaId: number;
-  public Idioma: string;
+  public OfferId: number;
+  public Language: string;
 }
 export class Language {
-  public EmpleadoId: number;
-  public Idioma: string;
+  public EmployeeId: number;
+  public Language: string;
 }

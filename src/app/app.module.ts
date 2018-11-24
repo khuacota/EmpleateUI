@@ -8,44 +8,40 @@ import { MaterialModule } from './modules/material/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
-import { BuscarEmpleadoComponent } from './components/buscar-empleado/buscar-empleado.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { ProfesionService } from './services/profesiones/profesion.service.ts.service';
 import { AppRoutingModule } from './app-routing.module';
 import { FormAcademicComponent } from './components/professional/form-academic/form-academic.component';
-import { InputLanguagesComponent } from './components/languages/input-languages/input-languages.component';
+import { InputChipsComponent } from './components/inputs/input-chips/input-chips.component';
 import { AcademicTitleComponent } from './components/professional/form-academic/academic-title/academic-title.component';
 import { FormExpComponent } from './components/professional/form-academic/form-exp/form-exp.component';
-import { OfertarTrabajoComponent } from './components/empresa/ofertar-trabajo/ofertar-trabajo.component';
+import { JobOfferComponent } from './components/company/offer-job/offer-job.component';
 import { InputSkillsComponent } from './components/skills/input-skills/input-skills.component';
-import { RegistroEmpresaComponent } from './components/empresa/registro-empresa/registro-empresa.component';
+import { CompanyRegistrationComponent } from './components/company/company-registration/company-registration.component';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { AcademicService } from './services/academic/academic.service';
 import { HttpErrorHandlerService } from './services/http-error-handler.service';
-import { OfertaTrabajoService } from './services/ofertatrabajo/oferta-trabajo.service';
-import { EmpresaService } from './services/empresa/empresa.service';
+import { JobOfferService } from './services/jobOffer/job-offer.service';
+import { CompanyService } from './services/company/company.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { RegistroEmpleadoBasicoComponent } from './components/registro-empleado-basico/registro-empleado-basico.component';
-import { InformacionBasicaService } from './services/empleado/informacion-basica.service';
 import { SearchEmploymentComponent } from './components/search-employment/search-employment.component';
+import { EmployeeBasicRegistrationComponent } from './components/employee-basic-registration/employee-basic-registration.component';
+import { BasicInformationService } from './services/employee/basic-information.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FormAcademicComponent,
-    InputLanguagesComponent,
+    InputChipsComponent,
     AcademicTitleComponent,
     FormExpComponent,
-    OfertarTrabajoComponent,
+    JobOfferComponent,
     InputSkillsComponent,
-    RegistroEmpresaComponent,
-
+    CompanyRegistrationComponent,
     BuscarEmpleadoComponent,
     NavbarComponent,
-    RegistroEmpleadoBasicoComponent,
     SearchEmploymentComponent,
+    EmployeeBasicRegistrationComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +55,7 @@ import { SearchEmploymentComponent } from './components/search-employment/search
 
   ],
 
-  providers: [ProfesionService, { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }, AcademicService, HttpErrorHandlerService, OfertaTrabajoService, EmpresaService, InformacionBasicaService],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }, AcademicService, HttpErrorHandlerService, JobOfferService, CompanyService, BasicInformationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
