@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buscar-empleado.component.css']
 })
 export class BuscarEmpleadoComponent implements OnInit {
-
-  constructor() { }
+  profesionales: Array<any>;
+  error: Boolean;
+  constructor() {
+    this.error = false;
+  }
 
   ngOnInit() {
+  }
+  buscarProfesionales(value: string) {
+    
   }
 
 }

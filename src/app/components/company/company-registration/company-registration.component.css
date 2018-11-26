@@ -1,0 +1,52 @@
+.center-card {
+  max-width: 30%;
+  margin: auto;
+}
+
+.tittle {
+  text-align: center;
+}
+
+.short {
+  margin-left: 5px;
+  width: 80%;
+}
+
+.URL {
+  margin-left: 5px;
+  width: 80%;
+}
+
+.Img {
+  margin-left: 5px;
+  width: 100%;
+}
+
+.long {
+  margin-left: 5px;
+  width: 90%;
+}
+
+.normal {
+  margin-left: 5px;
+  width: 80%;
+}
+
+.img {
+  margin-left: 5px;
+  margin-top: 10px;
+  margin-bottom: 28px;
+  width: 80%;
+}
+.elB {
+  border-bottom: groove;
+}
+
+.testt {
+  margin-left: 25px;
+  width: 85%;
+  margin-bottom:20px;
+  display: inline-block;
+  overflow: auto;
+  white-space: nowrap;
+}

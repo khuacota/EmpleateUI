@@ -1,0 +1,15 @@
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.center-card {
+  max-width: 50%;
+  margin: auto;
+}
+.bodyContainer {
+  padding: 30px;
+}
+
+.encabezado {
+  margin-left: 15px;
+}

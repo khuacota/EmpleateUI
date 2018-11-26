@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,7 +7,7 @@
   <body>
     <header class="navegacion">
       <div class="ancho">
-      
+
         <mat-toolbar class="navMenu">
           <div class="logo">
             <p><a href="#">Empleate</a></p>
@@ -16,13 +17,13 @@
               <a href="">Home</a>
             </li>
             <li>
-              <a href="">Profile</a>
+              <a href="">Profesionales</a>
             </li>
             <li>
-              <a href="">Network</a>
+              <a href="">Areas de trabajo</a>
             </li>
             <li>
-              <a href="">Mensajes</a>
+              <a href="">Notificacion</a>
             </li>
           </ul>
           <mat-form-field class="example-form-field">
@@ -31,9 +32,23 @@
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
-          <a href="#" class="lupa"><i class="material-icons"> search</i></a>
-        </mat-toolbar> 
+          <a href="#" class="lupa" (click)=buscarProfesionales(value)><i class="material-icons"> search</i></a>
+        </mat-toolbar>
       </div>
     </header>
+    <div class="listGroup">
+      <div *ngFor="let item of profesionales" class="columns">
+        <div class="separator"></div>
+        <div class="column" style="text-align:left; color:white; font-size:20px">
+          <h4 class="center">{{item.nombre}} {{item.apellidos}}</h4>
+          <h6 class="center">{{item.telefono}}</h6>
+          <p class="center">{{item.correo}}</p>
+        </div>
+      </div>
+      <div *ngIf="error" class="column">
+        <p class="center" style="color:white">No se encontraron coincidencias</p>
+      </div>
+    </div>
   </body>
 </html>
+
