@@ -1,3 +1,10 @@
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+  width: 227px;
+  height: 227px;
+}
 .searcher {
   min-width: 150px;
   width: 70%;
@@ -17,24 +24,21 @@
   cursor: pointer;
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-}
-
 .slinput .fa {
   color: #444;
   font-size: 16px;
 }
 
 .center-card {
-  max-width: 40%;
+  max-width: 50%;
   margin: auto;
 }
+
 .btnSearch {
   background-color: rgb(255, 87, 34);
   color: white;
 }
+
 .btnlocation {
   text-align: right;
 }

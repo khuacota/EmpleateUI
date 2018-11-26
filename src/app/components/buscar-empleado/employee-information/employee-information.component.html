@@ -1,0 +1,27 @@
+<mat-card class="center-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title><strong> Nombre:</strong> {{proffesional.Name}} {{proffesional.LastName}}</mat-card-title>
+    <mat-card-subtitle><strong> Ciudad:</strong> {{proffesional.City}} <strong> Correo:</strong> {{proffesional.Email}}</mat-card-subtitle>
+  </mat-card-header><br />
+
+  <mat-divider></mat-divider><br />
+  <mat-card-title class="center"><strong> Informacion Academica</strong></mat-card-title><br />
+  <mat-card-title> General:</mat-card-title><br />
+  <strong> Idiomas:</strong>
+  <mat-chip *ngFor="">Idiomas</mat-chip><br />
+  <strong> Habilidades:</strong>
+  <label *ngFor="">-Habilidades</label><br />
+  <mat-card-title> Conocimiento:</mat-card-title><br />
+  <strong> Titulos:</strong>
+  <label *ngFor="">Titulos</label><br />
+  <strong> Ocupaciones:</strong>
+  <label *ngFor="">Ocupaciones</label>
+  <br />
+  <mat-card-title> Experiencias:</mat-card-title><br />
+  <br />
+  <button class="btnSearch btnlocation " mat-button>Notificar</button>
+  <br />
+  <br />
+
+</mat-card>

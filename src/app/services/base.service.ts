@@ -12,7 +12,7 @@ export abstract class BaseService {
 
   // protected apiUrl = 'http://.azurewebsites.net';
   protected apiUrl = 'https://localhost:44313';
-  private headers: HttpHeaders;
+  protected headers: HttpHeaders;
   
   constructor(
     protected httpClient: HttpClient,
