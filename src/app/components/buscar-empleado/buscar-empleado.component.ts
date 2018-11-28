@@ -26,6 +26,7 @@ export class BuscarEmpleadoComponent implements OnInit {
     empp.Name = "pepe";
     empp.City = "ciudad";
     empp.Email = "asdf@asdf.com";
+    empp.Id = 1;
     this.proffesionals = [empp, empp];
     this.searchForm = this._formBuilder.group({
       //firstCtrl: ['',Validators.required],

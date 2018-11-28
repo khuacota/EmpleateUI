@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'RegistroEmpresa', component: CompanyRegistrationComponent },
   { path: 'InformacionBasica', component: EmployeeBasicRegistrationComponent },
   { path: 'BuscarEmpleado', component: BuscarEmpleadoComponent },
-  { path: 'InformacionEmpleado', component: EmployeeInformationComponent }
+  { path: 'InformacionEmpleado/:id', component: EmployeeInformationComponent }
 ];
 @NgModule({
   imports: [
