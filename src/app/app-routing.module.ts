@@ -7,7 +7,6 @@ import { SearchEmploymentComponent } from './components/search-employment/search
 import { JobOfferComponent } from './components/company/offer-job/offer-job.component';
 import { CompanyRegistrationComponent } from './components/company/company-registration/company-registration.component';
 import { EmployeeBasicRegistrationComponent } from './components/employee-basic-registration/employee-basic-registration.component';
-import { BuscarEmpleadoComponent } from './components/buscar-empleado/buscar-empleado.component';
 import { EmployeeInformationComponent } from './components/buscar-empleado/employee-information/employee-information.component';
 
 

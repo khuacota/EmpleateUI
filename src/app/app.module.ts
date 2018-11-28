@@ -27,10 +27,12 @@ import { SearchEmploymentComponent } from './components/search-employment/search
 import { EmployeeBasicRegistrationComponent } from './components/employee-basic-registration/employee-basic-registration.component';
 import { BasicInformationService } from './services/employee/basic-information.service';
 import { EmployeeInformationComponent } from './components/buscar-empleado/employee-information/employee-information.component';
+import { BuscarEmpleadoComponent } from './components/buscar-empleado/buscar-empleado.component';
 
 
 @NgModule({
   declarations: [
+    BuscarEmpleadoComponent,
     AppComponent,
     FormAcademicComponent,
     InputChipsComponent,

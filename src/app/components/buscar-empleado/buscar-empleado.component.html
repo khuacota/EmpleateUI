@@ -1,38 +1,44 @@
-
-  <img width="100" src="" class="center">
-  <h3 class="center">Buscar Empleados</h3>
+<mat-card class="center-card">
+  <mat-card-title>
+    BUSCAR EMPLEADOS
+  </mat-card-title>
+  <img width="100" src="../../assets/search.png" class="center">
+  <h3 class="center">Busca tu empleado ideal</h3>
   <div>
     <form class="searcher" [formGroup]="searchForm">
       <mat-form-field class="searcher">
         <input matInput placeholder="Buscar empleados..." formControlName="Searched" (keyup.enter)="searchEmployees()" />
 
       </mat-form-field>
-      <button class="btnSearch" mat-button (click)="searchEmployees()">
-        <i class="material-icons ">
-          search
-        </i>
-      </button>
+      <i class="material-icons left-icon" (click)="searchEmployees()">
+        search
+      </i>
     </form>
-
-    <div *ngFor="let proffesional of proffesionals">
-      <mat-card class="center-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title><strong> Nombre:</strong> {{proffesional.Name}} {{proffesional.LastName}}</mat-card-title>
-          <mat-card-subtitle><strong> Ciudad:</strong> {{proffesional.City}} <strong> Correo:</strong> {{proffesional.Email}}</mat-card-subtitle>
-        </mat-card-header>
-        <strong> Ocupaciones:</strong>
-        <label *ngFor="let occupation of proffesional.Occupations"> {{occupation.Occupation}},</label>
-
-        <label></label>
-        <br />
-        <br />
-        <button class="btnSearch btnlocation " mat-button [routerLink]="['/InformacionEmpleado', proffesional.Id]">Ver mas</button>
-        <br />
-        <br />
-        <!--inserta tu postular aqui xD-->
-      </mat-card>
-      <br />
-    </div>
-    
   </div>
+</mat-card><br>
+
+<div>
+  
+
+  <div *ngFor="let proffesional of proffesionals">
+    <mat-card class="center-card-big">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title><strong> Nombre:</strong> {{proffesional.Name}} {{proffesional.LastName}}</mat-card-title>
+        <mat-card-subtitle><strong> Ciudad:</strong> {{proffesional.City}} <strong> Correo:</strong> {{proffesional.Email}}</mat-card-subtitle>
+      </mat-card-header>
+      <strong> Ocupaciones:</strong>
+      <label *ngFor="let occupation of proffesional.Occupations"> {{occupation.Occupation}},</label>
+
+      <label></label>
+      <br />
+      <br />
+      <button class="btnSearch btnlocation " mat-button [routerLink]="['/InformacionEmpleado', proffesional.Id]">Ver mas</button>
+      <br />
+      <br />
+      <!--inserta tu postular aqui xD-->
+    </mat-card>
+    <br />
+  </div>
+
+</div>
