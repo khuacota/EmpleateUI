@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
-import { OfertaTrabajoService } from '../../services/ofertatrabajo/oferta-trabajo.service';
+import { JobOfferService } from '../../services/jobOffer/job-offer.service';
 
 @Component({
   selector: 'app-search-employment',
@@ -15,7 +15,7 @@ export class SearchEmploymentComponent implements OnInit {
   offers: Array<any>;
   error: Boolean;
   searchFormGroup:FormGroup;
-  constructor(private service: OfertaTrabajoService,private formBuilder: FormBuilder,){
+  constructor(private service: JobOfferService,private formBuilder: FormBuilder,){
   	this.error = false;
     this.searchFormGroup = this.formBuilder.group({      
       searchWord: ['',Validators.required]});

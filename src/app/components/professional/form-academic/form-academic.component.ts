@@ -3,7 +3,7 @@ import { InputChipsComponent } from "../../inputs/input-chips/input-chips.compon
 import { AcademicTitleComponent } from "./academic-title/academic-title.component";
 import { FormExpComponent } from "./form-exp/form-exp.component";
 import { Experience } from '../../../models/experience';
-import { Degree } from '../../../models/degree';
+import { Degree } from '../../../models/Degree';
 import { Language } from '../../../models/language';
 import { Academic } from '../../../models/academic';
 import { AcademicService } from '../../../services/academic/academic.service';

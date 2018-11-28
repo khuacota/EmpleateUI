@@ -38,7 +38,6 @@ import { BasicInformationService } from './services/employee/basic-information.s
     JobOfferComponent,
     InputSkillsComponent,
     CompanyRegistrationComponent,
-    BuscarEmpleadoComponent,
     NavbarComponent,
     SearchEmploymentComponent,
     EmployeeBasicRegistrationComponent,
