@@ -24,4 +24,10 @@ export class JobOfferService extends BaseService {
       catchError(this.errorHandler.handleError)
     );
   }
+
+  public getOffersByCompany(name: string): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/${this.endpoint}/${name}`).pipe(
+      catchError(this.errorHandler.handleError)
+    );
+  }
 }

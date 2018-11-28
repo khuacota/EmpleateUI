@@ -8,7 +8,6 @@ import { MaterialModule } from './modules/material/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
-import { BuscarEmpleadoComponent } from './components/buscar-empleado/buscar-empleado.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { FormAcademicComponent } from './components/professional/form-academic/form-academic.component';
@@ -24,6 +23,7 @@ import { HttpErrorHandlerService } from './services/http-error-handler.service';
 import { JobOfferService } from './services/jobOffer/job-offer.service';
 import { CompanyService } from './services/company/company.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchEmploymentComponent } from './components/search-employment/search-employment.component';
 import { EmployeeBasicRegistrationComponent } from './components/employee-basic-registration/employee-basic-registration.component';
 import { BasicInformationService } from './services/employee/basic-information.service';
 import { EmployeeInformationComponent } from './components/buscar-empleado/employee-information/employee-information.component';
@@ -39,8 +39,8 @@ import { EmployeeInformationComponent } from './components/buscar-empleado/emplo
     JobOfferComponent,
     InputSkillsComponent,
     CompanyRegistrationComponent,
-    BuscarEmpleadoComponent,
     NavbarComponent,
+    SearchEmploymentComponent,
     EmployeeBasicRegistrationComponent,
     EmployeeInformationComponent,
   ],

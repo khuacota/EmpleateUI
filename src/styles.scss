@@ -18,6 +18,11 @@ $theme: mat-light-theme($primary, $accent, $warn);
 body {
   font-family: mat-font-family($config);
   font-weight: normal;
+  background: url(./assets/back2.png)no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 h1, h2, h3, h4 {
