@@ -15,9 +15,15 @@ export class EmployeeInformationComponent implements OnInit {
   private basicInfo: BasicEmployee;
   private academicInfo: Academic;
   private employeeId: string;
-  constructor(private basicInfService: BasicInformationService, private academicSerice: AcademicService, private route: ActivatedRoute, private router: Router) {
+  constructor(private basicInfService: BasicInformationService, private academicService: AcademicService, private route: ActivatedRoute, private router: Router) {
     this.basicInfo = new BasicEmployee();
     this.academicInfo = new Academic();
+    this.basicInfService.getOne(this.employeeId).subscribe((res: BasicEmployee) => {
+      this.basicInfo = res;
+    });
+    this.academicService.getOne(this.employeeId).subscribe((res: Academic) => {
+      this.academicInfo = res;
+    });
   }
 
   ngOnInit() {

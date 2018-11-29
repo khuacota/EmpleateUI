@@ -1,5 +1,5 @@
 export class Experience {
-  public EmpleadoId: number;
+  public EmployeeId: number;
   public Place: string;
   public Position: string;
   public Start: Date;
