@@ -43,11 +43,9 @@ export class EmployeeInformationComponent implements OnInit {
   ngOnInit() {
     
     this.basicInfService.getOne(this.employeeId).subscribe((res: BasicEmployee) => {
-      console.log(res);
       this.basicInfo = res;
     });
     this.academicService.getOne(this.employeeId).subscribe((res: Academic) => {
-      console.log(res);
       this.academicInfo = res;
     });
   }
