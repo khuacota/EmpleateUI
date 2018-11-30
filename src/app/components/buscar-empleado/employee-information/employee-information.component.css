@@ -5,6 +5,13 @@
   width: 227px;
   height: 227px;
 }
+
+.left-button {
+  float: left;
+}
+.rigth-button {
+  float: right;
+}
 .searcher {
   min-width: 150px;
   width: 70%;
