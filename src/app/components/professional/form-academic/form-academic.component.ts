@@ -123,7 +123,6 @@ export class FormAcademicComponent implements AfterViewInit {
     academic.Degrees = degrees;
     academic.Occupations = occupations;
     academic.Skills = skills;
-    console.log(academic);
     this.academicServ.postAcademicInfo(academic).subscribe(res => {
       this.snackBar.open("registro completado correctamente", "", {
         duration: 2000,
@@ -134,7 +133,6 @@ export class FormAcademicComponent implements AfterViewInit {
         duration: 2000,
         panelClass: ['red-snackbar']
       });
-      console.log(error);
     });
   }
 }

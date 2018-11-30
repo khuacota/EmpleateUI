@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Regex } from '../../../../models/regex';
 
 @Component({
   selector: 'app-academic-title',
@@ -14,7 +15,7 @@ export class AcademicTitleComponent implements OnInit {
       Degree: ['', Validators.required],
       Description: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('[a-zA-Z0-9 ]*')
+        Validators.pattern(Regex.ALPHANUMERIC)
       ])]
     });
   }

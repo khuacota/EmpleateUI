@@ -42,7 +42,6 @@ export class BuscarEmpleadoComponent implements OnInit {
     this.serviceEmployee.getFilterEmployees().subscribe((res: Array<BasicEmployee>) => {
       this.proffesionals = res;
     }, error => {
-      console.log(this.searchForm.value.Searched);
     });
   }
 

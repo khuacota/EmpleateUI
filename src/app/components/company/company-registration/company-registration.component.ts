@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Company } from '../../../models/company';
 import { CompanyService } from '../../../services/company/company.service';
 import { MatSnackBar } from '@angular/material';
+import { Regex } from '../../../models/regex';
 
 @Component({
   selector: 'app-company-registration',
@@ -20,7 +21,7 @@ export class CompanyRegistrationComponent implements OnInit {
     this.companyForm = this.fb.group({
       Name: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('[a-zA-Z0-9 ]+')
+        Validators.pattern(Regex.ALPHANUMERIC)
       ])],
       Phone: ['', Validators.compose([
         Validators.required, Validators.max(99999999), Validators.min(9999999)
@@ -37,13 +38,13 @@ export class CompanyRegistrationComponent implements OnInit {
 
       Address: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('[a-zA-Z]+')
+        Validators.pattern(Regex.ALPHABETIC)
       ])],
 
 
       Email: ['', Validators.compose([
         Validators.required,
-        Validators.pattern("[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}")
+        Validators.email
       ])],
 
       Image: ['', Validators.compose([
@@ -51,7 +52,7 @@ export class CompanyRegistrationComponent implements OnInit {
       ])],
 
       Url: ['', Validators.compose([
-        Validators.pattern("(http://|https://)?(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9]*.[a-z]{3}.?([a-z]+)?")
+        Validators.pattern(Regex.URL)
       ])]
     });
   }
@@ -77,7 +78,6 @@ export class CompanyRegistrationComponent implements OnInit {
     company.Email = Email;
     company.Image = Image;
     company.Url = web;
-    console.log(company);
     this.service.postEmpresa(company).subscribe(res => {
       this.snackBar.open("registro completado correctamente", "", {
         duration: 2000,
