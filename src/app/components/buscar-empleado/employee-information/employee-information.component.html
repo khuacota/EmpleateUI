@@ -1,51 +1,61 @@
 <mat-card class="center-card">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title><strong> Nombre:</strong> {{proffesional.Name}} {{proffesional.LastName}}</mat-card-title>
-    <mat-card-subtitle><strong> Ciudad:</strong> {{proffesional.City}}</mat-card-subtitle>
-    <mat-card-subtitle><strong> Correo:</strong> {{proffesional.Email}}</mat-card-subtitle>
+    <mat-card-title><strong> Nombre:</strong> {{basicInfo.name}} {{basicInfo.lastName}}</mat-card-title>
+    <mat-card-subtitle><strong> Ciudad:</strong> {{basicInfo.city}}</mat-card-subtitle>
+    <mat-card-subtitle><strong> Correo:</strong> {{basicInfo.email}}</mat-card-subtitle>
+    <mat-card-subtitle><strong> telefono:</strong> {{basicInfo.phone}}</mat-card-subtitle>
+    <mat-card-subtitle><strong> Direccion:</strong> {{basicInfo.direction}}</mat-card-subtitle>
+    <mat-card-subtitle><strong> Estado civil:</strong> {{basicInfo.civilStatus}}</mat-card-subtitle>
   </mat-card-header><br />
 
   <mat-divider></mat-divider><br />
   <mat-card-title class="center"><strong> Informacion Academica</strong></mat-card-title><br />
-    <mat-card-title> General:</mat-card-title>
-      <strong> Idiomas:</strong>
-        <mat-chip *ngFor="let language of academicInfo.Languages">Idiomas</mat-chip><br />
-      <strong> Habilidades:</strong>
-        <label *ngFor="let skill of academicInfo.Skills">-Habilidades</label><br />
-      <br />
-    <mat-card-title> Conocimiento:</mat-card-title>
-      <strong> Titulos:</strong>
-      <div *ngFor="let degree of academicInfo.Degrees">
-        <strong> Grado:</strong>
-        <label>degree.Degree</label><br />
-        <strong> Descripcion:</strong>
-        <label>degree.Description</label>
-      </div><br />
-      <strong> Ocupaciones:</strong>
-        <label *ngFor="let occupation of academicInfo.Occupations">Ocupaciones</label>
-    <br />
-    <br />
-    <mat-card-title> Experiencias:</mat-card-title><br />
-    <div *ngFor="let experience of academicInfo.Experiences">
-      <strong> Lugar:</strong>
-        <label >experience.Place</label><br />
-      <strong> Cargo:</strong>
-        <label >experience.Position</label>
-      <strong> Inicio:</strong>
-        <label >experience.Start</label><br />
-      <strong> Fin:</strong>
-        <label >experience.End</label>
+  <mat-card-title> General:</mat-card-title>
+  <strong> Idiomas:</strong>
+  <label *ngFor="let language of academicInfo.languages">{{language.language}} </label><br />
+  <strong> Habilidades:</strong>
+
+  <strong *ngIf="showNull(academicInfo.skills)"> Sin habilidades</strong>
+  <label *ngFor="let skill of academicInfo.skills">{{skill.skill}}</label><br />
+  <br />
+  <mat-card-title> Conocimiento:</mat-card-title>
+  <strong> Titulos:</strong>
+
+  <strong *ngIf="showNull(academicInfo.degrees)"> Sin titulos</strong>
+  <div *ngFor="let degree of academicInfo.degrees">
+    <strong> Grado:</strong>
+    <label>{{degree.degree}}</label>
+    <strong> Descripcion:</strong>
+    <label>{{degree.description}}</label>
+  </div><br />
+  <strong> Ocupaciones:</strong>
+
+  <strong *ngIf="showNull(academicInfo.experiences)"> Sin ocupaciones</strong>
+  <label *ngFor="let occupation of academicInfo.occupations">{{occupation.occupation}}</label>
+  <br />
+  <br />
+  <mat-card-title> Experiencias:</mat-card-title><strong *ngIf="showNull(academicInfo.experiences)"> Sin experiencias</strong><br />
+  
+  <div *ngFor="let experience of academicInfo.experiences">
+    <strong> Lugar:</strong>
+    <label>{{experience.place}}</label><br />
+    <strong> Cargo:</strong>
+    <label>{{experience.position}}</label>
+    <strong> Inicio:</strong>
+    <label>{{experience.start}}</label><br />
+    <strong> Fin:</strong>
+    <label>{{experience.end}}</label>
+  </div>
+  <br />
+  <div class='testt'>
+    <div style='float: right;'>
+      <button class="btnSearch btnlocation " mat-button>Notificar</button>
     </div>
-    <br />
-    <div class='testt'>
-      <div style='float: right;'>
-        <button class="btnSearch btnlocation " mat-button>Notificar</button>
-      </div>
-      <div style='float: left;'>
-        <button class="btnSearch btnlocation " mat-button routerLink="/BuscarEmpleado">Cancelar</button>
-      </div>
+    <div style='float: left;'>
+      <button class="btnSearch btnlocation " mat-button routerLink="/BuscarEmpleado">Cancelar</button>
     </div>
-      <br />
-      <br />
+  </div>
+  <br />
+  <br />
 </mat-card>
