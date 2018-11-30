@@ -25,6 +25,12 @@ export class JobOfferService extends BaseService {
     );
   }
 
+  public postulate(data: JobOffer): Observable<any> {
+    return this.httpClient.post(`${this.apiUrl}/${this.endpoint}/postulate`, data).pipe(
+      catchError(this.errorHandler.handleError)
+    );
+  }
+
   public getOffersByCompany(name: string): Observable<any> {
     let words = name.split(' ');
     let search = this.setUrlSearch(words);
