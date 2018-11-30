@@ -29,7 +29,6 @@ export class BuscarEmpleadoComponent implements OnInit {
     empp.Id = 1;
     this.proffesionals = [empp, empp];
     this.searchForm = this._formBuilder.group({
-      //firstCtrl: ['',Validators.required],
       Searched: ['', Validators.compose([
         Validators.required
       ])]
