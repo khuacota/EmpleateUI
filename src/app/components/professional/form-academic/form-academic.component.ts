@@ -3,7 +3,7 @@ import { InputChipsComponent } from "../../inputs/input-chips/input-chips.compon
 import { AcademicTitleComponent } from "./academic-title/academic-title.component";
 import { FormExpComponent } from "./form-exp/form-exp.component";
 import { Experience } from '../../../models/experience';
-import { Degree } from '../../../models/degree';
+import { Degree } from '../../../models/Degree';
 import { Language } from '../../../models/language';
 import { Academic } from '../../../models/academic';
 import { AcademicService } from '../../../services/academic/academic.service';
@@ -123,7 +123,6 @@ export class FormAcademicComponent implements AfterViewInit {
     academic.Degrees = degrees;
     academic.Occupations = occupations;
     academic.Skills = skills;
-    console.log(academic);
     this.academicServ.postAcademicInfo(academic).subscribe(res => {
       this.snackBar.open("registro completado correctamente", "", {
         duration: 2000,
@@ -134,7 +133,6 @@ export class FormAcademicComponent implements AfterViewInit {
         duration: 2000,
         panelClass: ['red-snackbar']
       });
-      console.log(error);
     });
   }
 }

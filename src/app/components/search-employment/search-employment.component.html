@@ -1,0 +1,47 @@
+<mat-card class="center-card">
+  <mat-card-title>
+      OFERTA TRABAJO
+  </mat-card-title>
+  <img width="100" src="../../assets/search.png" class="center">
+  <h3 class="center">Busca un empleo en la empresa que deseas</h3>
+  <div>
+    <form [formGroup]="searchFormGroup" class="searcher">
+      <mat-form-field class="searcher">      
+        <input matInput placeholder="Busca por empresa..." formControlName="searchWord" (keyup.enter)="searchEmployment()"/>       
+      </mat-form-field>
+      <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <span>
+        <i class="fa fa-search left-icon" (click)="searchEmployment()"></i>
+      </span>
+    </form>    
+  </div>
+</mat-card><br>
+<div *ngFor="let item of offers" class="center-shortcard">      
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Profesion:{{item.Profession}}
+            </mat-panel-title>
+            <mat-panel-description>
+              Experiencia Minima:{{item.MinExperience }} 
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+        <div class="ontheleft">
+          <span>Horario:{{item.StartTime}} - {{item.EndTime}}</span><br>
+          <span>Ciudad:{{item.City}}</span><br>
+          <span>Habilidades:{{item.ReqSkills}} </span><br>
+          <span>Idiomas:{{item.ReqLanguages}} </span><br>
+          <span>Decripcion:{{item.Description}}</span><br><br>
+          <span>Fecha limite de postulacion:{{item.Deadline}}</span>
+          <button mat-raised-button color="accent" class="button">Postular</button><br><br>
+        </div>
+        </mat-expansion-panel><br>
+      </mat-accordion>
+      <div class="separator"></div>
+    </div>
+    <div *ngIf="error" class="column">
+      <p class="center">No se encontraron coincidencias</p>
+    </div>

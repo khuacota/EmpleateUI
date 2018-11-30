@@ -21,14 +21,11 @@ export class EmployeeBasicRegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.employeeForm = this._formBuilder.group({
-      //firstCtrl: ['',Validators.required],
       Name: ['', Validators.compose([
-        Validators.required,
-        //Validators.pattern('[a-zA-Z0-9 ]+')
+        Validators.required
       ])],
       LastName: ['', Validators.compose([
-        Validators.required,
-        //Validators.pattern('[a-zA-Z0-9 ]+')
+        Validators.required
       ])],
       Birthdate: ['', Validators.compose([
         Validators.required
@@ -46,13 +43,11 @@ export class EmployeeBasicRegistrationComponent implements OnInit {
       ])],
 
        Address: ['', Validators.compose([
-         Validators.required,
-         //Validators.pattern('[a-zA-Z0-9 ]+')
+         Validators.required
        ])],
 
       City: ['', Validators.compose([
-        Validators.required,
-        //Validators.pattern('[a-zA-Z0-9 ]+')
+        Validators.required
       ])],
     
        Phone: ['', Validators.compose([
@@ -69,12 +64,7 @@ export class EmployeeBasicRegistrationComponent implements OnInit {
 
   }
   
-
-  /*getErrorMessage() {
-    return this.Email.hasError('required') ? 'You must enter a value' :
-      this.Email.hasError('Email') ? 'Not a valid Email' :
-        '';
-  }*/
+ 
   submit() {
 
     let empleado = new Employee();
@@ -88,14 +78,12 @@ export class EmployeeBasicRegistrationComponent implements OnInit {
     empleado.Direction = this.employeeForm.get('Address').value;
     empleado.Email = this.employeeForm.get('Email').value;
     empleado.Image = this.employeeForm.get('Img').value;
-
-    console.log(empleado);
+    
     this.service.post(empleado).subscribe(res => {
       this.snackBar.open("registro completado correctamente", "", {
         duration: 2000,
         panelClass: ['green-snackbar']
       });
-      console.log("aqui");
     }, error => {
       this.snackBar.open("error", "", {
         duration: 2000,
@@ -104,7 +92,6 @@ export class EmployeeBasicRegistrationComponent implements OnInit {
     });
   }
   onFileSelected(event) {
-    console.log(event);
   }
 
 }
