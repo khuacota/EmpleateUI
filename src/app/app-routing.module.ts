@@ -7,6 +7,7 @@ import { SearchEmploymentComponent } from './components/search-employment/search
 import { JobOfferComponent } from './components/company/offer-job/offer-job.component';
 import { CompanyRegistrationComponent } from './components/company/company-registration/company-registration.component';
 import { EmployeeBasicRegistrationComponent } from './components/employee-basic-registration/employee-basic-registration.component';
+import { EmploymentInformationComponent } from './components/search-employment/employment-information/employment-information.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,9 @@ const routes: Routes = [
   { path: 'SearchEmployment', component: SearchEmploymentComponent},
   { path: 'OfertaTrabajo', component: JobOfferComponent },
   { path: 'RegistroEmpresa', component: CompanyRegistrationComponent },
-  { path: 'InformacionBasica', component: EmployeeBasicRegistrationComponent }
+  { path: 'InformacionBasica', component: EmployeeBasicRegistrationComponent },
+  { path: 'InformacionTrabajo/:id', component: EmploymentInformationComponent }
+
 ];
 @NgModule({
   imports: [

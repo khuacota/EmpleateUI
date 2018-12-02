@@ -26,6 +26,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchEmploymentComponent } from './components/search-employment/search-employment.component';
 import { EmployeeBasicRegistrationComponent } from './components/employee-basic-registration/employee-basic-registration.component';
 import { BasicInformationService } from './services/employee/basic-information.service';
+import { EmploymentInformationComponent } from './components/search-employment/employment-information/employment-information.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { BasicInformationService } from './services/employee/basic-information.s
     NavbarComponent,
     SearchEmploymentComponent,
     EmployeeBasicRegistrationComponent,
+    EmploymentInformationComponent,
   ],
   imports: [
     BrowserModule,

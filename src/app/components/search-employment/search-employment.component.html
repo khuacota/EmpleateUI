@@ -31,7 +31,7 @@
         <div class="ontheleft">
           <span>Empresa:{{item.Name}}</span><br>
           <span>Fecha maxima de postulacion:{{item.Deadline}}</span>
-          <button mat-raised-button color="accent" class="button">Ver mas</button><br><br>
+          <button mat-raised-button color="accent" class="button" [routerLink]="['/InformacionTrabajo', 1]">Ver mas</button><br><br>
         </div>
         </mat-expansion-panel><br>
       </mat-accordion>
