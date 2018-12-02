@@ -18,7 +18,7 @@ export class SearchEmploymentComponent implements OnInit {
   searchFormGroup:FormGroup;
   constructor(private service: JobOfferService,private formBuilder: FormBuilder,){
   	this.error = false;
-    this.offers = [{StartTime:"hola"}];
+    this.offers = [{StartTime:"hola papu, que onda?"}];
     this.searchFormGroup = this.formBuilder.group({      
       searchWord: ['',Validators.required]});
   }
