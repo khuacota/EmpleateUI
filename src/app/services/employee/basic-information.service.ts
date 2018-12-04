@@ -18,6 +18,12 @@ export class BasicInformationService extends BaseService {
       'empleados'
     );
   }
-  
+
+  public getFilterEmployees(): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/${this.endpoint}`, { headers: this.headers }).pipe(
+      catchError(this.errorHandler.handleError)
+    );
+  }
+
   
 }

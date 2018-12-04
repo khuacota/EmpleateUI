@@ -7,6 +7,7 @@ import { Skill } from '../../../models/skill';
 import { JobOffer } from '../../../models/jobOffer';
 import { JobOfferService } from '../../../services/jobOffer/job-offer.service';
 import { MatSnackBar } from '@angular/material';
+import { Regex } from '../../../models/regex';
 
 
 @Component({
@@ -35,14 +36,14 @@ export class JobOfferComponent implements AfterViewInit {
     this.expForm = this.fb.group({
       Profession: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*')
+        Validators.pattern(Regex.ALPHABETIC)
       ])],
 
       Description: ['', Validators.required],
 
       City: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*')
+        Validators.pattern(Regex.ALPHABETIC)
       ])],
 
       StartTime: ['', Validators.required],
@@ -59,19 +60,13 @@ export class JobOfferComponent implements AfterViewInit {
 
     });
 
-
-    //user
+    
     this.userId = 1;
 
   }
-
-/*
-  ngOnInit() {
-  }*/
+  
 
   ngAfterViewInit() {
-  //  this.items = this.languageChild.items;
-  //  this.skills = this.skillChild.skills;
   }
 
   submit(){
@@ -94,11 +89,8 @@ export class JobOfferComponent implements AfterViewInit {
     let jobOffer = new JobOffer();
     jobOffer = this.expForm.value;
     jobOffer.CompanyId = this.userId;
-    //JobOffer.Profession = professions;
     jobOffer.ReqLanguages = languages;
-    //JobOffer.Description = titulos;
     jobOffer.ReqSkills = skills;
-    console.log(jobOffer);
     this.ofertaServ.post(jobOffer).subscribe(res => {
       this.snackBar.open("registro completado correctamente", "", {
         duration: 2000,
@@ -109,7 +101,6 @@ export class JobOfferComponent implements AfterViewInit {
         duration: 2000,
         panelClass: ['red-snackbar']
       });
-      console.log(error);
     });
   }
 

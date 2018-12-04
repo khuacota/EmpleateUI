@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Regex } from '../../../../models/regex';
 
 @Component({
   selector: 'app-form-exp',
@@ -14,11 +15,11 @@ export class FormExpComponent implements OnInit {
     this.expForm = this.fb.group({
       Place: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('[a-zA-Z0-9 ]*')
+        Validators.pattern(Regex.ALPHANUMERIC)
       ])],
       Position: ['', Validators.compose([
         Validators.required,
-        Validators.pattern('[a-zA-Z ]*')
+        Validators.pattern(Regex.ALPHABETIC)
       ])],
       Start: ['', Validators.required],
       End: ['', Validators.required],
