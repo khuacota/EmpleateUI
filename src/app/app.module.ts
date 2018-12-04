@@ -29,6 +29,7 @@ import { EmploymentInformationComponent } from './components/search-employment/e
 import { EmployeeInformationComponent } from './components/buscar-empleado/employee-information/employee-information.component';
 import { BuscarEmpleadoComponent } from './components/buscar-empleado/buscar-empleado.component';
 
+
 @NgModule({
   declarations: [
     BuscarEmpleadoComponent,
