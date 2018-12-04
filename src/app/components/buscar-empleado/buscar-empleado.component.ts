@@ -38,8 +38,9 @@ export class BuscarEmpleadoComponent implements OnInit {
   ngOnInit() {
   }
   searchEmployees() {
-    this.serviceEmployee.getFilterEmployees().subscribe((res: Array<BasicEmployee>) => {
+    this.serviceEmployee.getFilterEmployees(this.searchForm.value.Searched).subscribe((res: Array<BasicEmployee>) => {
       this.proffesionals = res;
+      console.log(this.proffesionals);
     }, error => {
     });
   }
