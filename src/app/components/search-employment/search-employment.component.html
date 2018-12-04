@@ -22,16 +22,16 @@
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Profesion: {{item.Profession}}
+              Profesion: {{item.profession}}
             </mat-panel-title>
             <mat-panel-description>
-              Empresa: {{item.Name}}
+              Empresa: {{item.companyName}}
             </mat-panel-description>
           </mat-expansion-panel-header>
 
         <div class="ontheleft">
-          <span>Descripcion: {{item.Descripcion | slice:0:100}}...</span><br>      
-          <span>Fecha maxima de postulacion: {{item.Deadline}}</span>
+          <span>Descripcion: {{item.description | slice:0:100}}...</span><br>      
+          <span>Fecha maxima de postulacion: {{item.deadline}}</span>
           <button mat-raised-button color="accent" class="button" [routerLink]="['/InformacionTrabajo', 1]">Ver mas</button><br><br>
         </div>
         </mat-expansion-panel><br>
