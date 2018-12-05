@@ -26,8 +26,8 @@ import { SearchEmploymentComponent } from './components/search-employment/search
 import { EmployeeBasicRegistrationComponent } from './components/employee-basic-registration/employee-basic-registration.component';
 import { BasicInformationService } from './services/employee/basic-information.service';
 import { EmploymentInformationComponent } from './components/search-employment/employment-information/employment-information.component';
-import { EmployeeInformationComponent } from './components/buscar-empleado/employee-information/employee-information.component';
-import { BuscarEmpleadoComponent } from './components/buscar-empleado/buscar-empleado.component';
+import { EmployeeInformationComponent } from './components/search-employee/employee-information/employee-information.component';
+import { BuscarEmpleadoComponent } from './components/search-employee/search-employee.component';
 
 @NgModule({
   declarations: [

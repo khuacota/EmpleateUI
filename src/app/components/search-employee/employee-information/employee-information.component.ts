@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { BasicInformationService } from '../../../services/employee/basic-information.service';
 import { AcademicService } from '../../../services/academic/academic.service';
 import { BasicEmployee } from '../../../models/basicEmployee';
@@ -11,7 +11,7 @@ import { switchMap } from 'rxjs/operators';
   templateUrl: './employee-information.component.html',
   styleUrls: ['./employee-information.component.css']
 })
-export class EmployeeInformationComponent implements OnInit {
+export class EmployeeInformationComponent implements AfterViewInit{
   public basicInfo: BasicEmployee;
   public academicInfo: Academic;
   private employeeId: string;
@@ -23,7 +23,7 @@ export class EmployeeInformationComponent implements OnInit {
       switchMap((params: ParamMap) =>
         this.employeeId = params.get('id')
       )
-    );
+    ).subscribe(res => { this.setData() });
     
   }
 
@@ -40,14 +40,16 @@ export class EmployeeInformationComponent implements OnInit {
     return res;
   }
 
-  ngOnInit() {
-    
+  setData() {
     this.basicInfService.getOne(this.employeeId).subscribe((res: BasicEmployee) => {
       this.basicInfo = res;
     });
     this.academicService.getOne(this.employeeId).subscribe((res: Academic) => {
       this.academicInfo = res;
     });
+  }
+
+  ngAfterViewInit() {
   }
 
 }

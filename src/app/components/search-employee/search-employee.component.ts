@@ -5,29 +5,22 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { OccupationEmp } from '../../models/occupationEmp';
 
 @Component({
-  selector: 'app-buscar-empleado',
-  templateUrl: './buscar-empleado.component.html',
-  styleUrls: ['./buscar-empleado.component.css']
+  selector: 'app-search-employee',
+  templateUrl: './search-employee.component.html',
+  styleUrls: ['./search-employee.component.css']
 })
 export class BuscarEmpleadoComponent implements OnInit {
   private proffesionals: Array<BasicEmployee>;
-  private error: Boolean;
+  private error: boolean;
   private searchForm: FormGroup;
+  public notfound: boolean;
   constructor(private serviceEmployee: BasicInformationService, private _formBuilder: FormBuilder) {
     this.error = false;
+    this.notfound = false;
     let empp = new BasicEmployee();
     empp.Occupations = [new OccupationEmp(), new OccupationEmp(),
       new OccupationEmp()];
-    empp.Occupations[0].Occupation = 'esto';
-
-    empp.Occupations[1].Occupation = 'esaato';
-
-    empp.Occupations[2].Occupation = 'escdesto';
-    empp.Name = "pepe";
-    empp.City = "ciudad";
-    empp.Email = "asdf@asdf.com";
-    empp.Id = 1;
-    this.proffesionals = [empp, empp];
+    this.proffesionals = [];
     this.searchForm = this._formBuilder.group({
       Searched: ['', Validators.compose([
         Validators.required
@@ -40,7 +33,9 @@ export class BuscarEmpleadoComponent implements OnInit {
   searchEmployees() {
     this.serviceEmployee.getFilterEmployees(this.searchForm.value.Searched).subscribe((res: Array<BasicEmployee>) => {
       this.proffesionals = res;
-      console.log(this.proffesionals);
+      if (this.proffesionals.length == 0) {
+        this.notfound = true;
+      }
     }, error => {
     });
   }
