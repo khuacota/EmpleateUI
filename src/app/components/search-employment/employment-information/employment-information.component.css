@@ -7,3 +7,7 @@
   max-width: 45%;
   margin: auto;
 }
+
+.left-button {
+  float: left;
+}
