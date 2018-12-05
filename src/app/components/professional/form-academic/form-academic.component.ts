@@ -32,7 +32,7 @@ export class FormAcademicComponent implements AfterViewInit {
   constructor(private academicServ: AcademicService, public snackBar: MatSnackBar) {
     this.myTitles = [];
     this.myExperiences = [];
-    this.userId = 1;
+    this.userId = 2;
   }
 
   ngAfterViewInit() {

@@ -1,19 +1,30 @@
 <mat-card class="center-card">
 
   <mat-card-header>
-    <mat-card-title><strong>EMPRESA: {{offer.companyName}}</strong> </mat-card-title>
+    <mat-card-title><strong>EMPRESA:</strong> {{offer.companyName}} </mat-card-title>
   </mat-card-header><br />
 
   <mat-card-subtitle><strong> Profesion requerida:</strong>{{offer.profession}}</mat-card-subtitle>
   <mat-card-subtitle><strong> Horario de trabajo:</strong>{{offer.startTime}} - {{offer.endTime}}</mat-card-subtitle>
-  <mat-card-subtitle><strong> Habilidades requeridas:</strong>{{offer.reqSkills}}</mat-card-subtitle>
-  <mat-card-subtitle><strong> Idiomas requeridos:</strong>{{offer.reqLanguages}}</mat-card-subtitle>
   <mat-card-subtitle><strong> Experiencia Minima:</strong>{{offer.minExperience }}</mat-card-subtitle>
-  <span>Descripcion: {{offer.description}}</span><br>
+
+
+  <strong> Idiomas requeridos:</strong>
+  <label *ngFor="let language of offer.reqLanguages">{{language.language}}, </label><br />
+
+  <strong> Habilidades requeridas:</strong>
+  <label *ngFor="let skill of offer.reqSkills">{{skill.skill}} </label><br />
+
+  <span><strong>Descripcion:</strong> {{offer.description}}</span><br><br />
 
   <div class="rigth-button">
-    <button mat-raised-button color="accent" class="btnSearch btnlocation " (click)='postulate()' mat-button>Postular</button>
+    <button mat-raised-button color="accent" class="btnSearch btnlocation " (click)='postulate()' mat-button [disabled]="invalid">Postular</button>
   </div>
+
+  <div class="left-button">
+    <button mat-raised-button color="accent" class="btnSearch btnlocation " mat-button routerLink="/SearchEmployment">Cancelar</button>
+  </div>
+
   <br />
   <br />
 
