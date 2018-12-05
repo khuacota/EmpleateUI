@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,8 +25,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchEmploymentComponent } from './components/search-employment/search-employment.component';
 import { EmployeeBasicRegistrationComponent } from './components/employee-basic-registration/employee-basic-registration.component';
 import { BasicInformationService } from './services/employee/basic-information.service';
-import { EmployeeInformationComponent } from './components/buscar-empleado/employee-information/employee-information.component';
-import { BuscarEmpleadoComponent } from './components/buscar-empleado/buscar-empleado.component';
+import { EmploymentInformationComponent } from './components/search-employment/employment-information/employment-information.component';
+import { EmployeeInformationComponent } from './components/search-employee/employee-information/employee-information.component';
+import { BuscarEmpleadoComponent } from './components/search-employee/search-employee.component';
 
 
 @NgModule({
@@ -44,6 +44,7 @@ import { BuscarEmpleadoComponent } from './components/buscar-empleado/buscar-emp
     NavbarComponent,
     SearchEmploymentComponent,
     EmployeeBasicRegistrationComponent,
+    EmploymentInformationComponent,
     EmployeeInformationComponent,
   ],
   imports: [

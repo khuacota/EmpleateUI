@@ -25,7 +25,7 @@ export class JobOfferService extends BaseService {
     );
   }
 
-  public postulate(data: JobOffer): Observable<any> {
+  public postulate(data: any): Observable<any> {
     return this.httpClient.post(`${this.apiUrl}/${this.endpoint}/postulate`, data).pipe(
       catchError(this.errorHandler.handleError)
     );

@@ -17,26 +17,25 @@
   </div>
 </mat-card><br>
 
-<div>
+<div  class="centerText">
   
-
+  <strong *ngIf="notfound">No se encontraron empleados</strong>
   <div *ngFor="let proffesional of proffesionals">
     <mat-card class="center-card-big">
       <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title><strong> Nombre:</strong> {{proffesional.Name}} {{proffesional.LastName}}</mat-card-title>
-        <mat-card-subtitle><strong> Ciudad:</strong> {{proffesional.City}} <strong> Correo:</strong> {{proffesional.Email}}</mat-card-subtitle>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title><strong> Nombre:</strong> {{proffesional.name}} {{proffesional.lastName}}</mat-card-title>
+        <mat-card-subtitle><strong> Ciudad:</strong> {{proffesional.city}} <strong> Correo:</strong> {{proffesional.email}}</mat-card-subtitle>
       </mat-card-header>
       <strong> Ocupaciones:</strong>
-      <label *ngFor="let occupation of proffesional.Occupations"> {{occupation.Occupation}},</label>
+      <label *ngFor="let occupation of proffesional.occupations"> {{occupation.occupation}},</label>
 
       <label></label>
       <br />
       <br />
-      <button class="btnSearch btnlocation " mat-button [routerLink]="['/InformacionEmpleado', proffesional.Id]">Ver mas</button>
+      <button class="btnSearch btnlocation " mat-button [routerLink]="['/InformacionEmpleado', proffesional.id]">Ver mas</button>
       <br />
       <br />
-      <!--inserta tu postular aqui xD-->
     </mat-card>
     <br />
   </div>

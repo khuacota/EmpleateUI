@@ -22,21 +22,17 @@
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Profesion:{{item.Profession}}
+              Profesion: {{item.profession}}
             </mat-panel-title>
             <mat-panel-description>
-              Experiencia Minima:{{item.MinExperience }} 
+              Empresa: {{item.companyName}}
             </mat-panel-description>
           </mat-expansion-panel-header>
 
         <div class="ontheleft">
-          <span>Horario:{{item.StartTime}} - {{item.EndTime}}</span><br>
-          <span>Ciudad:{{item.City}}</span><br>
-          <span>Habilidades:{{item.ReqSkills}} </span><br>
-          <span>Idiomas:{{item.ReqLanguages}} </span><br>
-          <span>Decripcion:{{item.Description}}</span><br><br>
-          <span>Fecha limite de postulacion:{{item.Deadline}}</span>
-          <button mat-raised-button color="accent" class="button">Postular</button><br><br>
+          <span>Descripcion: {{item.description | slice:0:100}}...</span><br>      
+          <span>Fecha maxima de postulacion: {{item.deadline | slice:0:10}}</span>
+          <button mat-raised-button color="accent" class="button" [routerLink]="['/InformacionTrabajo', item.id]">Ver mas</button><br><br>
         </div>
         </mat-expansion-panel><br>
       </mat-accordion>
