@@ -27,8 +27,7 @@ export class SearchEmploymentComponent implements OnInit {
   searchEmployment() {
   	this.service.getOffersByCompany(this.searchFormGroup.value.searchWord).subscribe(
   		response => {
-              this.offers = response;
-
+        this.offers = response;
   			this.error = this.offers.length == 0;
   			}, error => {
         this.offers = [];

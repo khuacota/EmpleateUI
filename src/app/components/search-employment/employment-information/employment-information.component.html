@@ -18,7 +18,7 @@
   <span><strong>Descripcion:</strong> {{offer.description}}</span><br><br />
 
   <div class="rigth-button">
-    <button mat-raised-button color="accent" class="btnSearch btnlocation " (click)='postulate()' mat-button [disabled]="invalid">Postular</button>
+    <button mat-raised-button color="accent" class="btnSearch btnlocation " (click)='postulate()' mat-button [disabled]="isInvalid()">Postular</button>
   </div>
 
   <div class="left-button">
