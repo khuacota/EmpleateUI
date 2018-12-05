@@ -5,17 +5,18 @@
   </mat-card-header><br />
 
   <mat-card-subtitle><strong> Profesion requerida:</strong>{{offer.profession}}</mat-card-subtitle>
-  <mat-card-subtitle><strong> Horario de trabajo:</strong>{{offer.startTime}} - {{offer.endTime}}</mat-card-subtitle>
+  <mat-card-subtitle><strong> Horario de trabajo:</strong>{{offer.startTime | slice:11:16}} - {{offer.endTime | slice:11:16}}</mat-card-subtitle>
   <mat-card-subtitle><strong> Experiencia Minima:</strong>{{offer.minExperience }}</mat-card-subtitle>
 
 
   <strong> Idiomas requeridos:</strong>
-  <label *ngFor="let language of offer.reqLanguages">{{language.language}}, </label><br />
+  <label *ngFor="let language of offer.reqLanguages">{{language.language}}, </label><br /><br />
 
   <strong> Habilidades requeridas:</strong>
-  <label *ngFor="let skill of offer.reqSkills">{{skill.skill}} </label><br />
+  <label *ngFor="let skill of offer.reqSkills">{{skill.skill}} </label><br /><br />
 
   <span><strong>Descripcion:</strong> {{offer.description}}</span><br><br />
+  <span><strong>Fecha limite:</strong> {{offer.deadline | slice:0:10}}</span><br><br />
 
   <div class="rigth-button">
     <button mat-raised-button color="accent" class="btnSearch btnlocation " (click)='postulate()' mat-button [disabled]="isInvalid()">Postular</button>
