@@ -10,13 +10,18 @@ import { EmployeeBasicRegistrationComponent } from './components/professional/em
 import { EmploymentInformationComponent } from './components/professional/search-employment/employment-information/employment-information.component';
 import { EmployeeInformationComponent } from './components/company/search-employee/employee-information/employee-information.component';
 import { HomeComponent } from './components/professional/home/home.component';
+import { HomeCompanyComponent } from './components/company/home-company/home-company.component'
 
 const routes: Routes = [  
   
-  { path: 'OfertaTrabajo', component: JobOfferComponent },
-  { path: 'RegistroEmpresa', component: CompanyRegistrationComponent },  
-  { path: 'InformacionTrabajo/:id', component: EmploymentInformationComponent },
-  { path: 'BuscarEmpleado', component: BuscarEmpleadoComponent },
+  { path: 'Company/Home', component: HomeCompanyComponent,
+    children: [
+      { path: 'OfertaTrabajo', component: JobOfferComponent },
+      { path: 'RegistroEmpresa', component: CompanyRegistrationComponent },
+      { path: 'BuscarEmpleado', component: BuscarEmpleadoComponent },
+    ]  
+  },
+  { path: 'InformacionTrabajo/:id', component: EmploymentInformationComponent },  
   { path: 'InformacionEmpleado/:id', component: EmployeeInformationComponent },
   { path: 'Professional/Home', component: HomeComponent,
       children: [

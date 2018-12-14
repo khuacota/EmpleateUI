@@ -29,6 +29,8 @@ import { EmploymentInformationComponent } from './components/professional/search
 import { EmployeeInformationComponent } from './components/company/search-employee/employee-information/employee-information.component';
 import { BuscarEmpleadoComponent } from './components/company/search-employee/search-employee.component';
 import { HomeComponent } from './components/professional/home/home.component';
+import { HomeCompanyComponent } from './components/company/home-company/home-company.component';
+
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { HomeComponent } from './components/professional/home/home.component';
     EmploymentInformationComponent,
     EmployeeInformationComponent,
     HomeComponent,
+    HomeCompanyComponent,
   ],
   imports: [
     BrowserModule,
