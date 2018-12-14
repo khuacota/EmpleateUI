@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
-import { JobOfferService } from '../../../services/jobOffer/job-offer.service';
+import { JobOfferService } from '../../../../services/jobOffer/job-offer.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { AcademicService } from '../../../services/academic/academic.service';
-import { Academic } from '../../../models/academic';
+import { AcademicService } from '../../../../services/academic/academic.service';
+import { Academic } from '../../../../models/academic';
 
 
 @Component({

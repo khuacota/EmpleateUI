@@ -22,13 +22,13 @@ import { HttpErrorHandlerService } from './services/http-error-handler.service';
 import { JobOfferService } from './services/jobOffer/job-offer.service';
 import { CompanyService } from './services/company/company.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SearchEmploymentComponent } from './components/search-employment/search-employment.component';
-import { EmployeeBasicRegistrationComponent } from './components/employee-basic-registration/employee-basic-registration.component';
+import { SearchEmploymentComponent } from './components/professional/search-employment/search-employment.component';
+import { EmployeeBasicRegistrationComponent } from './components/professional/employee-basic-registration/employee-basic-registration.component';
 import { BasicInformationService } from './services/employee/basic-information.service';
-import { EmploymentInformationComponent } from './components/search-employment/employment-information/employment-information.component';
-import { EmployeeInformationComponent } from './components/search-employee/employee-information/employee-information.component';
-import { BuscarEmpleadoComponent } from './components/search-employee/search-employee.component';
-
+import { EmploymentInformationComponent } from './components/professional/search-employment/employment-information/employment-information.component';
+import { EmployeeInformationComponent } from './components/company/search-employee/employee-information/employee-information.component';
+import { BuscarEmpleadoComponent } from './components/company/search-employee/search-employee.component';
+import { HomeComponent } from './components/professional/home/home.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +46,7 @@ import { BuscarEmpleadoComponent } from './components/search-employee/search-emp
     EmployeeBasicRegistrationComponent,
     EmploymentInformationComponent,
     EmployeeInformationComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

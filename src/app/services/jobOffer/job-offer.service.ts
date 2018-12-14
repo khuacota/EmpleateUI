@@ -39,6 +39,12 @@ export class JobOfferService extends BaseService {
     );
   }
 
+  public getRecentOffers(): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/${this.endpoint}/recentOffers`).pipe(
+      catchError(this.errorHandler.handleError)
+    );
+  }
+
   public setUrlSearch(data: Array<string>) {
     let result = "";
     let searchWord = "searchWord=";

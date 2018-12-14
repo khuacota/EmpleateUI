@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { BasicInformationService } from '../../services/employee/basic-information.service';
-import { Employee } from '../../models/employee';
+import { BasicInformationService } from '../../../services/employee/basic-information.service';
+import { Employee } from '../../../models/employee';
 import { MatSnackBar } from '@angular/material';
 
 
