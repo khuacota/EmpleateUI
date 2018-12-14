@@ -28,6 +28,7 @@ import { BasicInformationService } from './services/employee/basic-information.s
 import { EmploymentInformationComponent } from './components/search-employment/employment-information/employment-information.component';
 import { EmployeeInformationComponent } from './components/search-employee/employee-information/employee-information.component';
 import { BuscarEmpleadoComponent } from './components/search-employee/search-employee.component';
+import { ShowPostulationsComponent } from './components/company/show-postulations/show-postulations.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { BuscarEmpleadoComponent } from './components/search-employee/search-emp
     EmployeeBasicRegistrationComponent,
     EmploymentInformationComponent,
     EmployeeInformationComponent,
+    ShowPostulationsComponent,
   ],
   imports: [
     BrowserModule,
