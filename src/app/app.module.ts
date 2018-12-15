@@ -29,6 +29,7 @@ import { EmploymentInformationComponent } from './components/search-employment/e
 import { EmployeeInformationComponent } from './components/search-employee/employee-information/employee-information.component';
 import { BuscarEmpleadoComponent } from './components/search-employee/search-employee.component';
 import { LoginComponent } from './components/common/login/login.component';
+import { AuthService } from './services/auth/auth.service';
 
 
 @NgModule({
@@ -61,7 +62,14 @@ import { LoginComponent } from './components/common/login/login.component';
 
   ],
 
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }, AcademicService, HttpErrorHandlerService, JobOfferService, CompanyService, BasicInformationService],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+    AcademicService,
+    HttpErrorHandlerService,
+    JobOfferService,
+    CompanyService,
+    BasicInformationService,
+    AuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
