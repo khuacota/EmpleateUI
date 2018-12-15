@@ -9,9 +9,11 @@ import { CompanyRegistrationComponent } from './components/company/company-regis
 import { EmployeeBasicRegistrationComponent } from './components/employee-basic-registration/employee-basic-registration.component';
 import { EmploymentInformationComponent } from './components/search-employment/employment-information/employment-information.component';
 import { EmployeeInformationComponent } from './components/search-employee/employee-information/employee-information.component';
+import { LoginComponent } from './components/common/login/login.component';
 
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
   { path: 'InformacionAcademica', component: FormAcademicComponent },  
   { path: 'SearchEmployment', component: SearchEmploymentComponent},
   { path: 'OfertaTrabajo', component: JobOfferComponent },
