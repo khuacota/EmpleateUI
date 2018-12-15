@@ -6,6 +6,7 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { AcademicService } from '../../../services/academic/academic.service';
 import { Academic } from '../../../models/academic';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class EmploymentInformationComponent implements OnInit {
   offer: any;
   employeeId: number;
   employee: any;
-  constructor(private route: ActivatedRoute, private router: Router, private acService: AcademicService, private jobService: JobOfferService) {
+  constructor(public snackBar: MatSnackBar,private route: ActivatedRoute, private router: Router, private acService: AcademicService, private jobService: JobOfferService) {
     this.employeeId = 1;
     this.offerId = '1';
     this.offer = {};
@@ -52,7 +53,10 @@ export class EmploymentInformationComponent implements OnInit {
     let body = { OfferId: this.offerId, EmployeeId: this.employeeId };
     
     this.jobService.postulate(body).subscribe(res => {
-      
+      this.snackBar.open("postulacion exitosa", "", {
+        duration: 2000,
+        panelClass: ['green-snackbar']
+      });
     }, error => {
     });
   }
