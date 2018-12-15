@@ -36,7 +36,7 @@ const routes: Routes = [
 
   // Paths for Admin Users
   {
-    path: "empleado", component: CompanyRegistrationComponent, canActivate: [RestrictRoutesService],
+    path: "empleado", component: EmployeeBasicRegistrationComponent, canActivate: [RestrictRoutesService],
     data: { expectedRole: ['Employee'] }
   },
   {
