@@ -24,7 +24,7 @@
 
   <strong *ngIf="showNull(academicInfo.degrees)"> Sin titulos</strong>
   <div *ngFor="let degree of academicInfo.degrees">
-    <strong> Grado:</strong>
+    &nbsp;&nbsp;&nbsp;<strong> Grado:</strong>
     <label>{{degree.degree}}</label>
     <strong> Descripcion:</strong>
     <label>{{degree.description}}</label>
@@ -41,11 +41,11 @@
     <strong> Lugar:</strong>
     <label>{{experience.place}}</label><br />
     <strong> Cargo:</strong>
-    <label>{{experience.position}}</label>
+    <label>{{experience.position}}</label><br />
     <strong> Inicio:</strong>
-    <label>{{experience.start}}</label><br />
+    <label>{{experience.inicio | slice:0:10}}</label><br />
     <strong> Fin:</strong>
-    <label>{{experience.end}}</label>
+    <label>{{experience.fin | slice:0:10}}</label>
   </div>
   <br />
   <div class='testt'>

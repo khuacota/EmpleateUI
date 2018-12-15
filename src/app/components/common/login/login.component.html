@@ -1,0 +1,33 @@
+<mat-card class="center-card" [formGroup]="loginForm">
+  <mat-card-title class="tittle">
+   INICIAR SESION
+  </mat-card-title>
+  <mat-form-field class='normal'>
+    <input matInput placeholder="Email" formControlName="Email">
+    <mat-error *ngIf="loginForm.get('Email').hasError('required')">
+      este campo no puede quedar en <strong>blanco</strong>
+    </mat-error>
+    <mat-error *ngIf="loginForm.get('Email').hasError('pattern')">
+      no ingrese valores <strong>invalidos</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class='normal'>
+    <input type="password" matInput placeholder="Contraseña:" formControlName='Password'/>
+    <mat-error *ngIf="loginForm.get('Password').hasError('required')">
+      este campo no puede quedar en <strong>blanco</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-card-actions>
+    <!--<span class="example-spacer"></span>-->
+    <div class='testt'>
+      <div style='float: left;'>
+        <button mat-raised-button color="accent">Cancelar</button>
+      </div>
+      <!--<span class="example-spacer"> </span>-->
+      <div style='float: right;'>
+        <button mat-raised-button color="accent" [disabled]="loginForm.invalid" (click)="login()">Iniciar sesion</button>
+      </div>
+    </div>
+  </mat-card-actions>
+</mat-card>
