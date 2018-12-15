@@ -10,15 +10,18 @@ import { EmployeeBasicRegistrationComponent } from './components/employee-basic-
 import { EmploymentInformationComponent } from './components/search-employment/employment-information/employment-information.component';
 import { EmployeeInformationComponent } from './components/search-employee/employee-information/employee-information.component';
 import { RestrictRoutesService } from './services/restrict-routes/restrict-routes.service';
+import { LoginComponent } from './components/common/login/login.component';
+
 
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
   { path: 'InformacionTrabajo/:id', component: EmploymentInformationComponent },
   { path: 'InformacionEmpleado/:id', component: EmployeeInformationComponent },
 
   // Paths for Company Users
   {
-    path: "empresa", /*component: MainPageComponent,*/ canActivate: [RestrictRoutesService],
+    path: "empresa", component: CompanyRegistrationComponent, canActivate: [RestrictRoutesService],
     data: { expectedRole: ['Company'] }
   },
   {
@@ -33,8 +36,8 @@ const routes: Routes = [
 
   // Paths for Admin Users
   {
-    path: "empleado", /*component: HomePageComponent,*/ canActivate: [RestrictRoutesService],
-    data: { expectedRole: ['Admin'] }
+    path: "empleado", component: CompanyRegistrationComponent, canActivate: [RestrictRoutesService],
+    data: { expectedRole: ['Employee'] }
   },
   {
     path: "empleado", canActivate: [RestrictRoutesService],
