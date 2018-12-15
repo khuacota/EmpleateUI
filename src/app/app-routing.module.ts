@@ -18,7 +18,7 @@ const routes: Routes = [
 
   // Paths for Company Users
   {
-    path: "empresa", /*component: MainPageComponent,*/ canActivate: [RestrictRoutesService],
+    path: "empresa", component: CompanyRegistrationComponent, canActivate: [RestrictRoutesService],
     data: { expectedRole: ['Company'] }
   },
   {
@@ -33,8 +33,8 @@ const routes: Routes = [
 
   // Paths for Admin Users
   {
-    path: "empleado", /*component: HomePageComponent,*/ canActivate: [RestrictRoutesService],
-    data: { expectedRole: ['Admin'] }
+    path: "empleado", component: EmployeeBasicRegistrationComponent, canActivate: [RestrictRoutesService],
+    data: { expectedRole: ['Employee'] }
   },
   {
     path: "empleado", canActivate: [RestrictRoutesService],
