@@ -37,8 +37,9 @@ export class LoginComponent implements OnInit {
         duration: 2000,
         panelClass: ['green-snackbar']
       });
+      sessionStorage.setItem("EmpleateJWT",res.token);
     }, error => {
-      this.snackBar.open("ocurrio un error", "", {
+      this.snackBar.open("ocurrio un error"+error.originalError, "", {
         duration: 2000,
         panelClass: ['red-snackbar']
       });
