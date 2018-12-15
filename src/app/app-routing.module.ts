@@ -11,10 +11,12 @@ import { EmploymentInformationComponent } from './components/search-employment/e
 import { EmployeeInformationComponent } from './components/search-employee/employee-information/employee-information.component';
 import { RestrictRoutesService } from './services/restrict-routes/restrict-routes.service';
 import { LoginComponent } from './components/common/login/login.component';
+import { RegisterComponent } from './components/common/register/register.component';
 
 
 
 const routes: Routes = [
+  { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'InformacionTrabajo/:id', component: EmploymentInformationComponent },
   { path: 'InformacionEmpleado/:id', component: EmployeeInformationComponent },

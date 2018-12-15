@@ -30,6 +30,8 @@ import { EmployeeInformationComponent } from './components/search-employee/emplo
 import { BuscarEmpleadoComponent } from './components/search-employee/search-employee.component';
 import { LoginComponent } from './components/common/login/login.component';
 import { AuthService } from './services/auth/auth.service';
+import { RegisterComponent } from './components/common/register/register.component';
+import { RegisterService } from './services/register/register.service';
 
 
 @NgModule({
@@ -49,6 +51,7 @@ import { AuthService } from './services/auth/auth.service';
     EmploymentInformationComponent,
     EmployeeInformationComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +72,7 @@ import { AuthService } from './services/auth/auth.service';
     CompanyService,
     BasicInformationService,
     AuthService,
+    RegisterService
   ],
   bootstrap: [AppComponent]
 })

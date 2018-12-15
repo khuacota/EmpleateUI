@@ -13,7 +13,7 @@ export class RestrictRoutesService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot): boolean {
     const role = route.data.expectedRole;
     if ( !this.auth.isLogged()) {
-      this.router.navigate(['auth/register']);
+      this.router.navigate(['register']);
       return false;
     }
     if(!role.includes(this.auth.getUser().userRole)){
