@@ -31,6 +31,7 @@ import { BuscarEmpleadoComponent } from './components/search-employee/search-emp
 import { LoginComponent } from './components/common/login/login.component';
 import { AuthService } from './services/auth/auth.service';
 import { RegisterComponent } from './components/common/register/register.component';
+import { RegisterService } from './services/register/register.service';
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import { RegisterComponent } from './components/common/register/register.compone
     CompanyService,
     BasicInformationService,
     AuthService,
+    RegisterService
   ],
   bootstrap: [AppComponent]
 })
