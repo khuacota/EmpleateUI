@@ -40,7 +40,7 @@ export class JobOfferService extends BaseService {
   }
 
   public getRecentOffers(): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/${this.endpoint}/recentOffers`).pipe(
+    return this.httpClient.get(`${this.apiUrl}/${this.endpoint}/recientes`).pipe(
       catchError(this.errorHandler.handleError)
     );
   }

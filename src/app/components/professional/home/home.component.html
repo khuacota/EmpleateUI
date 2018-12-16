@@ -2,15 +2,15 @@
   <mat-toolbar-row>
     <span>Empleate</span>
     <span class="example-spacer"></span>
-    <a mat-raised-button color="accent" class="encabezado" routerLink="/Professional/Home">Inicio</a>
-    <a mat-raised-button color="accent" class="encabezado" routerLink="/Professional/Home/InformacionBasica">Registro basico de usuario</a>
-    <a mat-raised-button color="accent" class="encabezado" routerLink="/Professional/Home/InformacionAcademica">Informacion academica</a>       
-    <a mat-raised-button color="accent" class="encabezado" routerLink="/Professional/Home/SearchEmployment">Buscar Empleo</a>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/Professional">Inicio</a>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/Professional/InformacionBasica">Registro basico de usuario</a>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/Professional/InformacionAcademica">Informacion academica</a>       
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/Professional/SearchEmployment">Buscar Empleo</a>
   </mat-toolbar-row>
 </mat-toolbar>
 <br><br><br>
 <router-outlet class="bodyContainer"></router-outlet>
-<div *ngIf="router.url === '/Professional/Home'">
+<div *ngIf="router.url === '/Professional'">
   <mat-card class='center-shortcard'>
     <mat-card-title class='center'>
 		Ultimos empleos ofertados por empresas!

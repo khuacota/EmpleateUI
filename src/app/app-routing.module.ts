@@ -11,19 +11,21 @@ import { EmploymentInformationComponent } from './components/professional/search
 import { EmployeeInformationComponent } from './components/company/search-employee/employee-information/employee-information.component';
 import { HomeComponent } from './components/professional/home/home.component';
 import { HomeCompanyComponent } from './components/company/home-company/home-company.component'
+import { PostulantsComponent } from './components/company/postulants/postulants.component';
 
 const routes: Routes = [  
   
-  { path: 'Company/Home', component: HomeCompanyComponent,
+  { path: 'Company', component: HomeCompanyComponent,
     children: [
       { path: 'OfertaTrabajo', component: JobOfferComponent },
       { path: 'RegistroEmpresa', component: CompanyRegistrationComponent },
       { path: 'BuscarEmpleado', component: BuscarEmpleadoComponent },
+      { path: 'Postulantes', component: PostulantsComponent },
     ]  
   },
   { path: 'InformacionTrabajo/:id', component: EmploymentInformationComponent },  
   { path: 'InformacionEmpleado/:id', component: EmployeeInformationComponent },
-  { path: 'Professional/Home', component: HomeComponent,
+  { path: 'Professional', component: HomeComponent,
       children: [
         {path:'InformacionAcademica', component: FormAcademicComponent},
         { path: 'SearchEmployment', component: SearchEmploymentComponent},

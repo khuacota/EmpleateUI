@@ -30,6 +30,7 @@ import { EmployeeInformationComponent } from './components/company/search-employ
 import { BuscarEmpleadoComponent } from './components/company/search-employee/search-employee.component';
 import { HomeComponent } from './components/professional/home/home.component';
 import { HomeCompanyComponent } from './components/company/home-company/home-company.component';
+import { PostulantsComponent } from './components/company/postulants/postulants.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { HomeCompanyComponent } from './components/company/home-company/home-com
     EmployeeInformationComponent,
     HomeComponent,
     HomeCompanyComponent,
+    PostulantsComponent,
   ],
   imports: [
     BrowserModule,
