@@ -21,28 +21,31 @@ import { RegisterComponent } from './components/common/register/register.compone
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'InformacionTrabajo/:id', component: EmploymentInformationComponent },
-  { path: 'InformacionEmpleado/:id', component: EmployeeInformationComponent },
-
+   
   
   {
-    path: "empresa", component: HomeCompanyComponent, canActivate: [RestrictRoutesService],
-    data: { expectedRole: ['Company'] },
+    path: "empresa", component: HomeCompanyComponent, /*canActivate: [RestrictRoutesService],
+    data: { expectedRole: ['Company'] },*/
     children: [
       { path: 'RegistroEmpresa', component: CompanyRegistrationComponent },
       { path: 'OfertaTrabajo', component: JobOfferComponent },
       { path: "BuscarEmpleado", component: BuscarEmpleadoComponent },
-      { path: 'Postulantes/:id', component: PostulantsComponent }
+      { path: 'Postulantes/:id', component: PostulantsComponent },
+      { path: 'InformacionEmpleado/:id', component: EmployeeInformationComponent },
+
     ],
   },
 
   {
-    path: "empleado", component: HomeComponent, canActivate: [RestrictRoutesService],
-    data: { expectedRole: ['Employee'] },
+    path: "empleado", component: HomeComponent,/* canActivate: [RestrictRoutesService],
+    data: { expectedRole: ['Employee'] },*/
     children: [
       { path: 'InformacionAcademica', component: FormAcademicComponent },
       { path: "SearchEmployment", component: SearchEmploymentComponent },
-      { path: "InformacionBasica", component: EmployeeBasicRegistrationComponent }
+      { path: "InformacionBasica", component: EmployeeBasicRegistrationComponent },
+       { path: 'InformacionTrabajo/:id', component: EmploymentInformationComponent },
+       { path: 'InformacionEmpleado/:id', component: EmployeeInformationComponent },
+
     ]
   }
 ];

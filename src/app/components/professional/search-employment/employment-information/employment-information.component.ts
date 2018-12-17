@@ -5,7 +5,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { AcademicService } from '../../../../services/academic/academic.service';
-import { Academic } from '../../../../models/academic';
+import { Academic, AcademicEmploye } from '../../../../models/academic';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
@@ -17,12 +17,12 @@ export class EmploymentInformationComponent implements OnInit {
   offerId: string;
   offer: any;
   employeeId: number;
-  employee: any;
+  employee: Academic;
   constructor(public snackBar: MatSnackBar,private route: ActivatedRoute, private router: Router, private acService: AcademicService, private jobService: JobOfferService) {
     this.employeeId = 1;
     this.offerId = '1';
     this.offer = {};
-    this.employee = {};
+    this.employee = new AcademicEmploye();
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.offerId = params.get('id')
