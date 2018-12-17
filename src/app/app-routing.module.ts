@@ -26,7 +26,7 @@ const routes: Routes = [
 
   
   {
-    path: "empresa", component: HomeCompanyComponent,
+    path: "empresa", component: HomeCompanyComponent, canActivate: [RestrictRoutesService],
     data: { expectedRole: ['Company'] },
     children: [
       { path: 'RegistroEmpresa', component: CompanyRegistrationComponent },
