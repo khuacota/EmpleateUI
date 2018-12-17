@@ -45,6 +45,7 @@ export class EmployeeInformationComponent implements AfterViewInit{
       this.basicInfo = res;
     });
     this.academicService.getOne(this.employeeId).subscribe((res: Academic) => {
+      console.log(res);
       this.academicInfo = res;
     });
   }

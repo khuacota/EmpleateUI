@@ -12,26 +12,39 @@ import { EmployeeInformationComponent } from './components/company/search-employ
 import { HomeComponent } from './components/professional/home/home.component';
 import { HomeCompanyComponent } from './components/company/home-company/home-company.component'
 import { PostulantsComponent } from './components/company/postulants/postulants.component';
+import { RestrictRoutesService } from './services/restrict-routes/restrict-routes.service';
+import { LoginComponent } from './components/common/login/login.component';
+import { RegisterComponent } from './components/common/register/register.component';
 
-const routes: Routes = [  
-  
-  { path: 'Company', component: HomeCompanyComponent,
-    children: [
-      { path: 'OfertaTrabajo', component: JobOfferComponent },
-      { path: 'RegistroEmpresa', component: CompanyRegistrationComponent },
-      { path: 'BuscarEmpleado', component: BuscarEmpleadoComponent },
-      { path: 'Postulantes', component: PostulantsComponent },
-    ]  
-  },
-  { path: 'InformacionTrabajo/:id', component: EmploymentInformationComponent },  
+
+
+const routes: Routes = [
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'InformacionTrabajo/:id', component: EmploymentInformationComponent },
   { path: 'InformacionEmpleado/:id', component: EmployeeInformationComponent },
-  { path: 'Professional', component: HomeComponent,
-      children: [
-        {path:'InformacionAcademica', component: FormAcademicComponent},
-        { path: 'SearchEmployment', component: SearchEmploymentComponent},
-        { path: 'InformacionBasica', component: EmployeeBasicRegistrationComponent },
-      ]
+
+  
+  {
+    path: "empresa", component: HomeCompanyComponent, canActivate: [RestrictRoutesService],
+    data: { expectedRole: ['Company'] },
+    children: [
+      { path: 'RegistroEmpresa', component: CompanyRegistrationComponent },
+      { path: 'OfertaTrabajo', component: JobOfferComponent },
+      { path: "BuscarEmpleado", component: BuscarEmpleadoComponent },
+      { path: 'Postulantes', component: PostulantsComponent }
+    ],
   },
+
+  {
+    path: "empleado", component: HomeComponent, canActivate: [RestrictRoutesService],
+    data: { expectedRole: ['Employee'] },
+    children: [
+      { path: 'InformacionAcademica', component: FormAcademicComponent },
+      { path: "SearchEmployment", component: SearchEmploymentComponent },
+      { path: "InformacionBasica", component: EmployeeBasicRegistrationComponent }
+    ]
+  }
 ];
 @NgModule({
   imports: [

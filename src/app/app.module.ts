@@ -31,6 +31,10 @@ import { BuscarEmpleadoComponent } from './components/company/search-employee/se
 import { HomeComponent } from './components/professional/home/home.component';
 import { HomeCompanyComponent } from './components/company/home-company/home-company.component';
 import { PostulantsComponent } from './components/company/postulants/postulants.component';
+import { LoginComponent } from './components/common/login/login.component';
+import { AuthService } from './services/auth/auth.service';
+import { RegisterComponent } from './components/common/register/register.component';
+import { RegisterService } from './services/register/register.service';
 
 
 @NgModule({
@@ -52,6 +56,8 @@ import { PostulantsComponent } from './components/company/postulants/postulants.
     HomeComponent,
     HomeCompanyComponent,
     PostulantsComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +71,15 @@ import { PostulantsComponent } from './components/company/postulants/postulants.
 
   ],
 
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }, AcademicService, HttpErrorHandlerService, JobOfferService, CompanyService, BasicInformationService],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+    AcademicService,
+    HttpErrorHandlerService,
+    JobOfferService,
+    CompanyService,
+    BasicInformationService,
+    AuthService,
+    RegisterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
