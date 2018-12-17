@@ -21,7 +21,6 @@ import { AcademicService } from './services/academic/academic.service';
 import { HttpErrorHandlerService } from './services/http-error-handler.service';
 import { JobOfferService } from './services/jobOffer/job-offer.service';
 import { CompanyService } from './services/company/company.service';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchEmploymentComponent } from './components/professional/search-employment/search-employment.component';
 import { EmployeeBasicRegistrationComponent } from './components/professional/employee-basic-registration/employee-basic-registration.component';
 import { BasicInformationService } from './services/employee/basic-information.service';
@@ -48,7 +47,6 @@ import { RegisterService } from './services/register/register.service';
     JobOfferComponent,
     InputSkillsComponent,
     CompanyRegistrationComponent,
-    NavbarComponent,
     SearchEmploymentComponent,
     EmployeeBasicRegistrationComponent,
     EmploymentInformationComponent,
