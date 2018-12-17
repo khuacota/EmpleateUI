@@ -2,22 +2,22 @@
   <mat-toolbar-row>
     <span>Empleate</span>
     <span class="example-spacer"></span>
-    <a mat-raised-button color="accent" class="encabezado" routerLink="/Company/">Inicio</a>    
-    <a mat-raised-button color="accent" class="encabezado" routerLink="/Company/RegistroEmpresa">Registro Empresa</a>
-    <a mat-raised-button color="accent" class="encabezado" routerLink="/Company/OfertaTrabajo">Oferta Trabajo</a>
-    <a mat-raised-button color="accent" class="encabezado" routerLink="/Company/BuscarEmpleado">Buscar Empleado</a>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/">Inicio</a>    
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/RegistroEmpresa">Registro Empresa</a>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/OfertaTrabajo">Oferta Trabajo</a>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/BuscarEmpleado">Buscar Empleado</a>
   </mat-toolbar-row>
 </mat-toolbar>
 <br><br><br>
 <router-outlet class="bodyContainer"></router-outlet>
-<div *ngIf="router.url === '/Company'">
-	<div *ngIf="error;then " class="center">
-		<mat-card # class="center-shortcard">
-      		<span>no tiene empleos publicados...</span><br><br>
-      		<a mat-raised-button color="accent" routerLink="/Company/OfertaTrabajo">Publica uno ahora!</a>
-      	</mat-card>
+<div *ngIf="router.url === '/empresa'">
+	<div *ngIf="error" class="center">
+		<mat-card class="center-shortcard">
+      <span>no tiene empleos publicados...</span><br><br>
+      <a mat-raised-button color="accent" routerLink="/empresa/OfertaTrabajo">Publica uno ahora!</a>
+    </mat-card>
 	</div>
-  <div *ngIf="error===false" class="center">
+  <!--<div *ngIf="error===false" class="center">
     <div *ngFor="let item of offers" class="center-shortcard">      
       <mat-accordion>
         <mat-expansion-panel>
@@ -39,5 +39,5 @@
       </mat-accordion>
       <div class="separator"></div>
     </div>
-  </div>
+  </div>-->
 </div>

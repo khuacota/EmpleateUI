@@ -26,13 +26,13 @@ const routes: Routes = [
 
   
   {
-    path: "empresa", component: HomeCompanyComponent, canActivate: [RestrictRoutesService],
+    path: "empresa", component: HomeCompanyComponent,
     data: { expectedRole: ['Company'] },
     children: [
       { path: 'RegistroEmpresa', component: CompanyRegistrationComponent },
       { path: 'OfertaTrabajo', component: JobOfferComponent },
       { path: "BuscarEmpleado", component: BuscarEmpleadoComponent },
-      { path: 'Postulantes', component: PostulantsComponent }
+      { path: 'Postulantes/:id', component: PostulantsComponent }
     ],
   },
 
