@@ -17,7 +17,7 @@ export class EmploymentInformationComponent implements OnInit {
   offerId: string;
   offer: any;
   employeeId: number;
-  employee: Academic;
+  employee: AcademicEmploye;
   constructor(public snackBar: MatSnackBar,private route: ActivatedRoute, private router: Router, private acService: AcademicService, private jobService: JobOfferService) {
     this.employeeId = 1;
     this.offerId = '1';
