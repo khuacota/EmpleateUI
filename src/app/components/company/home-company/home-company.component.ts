@@ -16,20 +16,25 @@ export class HomeCompanyComponent implements OnInit {
   offers: Array<any>;
   companyName: string;
 
-  constructor(public router: Router, private service: JobOfferService) {
+  constructor(public router: Router, private service: JobOfferService, private servAuth: AuthService) {
   	this.error = false;
   	this.offers = [];  
     this.companyName = "Jala";     
   }
 
   ngOnInit() {
-    this.searchEmployment();
+    this.servAuth.getCompany().subscribe((res: any) => {
+      this.companyName = res[0].name;
+      this.searchEmployment();
+    })
+    
   }
 
   searchEmployment() {
     this.service.getOffersByCompany(this.companyName).subscribe(
       response => {
         this.offers = response;
+        console.log(response);
         this.error = this.offers.length == 0;        
         }, error => {
         this.offers = [];
