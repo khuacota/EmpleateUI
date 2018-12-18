@@ -2,6 +2,7 @@ import { OccupationEmp } from "./occupationEmp";
 
 export class BasicEmployee {
   public Id: number;
+  public IdUser: number;
   public Name: string;
   public LastName: string;
   public City: string;

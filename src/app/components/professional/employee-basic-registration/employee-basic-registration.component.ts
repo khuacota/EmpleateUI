@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { BasicInformationService } from '../../../services/employee/basic-information.service';
 import { Employee } from '../../../models/employee';
 import { MatSnackBar } from '@angular/material';
+import { AuthService } from '../../../services/auth/auth.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class EmployeeBasicRegistrationComponent implements OnInit {
   employeeForm: FormGroup;
 
 
-  constructor(private _formBuilder: FormBuilder, private service: BasicInformationService, public snackBar: MatSnackBar) {
+  constructor(private _formBuilder: FormBuilder, private servAuth: AuthService, private service: BasicInformationService, public snackBar: MatSnackBar) {
 
   }
 
@@ -78,7 +79,12 @@ export class EmployeeBasicRegistrationComponent implements OnInit {
     empleado.Direction = this.employeeForm.get('Address').value;
     empleado.Email = this.employeeForm.get('Email').value;
     empleado.Image = this.employeeForm.get('Img').value;
-    
+    if (this.servAuth.user) {
+      empleado.IdUser = this.servAuth.user.userId;
+    }
+    else {
+      empleado.IdUser = this.servAuth.getUser().userId;
+    }
     this.service.post(empleado).subscribe(res => {
       this.snackBar.open("registro completado correctamente", "", {
         duration: 2000,

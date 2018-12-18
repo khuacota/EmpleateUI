@@ -1,4 +1,5 @@
 export class Company {
+  public IdUser: number;
   public Name: string;
   public Description: string;
   public Entry: string;
