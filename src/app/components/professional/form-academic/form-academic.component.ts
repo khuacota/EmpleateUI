@@ -5,7 +5,7 @@ import { FormExpComponent } from "./form-exp/form-exp.component";
 import { Experience } from '../../../models/experience';
 import { Degree } from '../../../models/Degree';
 import { Language } from '../../../models/language';
-import { Academic } from '../../../models/academic';
+import { Academic, AcademicEmploye } from '../../../models/academic';
 import { AcademicService } from '../../../services/academic/academic.service';
 import { MatSnackBar } from '@angular/material';
 import { OccupationEmp } from '../../../models/occupationEmp';
@@ -29,7 +29,9 @@ export class FormAcademicComponent implements AfterViewInit {
   private languages: string[] = ['español', 'ingles'];
   private alllanguages: string[] = ['español', 'ingles', 'frances', 'ruso'];
   private skills: string[] = ['liderazgo'];
+  private occupations: string[] = ['liderazgo'];
   private allskills: string[] = ['liderazgo', 'java', 'angular', 'linux'];
+  private toPut: boolean;
 
   constructor(private academicServ: AcademicService, public snackBar: MatSnackBar, private servAuth: AuthService) {
     this.myTitles = [];
@@ -38,8 +40,28 @@ export class FormAcademicComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
+    this.toPut = false;
     this.servAuth.getEmploye().subscribe((res: any) => {
       this.userId = res[0].id;
+      this.academicServ.getOne(this.userId).subscribe(res => {
+        this.myTitles = res.degrees;
+        this.myExperiences = res.experiences;
+        this.languages = [];
+        for (let i = 0; i < res.languages.length; i++) {
+          this.languages.push(res.languages[i].language);
+        }
+        this.occupations = [];
+        for (let i = 0; i < res.occupations.length; i++) {
+          this.occupations.push(res.occupations[i].occupation);
+        }
+        this.skills = [];
+        for (let i = 0; i < res.skills.length; i++) {
+          this.skills.push(res.skills[i].skill);
+        }
+        this.toPut = this.myTitles.length > 0 && this.myExperiences.length > 0 &&
+          this.languages.length > 0 && this.occupations.length > 0 &&
+          this.skills.length > 0;
+      });
     });
   }
 
@@ -128,7 +150,29 @@ export class FormAcademicComponent implements AfterViewInit {
     academic.Degrees = degrees;
     academic.Occupations = occupations;
     academic.Skills = skills;
+    if (this.toPut) {
+      this.put(academic);
+    }
+    else {
+      this.post(academic);
+    }
+  }
+
+  post(academic) {
     this.academicServ.postAcademicInfo(academic).subscribe(res => {
+      this.snackBar.open("registro completado correctamente", "", {
+        duration: 2000,
+        panelClass: ['green-snackbar']
+      });
+    }, error => {
+      this.snackBar.open("error", "", {
+        duration: 2000,
+        panelClass: ['red-snackbar']
+      });
+    });
+  }
+  put(academic) {
+    this.academicServ.update(this.userId, academic).subscribe(res => {
       this.snackBar.open("registro completado correctamente", "", {
         duration: 2000,
         panelClass: ['green-snackbar']
