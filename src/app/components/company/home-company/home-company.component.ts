@@ -4,6 +4,7 @@ import { Router, RouterModule, Routes } from '@angular/router';
 import { JobOfferService } from '../../../services/jobOffer/job-offer.service';
 import { AuthService } from '../../../services/auth/auth.service';
 import { User } from '../../../models/user';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-home-company',
@@ -33,8 +34,7 @@ export class HomeCompanyComponent implements OnInit {
   searchEmployment() {
     this.service.getOffersByCompany(this.companyName).subscribe(
       response => {
-        this.offers = response;
-        console.log(response);
+        this.offers = response;        
         this.error = this.offers.length == 0;        
         }, error => {
         this.offers = [];
