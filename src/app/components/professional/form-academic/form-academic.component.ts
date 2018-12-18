@@ -10,6 +10,8 @@ import { AcademicService } from '../../../services/academic/academic.service';
 import { MatSnackBar } from '@angular/material';
 import { OccupationEmp } from '../../../models/occupationEmp';
 import { SkillEmp } from '../../../models/skillEmp';
+import { AuthService } from '../../../services/auth/auth.service';
+import { Employee } from '../../../models/employee';
 
 
 @Component({
@@ -29,13 +31,16 @@ export class FormAcademicComponent implements AfterViewInit {
   private skills: string[] = ['liderazgo'];
   private allskills: string[] = ['liderazgo', 'java', 'angular', 'linux'];
 
-  constructor(private academicServ: AcademicService, public snackBar: MatSnackBar) {
+  constructor(private academicServ: AcademicService, public snackBar: MatSnackBar, private servAuth: AuthService) {
     this.myTitles = [];
     this.myExperiences = [];
-    this.userId = 2;
+    this.userId = 1;
   }
 
   ngAfterViewInit() {
+    this.servAuth.getEmploye().subscribe((res: any) => {
+      this.userId = res.id;
+    });
   }
 
   

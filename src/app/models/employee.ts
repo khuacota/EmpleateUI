@@ -1,5 +1,5 @@
 export class Employee {
-  public IdUser: number;
+  public IdUser: string;
   public Name: string;
   public LastName: string;
   public Birthdate: Date;
