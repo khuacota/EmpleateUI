@@ -18,7 +18,7 @@ export class ShowCompleteInformationEmployeeComponent implements AfterViewInit {
   constructor(private basicInfService: BasicInformationService, private academicService: AcademicService, private route: ActivatedRoute, private router: Router) {
     this.basicInfo = new BasicEmployee();
     this.academicInfo = new Academic();
-    this.employeeId = '1';
+    this.employeeId = "1";
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.employeeId = params.get('id')
@@ -26,9 +26,6 @@ export class ShowCompleteInformationEmployeeComponent implements AfterViewInit {
     ).subscribe(res => { this.setData() });
 
   }
-
-  
-
   showNull(data) {
     let res = false;
     if (data) {
