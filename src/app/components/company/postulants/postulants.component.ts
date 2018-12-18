@@ -16,7 +16,7 @@ export class PostulantsComponent implements OnInit {
   public notfound: boolean;
   constructor(private serviceEmployee: BasicInformationService, private _formBuilder: FormBuilder) {
     this.error = false;
-    this.notfound = true;
+    this.notfound = false;
     let empp = new BasicEmployee();
     empp.Occupations = [new OccupationEmp(), new OccupationEmp(),
     new OccupationEmp()];
