@@ -18,6 +18,11 @@
     </mat-card>
 	</div>
   <div *ngIf="error===false" class="center">
+    <mat-card class="center-shortcard">
+      <mat-card-title>
+        Revisa tus ofertas de trabajo!
+      </mat-card-title>
+    </mat-card>
     <div *ngFor="let item of offers" class="center-shortcard">      
       <mat-accordion>
         <mat-expansion-panel>
@@ -29,7 +34,7 @@
         <div class="ontheleft">
           <span>Descripcion: {{item.description | slice:0:100}}...</span><br>      
           <span>Fecha maxima de postulacion: {{item.deadline | slice:0:10}}</span>
-          <button mat-raised-button color="accent" class="button" [routerLink]="['/Postulantes', item.id]">Ver mas</button><br><br>
+          <button mat-raised-button color="accent" class="button" [routerLink]="['/empresa/Postulantes', item.id]">Ver mas</button><br><br>
         </div>
         </mat-expansion-panel><br>
       </mat-accordion>
