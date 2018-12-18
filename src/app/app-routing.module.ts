@@ -26,8 +26,8 @@ const routes: Routes = [
 
   
   {
-    path: "empresa", component: HomeCompanyComponent, canActivate: [RestrictRoutesService],
-    data: { expectedRole: ['Company'] },
+    path: "empresa", component: HomeCompanyComponent, /*canActivate: [RestrictRoutesService],
+    data: { expectedRole: ['Company'] },*/
     children: [
       { path: 'RegistroEmpresa', component: CompanyRegistrationComponent },
       { path: 'OfertaTrabajo', component: JobOfferComponent },
@@ -37,8 +37,8 @@ const routes: Routes = [
   },
 
   {
-    path: "empleado", component: HomeComponent, canActivate: [RestrictRoutesService],
-    data: { expectedRole: ['Employee'] },
+    path: "empleado", component: HomeComponent, /*canActivate: [RestrictRoutesService],
+    data: { expectedRole: ['Employee'] }, */
     children: [
       { path: 'InformacionAcademica', component: FormAcademicComponent },
       { path: "SearchEmployment", component: SearchEmploymentComponent },
