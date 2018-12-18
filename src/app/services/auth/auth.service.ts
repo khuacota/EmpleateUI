@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpErrorHandlerService } from '../http-error-handler.service';
 import { User } from '../../models/user';
 import jwt_decode from 'jwt-decode';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,18 @@ export class AuthService extends BaseService{
       return this.user;
     }
     return null;
+  }
+
+  getCompany() {
+    return this.httpClient.get(`${this.apiUrl}/empresas/user/${this.user.userId}`, { headers: this.headers }).pipe(
+      catchError(this.errorHandler.handleError)
+    );
+  }
+
+  getEmploye() {
+    return this.httpClient.get(`${this.apiUrl}/empleados/user/${this.user.userId}`, { headers: this.headers }).pipe(
+      catchError(this.errorHandler.handleError)
+    );
   }
 
   getAccessToken(): string {
