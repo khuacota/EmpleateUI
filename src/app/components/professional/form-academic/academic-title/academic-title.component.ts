@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Regex } from '../../../../models/regex';
 
@@ -8,6 +8,7 @@ import { Regex } from '../../../../models/regex';
   styleUrls: ['./academic-title.component.scss']
 })
 export class AcademicTitleComponent implements OnInit {
+  @Input() title;
   private degrees = ['licenciatura', 'master', 'doctorado'];
   academicForm: FormGroup;
   constructor(private fb: FormBuilder) {
@@ -21,6 +22,9 @@ export class AcademicTitleComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.academicForm.get('Degree').setValue(this.title.degree);
+    this.academicForm.get('Description').setValue(this.title.description);
   }
   
 
