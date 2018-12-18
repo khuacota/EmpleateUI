@@ -7,6 +7,7 @@ import { switchMap } from 'rxjs/operators';
 import { AcademicService } from '../../../../services/academic/academic.service';
 import { Academic, AcademicEmploye } from '../../../../models/academic';
 import { MatSnackBar } from '@angular/material';
+import { AuthService } from '../../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-employment-information',
@@ -18,7 +19,7 @@ export class EmploymentInformationComponent implements OnInit {
   offer: any;
   employeeId: number;
   employee: AcademicEmploye;
-  constructor(public snackBar: MatSnackBar,private route: ActivatedRoute, private router: Router, private acService: AcademicService, private jobService: JobOfferService) {
+  constructor(public snackBar: MatSnackBar, private route: ActivatedRoute, private router: Router, private acService: AcademicService, private jobService: JobOfferService, private servAuth: AuthService) {
     this.employeeId = 1;
     this.offerId = '1';
     this.offer = {};
@@ -42,6 +43,12 @@ export class EmploymentInformationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.servAuth.getEmploye().subscribe(res => {
+      this.employeeId = res[0].id;
+      this.acService.getOne(this.employeeId).subscribe(res => {
+        this.employee = res;
+      });
+    });
     this.acService.getOne(this.employeeId).subscribe(res => {
       this.employee = res;
     });

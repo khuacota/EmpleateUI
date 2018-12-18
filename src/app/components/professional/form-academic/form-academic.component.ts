@@ -39,7 +39,7 @@ export class FormAcademicComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.servAuth.getEmploye().subscribe((res: any) => {
-      this.userId = res.id;
+      this.userId = res[0].id;
     });
   }
 

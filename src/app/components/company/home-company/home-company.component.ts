@@ -19,7 +19,7 @@ export class HomeCompanyComponent implements OnInit {
   constructor(public router: Router, private service: JobOfferService, private servAuth: AuthService) {
   	this.error = false;
   	this.offers = [];  
-    this.companyName = "Jala";     
+    this.companyName = "";     
   }
 
   ngOnInit() {
@@ -34,7 +34,6 @@ export class HomeCompanyComponent implements OnInit {
     this.service.getOffersByCompany(this.companyName).subscribe(
       response => {
         this.offers = response;
-        console.log(response);
         this.error = this.offers.length == 0;        
         }, error => {
         this.offers = [];
