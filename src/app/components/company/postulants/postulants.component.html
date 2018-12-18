@@ -1,8 +1,8 @@
 
 <mat-card class="center">
- <strong> Profesion requerida:</strong>{{offer.profession}} <br />
- <strong> Horario de trabajo:</strong>{{offer.startTime | slice:11:16}} - {{offer.endTime | slice:11:16}} <br />
- <strong> Experiencia Minima:</strong>{{offer.minExperience }} <br />
+  <strong> Profesion requerida:</strong>{{offer.profession}} <br />
+  <strong> Horario de trabajo:</strong>{{offer.startTime | slice:11:16}} - {{offer.endTime | slice:11:16}} <br />
+  <strong> Experiencia Minima:</strong>{{offer.minExperience }} <br />
 
 
   <strong> Idiomas requeridos:</strong>
@@ -16,4 +16,26 @@
 
   <br />
 </mat-card>
+
+<br />
+<br />
+
+
+  <strong *ngIf="notfound">No se encontraron empleados</strong>
+  
+    <mat-card class="center-main">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title><strong> Nombre:</strong> {{proffesional.name}} {{proffesional.lastName}}</mat-card-title>
+        <mat-card-subtitle><strong> Ciudad:</strong> {{proffesional.city}} <strong> Correo:</strong> {{proffesional.email}}</mat-card-subtitle>
+      </mat-card-header>
+      <strong> Ocupaciones:</strong>
+      <label *ngFor="let occupation of proffesional.occupations"> {{occupation.occupation}},</label>
+
+      <label></label>
+      <br />
+      <br />
+      <button class="btnSearch btnlocation " mat-button [routerLink]="['/empresa/InformacionEmpleado', proffesional.id]">Ver mas</button>
+      <br />
+      <br />
 
