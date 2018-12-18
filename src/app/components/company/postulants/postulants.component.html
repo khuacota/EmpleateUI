@@ -1,41 +1,24 @@
 
-<mat-card class="center">
-  <strong> Profesion requerida:</strong>{{offer.profession}} <br />
-  <strong> Horario de trabajo:</strong>{{offer.startTime | slice:11:16}} - {{offer.endTime | slice:11:16}} <br />
-  <strong> Experiencia Minima:</strong>{{offer.minExperience }} <br />
-
-
-  <strong> Idiomas requeridos:</strong>
-  <label *ngFor="let language of offer.reqLanguages">{{language.language}}, </label><br />
-
-  <strong> Habilidades requeridas:</strong>
-  <label *ngFor="let skill of offer.reqSkills">{{skill.skill}} </label><br />
-
-  <span><strong>Descripcion:</strong> {{offer.description}}</span><br><br />
-  <span><strong>Fecha limite:</strong> {{offer.deadline | slice:0:10}}</span>
-
-  <br />
-</mat-card>
+<app-employment-information></app-employment-information>
 
 <br />
 <br />
 
+<strong *ngIf="notfound">No se encontraron postulantes</strong>
+<div *ngFor="let proffesional of proffesionals">
+  <mat-card class="center-main">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title><strong> Nombre:</strong> {{proffesional.name}} {{proffesional.lastName}}</mat-card-title>
+      <mat-card-subtitle><strong> Ciudad:</strong> {{proffesional.city}} <strong> Correo:</strong> {{proffesional.email}}</mat-card-subtitle>
+    </mat-card-header>
+    <strong> Ocupaciones:</strong>
+    <label *ngFor="let occupation of proffesional.occupations"> {{occupation.occupation}},</label>
 
-  <strong *ngIf="notfound">No se encontraron empleados</strong>
-  
-    <mat-card class="center-main">
-      <mat-card-header>
-        <div mat-card-avatar class="header-image"></div>
-        <mat-card-title><strong> Nombre:</strong> {{proffesional.name}} {{proffesional.lastName}}</mat-card-title>
-        <mat-card-subtitle><strong> Ciudad:</strong> {{proffesional.city}} <strong> Correo:</strong> {{proffesional.email}}</mat-card-subtitle>
-      </mat-card-header>
-      <strong> Ocupaciones:</strong>
-      <label *ngFor="let occupation of proffesional.occupations"> {{occupation.occupation}},</label>
-
-      <label></label>
-      <br />
-      <br />
-      <button class="btnSearch btnlocation " mat-button [routerLink]="['/empresa/InformacionEmpleado', proffesional.id]">Ver mas</button>
-      <br />
-      <br />
+    <label></label>
+    <br />
+    <br />
+    <button class="btnSearch btnlocation " mat-button [routerLink]="['/empresa/InformacionEmpleado', proffesional.id]">Ver mas</button>
+    <br />
+    <br />
 
