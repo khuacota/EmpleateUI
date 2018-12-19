@@ -3,6 +3,9 @@ import { BasicInformationService } from '../../../services/employee/basic-inform
 import { BasicEmployee } from '../../../models/basicEmployee';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { OccupationEmp } from '../../../models/occupationEmp';
+import { JobOfferService } from '../../../services/jobOffer/job-offer.service';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-postulants',
@@ -14,7 +17,8 @@ export class PostulantsComponent implements OnInit {
   private error: boolean;
   private searchForm: FormGroup;
   public notfound: boolean;
-  constructor(private serviceEmployee: BasicInformationService, private _formBuilder: FormBuilder) {
+  private offerId;
+  constructor(private serviceEmployee: JobOfferService, private _formBuilder: FormBuilder,private route: ActivatedRoute, private router: Router) {
     this.error = false;
     this.notfound = false;
     let empp = new BasicEmployee();
@@ -29,16 +33,17 @@ export class PostulantsComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-  searchEmployees() {
-    this.serviceEmployee.getFilterEmployees(this.searchForm.value.Searched).subscribe((res: Array<BasicEmployee>) => {
-      this.proffesionals = res;
-      if (this.proffesionals.length == 0) {
-        this.notfound = true;
-      }
-    }, error => {
+    this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.offerId = params.get('id')
+      )
+    ).subscribe(res => {
+      this.serviceEmployee.getpostulants(this.offerId).subscribe(res => {
+        this.proffesionals = res;
+      });
     });
-  }
+    
+    }
 
 }
 

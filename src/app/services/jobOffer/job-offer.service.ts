@@ -39,6 +39,12 @@ export class JobOfferService extends BaseService {
     );
   }
 
+  public getpostulants(id): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/${this.endpoint}/postulaciones/`).pipe(
+      catchError(this.errorHandler.handleError)
+    );
+  }
+
   public getRecentOffers(): Observable<any> {
     return this.httpClient.get(`${this.apiUrl}/${this.endpoint}/recientes`).pipe(
       catchError(this.errorHandler.handleError)
