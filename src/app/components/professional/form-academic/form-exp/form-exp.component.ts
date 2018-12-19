@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Regex } from '../../../../models/regex';
+import { Experience } from '../../../../models/experience';
 
 @Component({
   selector: 'app-form-exp',
@@ -8,6 +9,7 @@ import { Regex } from '../../../../models/regex';
   styleUrls: ['./form-exp.component.css']
 })
 export class FormExpComponent implements OnInit {
+  @Input() experience;
   expForm: FormGroup;
   today = new Date();
   maxDate = new Date(this.today.setDate(this.today.getDate() - 1));
@@ -21,12 +23,16 @@ export class FormExpComponent implements OnInit {
         Validators.required,
         Validators.pattern(Regex.ALPHABETIC)
       ])],
-      Start: ['', Validators.required],
-      End: ['', Validators.required],
+      Inicio: ['', Validators.required],
+      Fin: ['', Validators.required],
     });
   }
 
   ngOnInit() {
+    this.expForm.get('Place').setValue(this.experience.place);
+    this.expForm.get('Position').setValue(this.experience.position);
+    this.expForm.get('Inicio').setValue(new Date(this.experience.inicio));
+    this.expForm.get('Fin').setValue(new Date(this.experience.fin));
   }
 
 }

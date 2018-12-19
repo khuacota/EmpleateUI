@@ -21,9 +21,7 @@ import { RegisterComponent } from './components/common/register/register.compone
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'InformacionTrabajo/:id', component: EmploymentInformationComponent },
-  { path: 'InformacionEmpleado/:id', component: EmployeeInformationComponent },
-
+   
   
   {
     path: "empresa", component: HomeCompanyComponent, canActivate: [RestrictRoutesService],
@@ -32,7 +30,9 @@ const routes: Routes = [
       { path: 'RegistroEmpresa', component: CompanyRegistrationComponent },
       { path: 'OfertaTrabajo', component: JobOfferComponent },
       { path: "BuscarEmpleado", component: BuscarEmpleadoComponent },
-      { path: 'Postulantes/:id', component: PostulantsComponent }
+      { path: 'Postulantes/:id', component: PostulantsComponent },
+      { path: 'InformacionEmpleado/:id', component: EmployeeInformationComponent },
+
     ],
   },
 
@@ -42,7 +42,10 @@ const routes: Routes = [
     children: [
       { path: 'InformacionAcademica', component: FormAcademicComponent },
       { path: "SearchEmployment", component: SearchEmploymentComponent },
-      { path: "InformacionBasica", component: EmployeeBasicRegistrationComponent }
+      { path: "InformacionBasica", component: EmployeeBasicRegistrationComponent },
+       { path: 'InformacionTrabajo/:id', component: EmploymentInformationComponent },
+       { path: 'InformacionEmpleado/:id', component: EmployeeInformationComponent },
+
     ]
   }
 ];
