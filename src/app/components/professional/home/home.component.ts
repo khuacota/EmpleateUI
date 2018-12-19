@@ -35,6 +35,9 @@ export class HomeComponent implements OnInit {
   	);
   }
 
-  
+  logoutSer() {
+    this.servAuth.logout();
+    window.location.reload();
+  }  
 
 }
