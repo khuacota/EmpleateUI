@@ -32,7 +32,7 @@
         <div class="ontheleft">
           <span>Descripcion: {{item.description | slice:0:100}}...</span><br>      
           <span>Fecha maxima de postulacion: {{item.deadline | slice:0:10}}</span>
-          <button mat-raised-button color="accent" class="button" [routerLink]="['/InformacionTrabajo', item.id]">Ver mas</button><br><br>
+          <button mat-raised-button color="accent" class="button" [routerLink]="['/empleado/InformacionTrabajo', item.id]">Ver mas</button><br><br>
         </div>
         </mat-expansion-panel><br>
       </mat-accordion>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BasicInformationService } from '../../services/employee/basic-information.service';
-import { BasicEmployee } from '../../models/basicEmployee';
+import { BasicInformationService } from '../../../services/employee/basic-information.service';
+import { BasicEmployee } from '../../../models/basicEmployee';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { OccupationEmp } from '../../models/occupationEmp';
+import { OccupationEmp } from '../../../models/occupationEmp';
 
 @Component({
   selector: 'app-search-employee',

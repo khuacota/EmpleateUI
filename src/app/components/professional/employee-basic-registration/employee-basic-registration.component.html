@@ -1,4 +1,3 @@
-
 <mat-card  class="center-card">
   <ng-template matStepLabel></ng-template>
   <strong>REGISTRO INFORMACION BASICA</strong>
@@ -112,7 +111,7 @@
     <mat-card-actions>
       <span class="example-spacer"></span>
       <button mat-raised-button color="accent">CANCELAR</button>
-      <button mat-raised-button color="accent" (click)="submit()" [disabled]="employeeForm.invalid">ENVIAR</button>
+      <button mat-raised-button color="accent" (click)="submit()" [disabled]="disabled()">ENVIAR</button>
     </mat-card-actions>
   </div>
 </mat-card>

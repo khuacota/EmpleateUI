@@ -21,13 +21,15 @@ import { AcademicService } from './services/academic/academic.service';
 import { HttpErrorHandlerService } from './services/http-error-handler.service';
 import { JobOfferService } from './services/jobOffer/job-offer.service';
 import { CompanyService } from './services/company/company.service';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { SearchEmploymentComponent } from './components/search-employment/search-employment.component';
-import { EmployeeBasicRegistrationComponent } from './components/employee-basic-registration/employee-basic-registration.component';
+import { SearchEmploymentComponent } from './components/professional/search-employment/search-employment.component';
+import { EmployeeBasicRegistrationComponent } from './components/professional/employee-basic-registration/employee-basic-registration.component';
 import { BasicInformationService } from './services/employee/basic-information.service';
-import { EmploymentInformationComponent } from './components/search-employment/employment-information/employment-information.component';
-import { EmployeeInformationComponent } from './components/search-employee/employee-information/employee-information.component';
-import { BuscarEmpleadoComponent } from './components/search-employee/search-employee.component';
+import { EmploymentInformationComponent } from './components/professional/search-employment/employment-information/employment-information.component';
+import { EmployeeInformationComponent } from './components/company/search-employee/employee-information/employee-information.component';
+import { BuscarEmpleadoComponent } from './components/company/search-employee/search-employee.component';
+import { HomeComponent } from './components/professional/home/home.component';
+import { HomeCompanyComponent } from './components/company/home-company/home-company.component';
+import { PostulantsComponent } from './components/company/postulants/postulants.component';
 import { LoginComponent } from './components/common/login/login.component';
 import { AuthService } from './services/auth/auth.service';
 import { RegisterComponent } from './components/common/register/register.component';
@@ -45,13 +47,15 @@ import { RegisterService } from './services/register/register.service';
     JobOfferComponent,
     InputSkillsComponent,
     CompanyRegistrationComponent,
-    NavbarComponent,
     SearchEmploymentComponent,
     EmployeeBasicRegistrationComponent,
     EmploymentInformationComponent,
     EmployeeInformationComponent,
+    HomeComponent,
+    HomeCompanyComponent,
+    PostulantsComponent,
     LoginComponent,
-    RegisterComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

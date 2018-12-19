@@ -10,7 +10,7 @@
       </mat-step>
     <mat-step>
       <ng-template matStepLabel>Conocimientos</ng-template>
-      <app-input-chips [label]="'Ocupaciones'" [minElements]="0" [strict]="false" [items]="['chofer']"></app-input-chips>
+      <app-input-chips [label]="'Ocupaciones'" [minElements]="0" [strict]="false" [items]="occupations"></app-input-chips>
       <h4>
         añadir Titulo:
         <button mat-mini-fab color="primary" (click)="addTitle()">
@@ -18,8 +18,12 @@
         </button>
       </h4>
 
-
-      <app-academic-title *ngFor="let title of myTitles"></app-academic-title>
+      <div  *ngFor="let title of myTitles">
+        <app-academic-title [title]="title"></app-academic-title>
+      </div>
+      <button mat-mini-fab color="warn" (click)="removeTitle()">
+        <mat-icon aria-label="icon-button">remove</mat-icon>
+      </button>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Experiencia</ng-template>
@@ -29,7 +33,12 @@
           <mat-icon aria-label="icon-button">add</mat-icon>
         </button>
       </h4>
-      <app-form-exp *ngFor="let experience of myExperiences"></app-form-exp>
+      <div *ngFor="let experience of myExperiences">
+        <app-form-exp [experience]="experience"></app-form-exp>
+      </div>
+      <button mat-mini-fab color="warn" (click)="removeExperience()">
+        <mat-icon aria-label="icon-button">remove</mat-icon>
+      </button>
     </mat-step>
   </mat-horizontal-stepper>
     <mat-card-actions>

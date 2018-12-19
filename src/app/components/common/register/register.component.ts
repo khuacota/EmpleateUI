@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material';
 import { AuthService } from '../../../services/auth/auth.service';
 import { Regex } from '../../../models/regex';
 import { RegisterService } from '../../../services/register/register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ import { RegisterService } from '../../../services/register/register.service';
 export class RegisterComponent implements OnInit {
 
   RegisterForm: FormGroup;
-  constructor(private fb: FormBuilder, public snackBar: MatSnackBar, public servAuth: AuthService, public serv: RegisterService) {
+  constructor(private fb: FormBuilder, public snackBar: MatSnackBar, public servAuth: AuthService, public serv: RegisterService, private route: Router) {
     this.RegisterForm = this.fb.group({
       Email: ['', Validators.compose([
         Validators.required,
@@ -51,14 +52,20 @@ export class RegisterComponent implements OnInit {
             panelClass: ['green-snackbar']
           });
           sessionStorage.setItem("EmpleateJWT", res.token);
+          if (register.Role == 'company') {
+            this.route.navigate(['/empresa/RegistroEmpresa']);
+          }
+          else {
+            this.route.navigate(['/empleado/InformacionBasica']);
+          }
         }, error => {
-          this.snackBar.open("ocurrio un error" + error.originalError, "", {
+          this.snackBar.open("ocurrio un error " + error.originalError, "", {
             duration: 2000,
             panelClass: ['red-snackbar']
           });
         });
     }, error => {
-      this.snackBar.open("ocurrio un error" + error.originalError, "", {
+      this.snackBar.open("ocurrio un error " + error.originalError, "", {
         duration: 2000,
         panelClass: ['red-snackbar']
       });

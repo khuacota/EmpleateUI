@@ -5,11 +5,14 @@ import { FormExpComponent } from "./form-exp/form-exp.component";
 import { Experience } from '../../../models/experience';
 import { Degree } from '../../../models/Degree';
 import { Language } from '../../../models/language';
-import { Academic } from '../../../models/academic';
+import { Academic, AcademicEmploye } from '../../../models/academic';
 import { AcademicService } from '../../../services/academic/academic.service';
 import { MatSnackBar } from '@angular/material';
 import { OccupationEmp } from '../../../models/occupationEmp';
 import { SkillEmp } from '../../../models/skillEmp';
+import { AuthService } from '../../../services/auth/auth.service';
+import { Employee } from '../../../models/employee';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,18 +27,44 @@ export class FormAcademicComponent implements AfterViewInit {
   private myTitles: Array<any>;
   private myExperiences: Array<any>;
   private userId: number;
-  private languages: string[] = ['español', 'ingles'];
+  private languages: string[] = [];
   private alllanguages: string[] = ['español', 'ingles', 'frances', 'ruso'];
-  private skills: string[] = ['liderazgo'];
+  private skills: string[] = [];
+  private occupations: string[] = [];
   private allskills: string[] = ['liderazgo', 'java', 'angular', 'linux'];
+  private toPut: boolean;
+  private submiting: boolean = false;
 
-  constructor(private academicServ: AcademicService, public snackBar: MatSnackBar) {
+  constructor(private route: Router, private academicServ: AcademicService, public snackBar: MatSnackBar, private servAuth: AuthService) {
     this.myTitles = [];
     this.myExperiences = [];
-    this.userId = 2;
+    this.userId = 1;
   }
 
   ngAfterViewInit() {
+    this.toPut = false;
+    this.servAuth.getEmploye().subscribe((res: any) => {
+      this.userId = res[0].id;
+      this.academicServ.getOne(this.userId).subscribe(res => {
+        this.myTitles = res.degrees;
+        this.myExperiences = res.experiences;
+        this.languages = [];
+        for (let i = 0; i < res.languages.length; i++) {
+          this.languages.push(res.languages[i].language);
+        }
+        this.occupations = [];
+        for (let i = 0; i < res.occupations.length; i++) {
+          this.occupations.push(res.occupations[i].occupation);
+        }
+        this.skills = [];
+        for (let i = 0; i < res.skills.length; i++) {
+          this.skills.push(res.skills[i].skill);
+        }
+        this.toPut = this.myTitles.length > 0 && this.myExperiences.length > 0 &&
+          this.languages.length > 0 && this.occupations.length > 0 &&
+          this.skills.length > 0;
+      });
+    });
   }
 
   
@@ -44,9 +73,16 @@ export class FormAcademicComponent implements AfterViewInit {
     this.myTitles.push(obj);
   }
 
+  removeTitle() {
+    this.myTitles.pop();
+  }
+
   addExperience() {
     let obj = { degree: "", description: "" };
     this.myExperiences.push(obj);
+  }
+  removeExperience() {
+    this.myExperiences.pop();
   }
 
   disabled() {
@@ -64,7 +100,7 @@ export class FormAcademicComponent implements AfterViewInit {
           res = res || (inputsChips[i].items.length < 1 && titles.length < 1);
         }
       }
-      return res || titles.some(e => e.academicForm.invalid) || exps.some(e => e.expForm.invalid);
+      return res || titles.some(e => e.academicForm.invalid) || exps.some(e => e.expForm.invalid) || this.submiting;
     }
     return true;
   }
@@ -72,6 +108,7 @@ export class FormAcademicComponent implements AfterViewInit {
   /**get all the information of the childs components and put it all in a Academic object for send it 
    * */
   submit() {
+    this.submiting = true;
     let titles = this.viewTitles.toArray();
     let exps = this.viewExps.toArray();
     let experiences: Experience[] = [];
@@ -123,12 +160,38 @@ export class FormAcademicComponent implements AfterViewInit {
     academic.Degrees = degrees;
     academic.Occupations = occupations;
     academic.Skills = skills;
+    if (this.toPut) {
+      this.put(academic);
+    }
+    else {
+      this.post(academic);
+    }
+  }
+
+  post(academic) {
     this.academicServ.postAcademicInfo(academic).subscribe(res => {
       this.snackBar.open("registro completado correctamente", "", {
         duration: 2000,
         panelClass: ['green-snackbar']
       });
+      this.route.navigate(['/empleado']);
     }, error => {
+      this.submiting = false;
+      this.snackBar.open("error", "", {
+        duration: 2000,
+        panelClass: ['red-snackbar']
+      });
+    });
+  }
+  put(academic) {
+    this.academicServ.update(this.userId, academic).subscribe(res => {
+      this.snackBar.open("registro completado correctamente", "", {
+        duration: 2000,
+        panelClass: ['green-snackbar']
+      });
+      this.route.navigate(['/empleado']);
+    }, error => {
+      this.submiting = false;
       this.snackBar.open("error", "", {
         duration: 2000,
         panelClass: ['red-snackbar']

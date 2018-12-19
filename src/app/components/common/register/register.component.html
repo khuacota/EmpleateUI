@@ -1,6 +1,16 @@
+<mat-toolbar color="primary" class="navbar">
+  <mat-toolbar-row>
+    <span>Empleate</span>
+    <span class="example-spacer"></span>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/register">Registrarse</a>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/login">Iniciar Sesion</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<br><br><br>
+
 <mat-card class="center-card" [formGroup]="RegisterForm">
   <mat-card-title class="tittle">
-    INICIAR SESION
+    REGISTRATE
   </mat-card-title>
   <mat-form-field class='normal'>
     <input matInput placeholder="Email" formControlName="Email">
@@ -30,16 +40,14 @@
 
     </mat-select>
   </mat-form-field>
-    <mat-card-actions>
-      <!--<span class="example-spacer"></span>-->
-      <div class='testt'>
-        <div style='float: left;'>
-          <button mat-raised-button color="accent">Cancelar</button>
-        </div>
-        <!--<span class="example-spacer"> </span>-->
-        <div style='float: right;'>
-          <button mat-raised-button color="accent" [disabled]="RegisterForm.invalid" (click)="register()">Iniciar sesion</button>
-        </div>
+  <mat-card-actions>
+    <div class='testt'>
+      <div style='float: left;'>
+        <button mat-raised-button color="accent">Cancelar</button>
       </div>
-    </mat-card-actions>
+      <div style='float: right;'>
+        <button mat-raised-button color="accent" [disabled]="RegisterForm.invalid" (click)="register()">Iniciar sesion</button>
+      </div>
+    </div>
+  </mat-card-actions>
 </mat-card>

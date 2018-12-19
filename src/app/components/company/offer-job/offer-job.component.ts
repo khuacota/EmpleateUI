@@ -8,6 +8,7 @@ import { JobOffer } from '../../../models/jobOffer';
 import { JobOfferService } from '../../../services/jobOffer/job-offer.service';
 import { MatSnackBar } from '@angular/material';
 import { Regex } from '../../../models/regex';
+import { AuthService } from '../../../services/auth/auth.service';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class JobOfferComponent implements AfterViewInit {
   private languages: string[] = ['español', 'ingles'];
   private alllanguages: string[] = ['español', 'ingles', 'frances', 'ruso'];
 
-  constructor(private fb: FormBuilder,private ofertaServ: JobOfferService, public snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder, private ofertaServ: JobOfferService, public snackBar: MatSnackBar, public servAuth: AuthService) {
 
     this.expForm = this.fb.group({
       Profession: ['', Validators.compose([
@@ -60,8 +61,11 @@ export class JobOfferComponent implements AfterViewInit {
 
     });
 
-    
-    this.userId = 1;
+    this.servAuth.getCompany().subscribe(res => {
+
+      this.userId = res[0].id;
+      console.log(this.userId);
+    });
 
   }
   

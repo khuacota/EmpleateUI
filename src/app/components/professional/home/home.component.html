@@ -1,0 +1,41 @@
+<mat-toolbar color="primary" class="navbar">
+  <mat-toolbar-row>
+    <span>Empleate</span>
+    <span class="example-spacer"></span>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/empleado">Inicio</a>
+    <a mat-raised-button color="accent" *ngIf="employee == undefined" class="encabezado" routerLink="/empleado/InformacionBasica">Registro basico de usuario</a>
+    <a mat-raised-button color="accent" *ngIf="employee !== undefined" class="encabezado" routerLink="/empleado/InformacionAcademica">Informacion academica</a>       
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/empleado/SearchEmployment">Buscar Empleo</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<br><br><br>
+<router-outlet class="bodyContainer"></router-outlet>
+<div *ngIf="router.url === '/empleado'">
+  <mat-card class='center-shortcard'>
+    <mat-card-title class='center'>
+		Ultimos empleos ofertados por empresas!
+    </mat-card-title>
+  </mat-card><br /><br />
+
+  <div *ngFor="let item of recentOffers" class="center-shortcard">      
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Profesion: {{item.profession}}
+            </mat-panel-title>
+            <mat-panel-description>
+              Empresa: {{item.companyName}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+        <div class="ontheleft">
+          <span>Descripcion: {{item.description | slice:0:100}}...</span><br>      
+          <span>Fecha maxima de postulacion: {{item.deadline | slice:0:10}}</span>
+          <button mat-raised-button color="accent" class="button" [routerLink]="['/empleado/InformacionTrabajo', item.id]">Ver mas</button><br><br>
+        </div>
+        </mat-expansion-panel><br>
+      </mat-accordion>
+      <div class="separator"></div>
+  </div>
+</div>
