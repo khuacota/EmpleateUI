@@ -23,13 +23,13 @@ export class RegisterComponent implements OnInit {
 
       Password: ['', Validators.compose([
         Validators.required,
-        Validators.minLength(6)
+        Validators.pattern(Regex.PASSWORD)
       ])],
 
 
       ConfirmPassword: ['', Validators.compose([
         Validators.required,
-        Validators.minLength(6)
+        Validators.pattern(Regex.PASSWORD)
       ])],
 
       Role: ['',
@@ -37,6 +37,17 @@ export class RegisterComponent implements OnInit {
     });
   }
   ngOnInit() {
+  }
+
+  equalPassword() {
+    if (this.RegisterForm.get('Password').value === this.RegisterForm.get('ConfirmPassword').value) {
+      return true;
+    }
+    return false;
+  }
+
+  checkForm() {
+    return this.RegisterForm.invalid || !this.equalPassword();
   }
 
   register() {
