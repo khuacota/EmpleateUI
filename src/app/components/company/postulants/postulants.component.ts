@@ -40,9 +40,10 @@ export class PostulantsComponent implements OnInit {
     ).subscribe(res => {
       this.serviceEmployee.getpostulants(this.offerId).subscribe(res => {
         this.proffesionals = res;
+        
       });
     });
-    
+    console.log(this.proffesionals);
     }
 
 }
