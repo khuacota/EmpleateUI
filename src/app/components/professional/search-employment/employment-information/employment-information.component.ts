@@ -57,13 +57,16 @@ export class EmploymentInformationComponent implements OnInit {
 
   postulate() {
     let body = { OfferId: this.offerId, EmployeeId: this.employeeId };
-    
     this.jobService.postulate(body).subscribe(res => {
       this.snackBar.open("postulacion exitosa", "", {
         duration: 2000,
         panelClass: ['green-snackbar']
       });
     }, error => {
+      this.snackBar.open("error" + error.originalError, "", {
+                duration: 2000,
+            panelClass: ['red-snackbar']
+          });
     });
   }
 

@@ -50,8 +50,8 @@
     <div class="example-container">
       <mat-form-field>
         <mat-select placeholder="Sexo" formControlName="Gender" required>
-          <mat-option value="option">Masculino</mat-option>
-          <mat-option value="option">Femenino</mat-option>
+          <mat-option value="Masculino">Masculino</mat-option>
+          <mat-option value="Femenino">Femenino</mat-option>
 
         </mat-select>
         <mat-error *ngIf="employeeForm.get('Gender').hasError('required')">
@@ -111,7 +111,7 @@
     <mat-card-actions>
       <span class="example-spacer"></span>
       <button mat-raised-button color="accent" (click)="employeeForm.reset()">CANCELAR</button>
-      <button mat-raised-button color="accent" (click)="submit()" [disabled]="disabled()">ENVIAR</button>
+      <a mat-raised-button color="accent" (click)="submit()" [disabled]="disabled()" href="http://localhost:4200/empleado/InformacionAcademica">ENVIAR</a>
     </mat-card-actions>
   </div>
 </mat-card>
