@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputLanguagesComponent } from './input-languages.component';
+import { InputChipsComponent } from './input-chips.component';
 
 describe('InputLanguagesComponent', () => {
-  let component: InputLanguagesComponent;
-  let fixture: ComponentFixture<InputLanguagesComponent>;
+  let component: InputChipsComponent;
+  let fixture: ComponentFixture<InputChipsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputLanguagesComponent ]
+      declarations: [InputChipsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InputLanguagesComponent);
+    fixture = TestBed.createComponent(InputChipsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JobOfferComponent } from './ofertar-trabajo.component';
+import { JobOfferComponent } from './offer-job.component';
 
 
 describe('JobOfferComponent', () => {

@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { JobOfferService } from './oferta-trabajo.service';
+import { JobOfferService } from './job-offer.service';
 
 describe('OfertaTrabajoService', () => {
   beforeEach(() => {

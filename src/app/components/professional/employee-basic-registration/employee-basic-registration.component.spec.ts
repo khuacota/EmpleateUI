@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmployeeBasicRegistrationComponent } from './registro-empleado-basico.component';
+import { EmployeeBasicRegistrationComponent } from './employee-basic-registration.component';
 
 describe('RegistroEmpleadoBasicoComponent', () => {
   let component: EmployeeBasicRegistrationComponent;

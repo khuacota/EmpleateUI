@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { BasicInformationService } from './informacion-basica.service';
+import { BasicInformationService } from './basic-information.service';
 
 describe('InformacionBasicaService', () => {
   beforeEach(() => {
