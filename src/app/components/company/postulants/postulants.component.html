@@ -1,6 +1,24 @@
-<app-employment-information></app-employment-information>
-<p>
-  postulants works!
 
-  INserta tu postulantes aqui
-</p>
+<app-employment-information></app-employment-information>
+
+<br />
+<br />
+
+<strong *ngIf="notfound">No se encontraron postulantes</strong>
+<div *ngFor="let proffesional of proffesionals">
+  <mat-card class="center-main">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title><strong> Nombre:</strong> {{proffesional.name}} {{proffesional.lastName}}</mat-card-title>
+      <mat-card-subtitle><strong> Ciudad:</strong> {{proffesional.city}} <strong> Correo:</strong> {{proffesional.email}}</mat-card-subtitle>
+    </mat-card-header>
+    <strong> Ocupaciones:</strong>
+    <label *ngFor="let occupation of proffesional.occupations"> {{occupation.occupation}},</label>
+
+    <label></label>
+    <br />
+    <br />
+    <button class="btnSearch btnlocation " mat-button [routerLink]="['/empresa/InformacionEmpleado', proffesional.id]">Ver mas</button>
+    <br />
+    <br />
+

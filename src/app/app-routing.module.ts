@@ -38,7 +38,7 @@ const routes: Routes = [
 
   {
     path: "empleado", component: HomeComponent, canActivate: [RestrictRoutesService],
-    data: { expectedRole: ['Employee'] },
+    data: { expectedRole: ['Employee'] }, 
     children: [
       { path: 'InformacionAcademica', component: FormAcademicComponent },
       { path: "SearchEmployment", component: SearchEmploymentComponent },
