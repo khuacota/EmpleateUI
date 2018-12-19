@@ -1,0 +1,27 @@
+
+<app-employment-information></app-employment-information>
+
+<br />
+<br />
+<div class="centerText">
+  <h1>POSTULANTES</h1>
+  <strong *ngIf="notfound">No se encontraron postulantes</strong>
+  <div *ngFor="let proffesional of proffesionals">
+    <mat-card class="center-card-big">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title><strong> Nombre:</strong> {{proffesional.name}} {{proffesional.lastName}}</mat-card-title>
+        <mat-card-subtitle><strong> Ciudad:</strong> {{proffesional.city}} </mat-card-subtitle>
+        <mat-card-subtitle><strong> Correo:</strong> {{proffesional.email}}</mat-card-subtitle>
+      </mat-card-header>
+
+      <label></label>
+      <br />
+      <br />
+      <button class="btnSearch btnlocation " mat-button [routerLink]="['/empresa/InformacionEmpleado', proffesional.id]">Ver mas</button>
+      <br />
+      <br />
+    </mat-card>
+    <br />
+  </div>
+</div>

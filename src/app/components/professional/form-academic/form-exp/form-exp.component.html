@@ -1,0 +1,36 @@
+    <form  [formGroup]="expForm">
+      <mat-form-field>
+        <input matInput placeholder="Empresa" formControlName="Place">
+        <mat-error *ngIf="expForm.get('Place').hasError('required')">
+          este campo no puede quedar en <strong>blanco</strong>
+        </mat-error>
+        <mat-error *ngIf="expForm.get('Place').hasError('pattern')">
+          no ingrese valores <strong>invalidos</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Cargo" formControlName="Position">
+        <mat-error *ngIf="expForm.get('Position').hasError('required')">
+          este campo no puede quedar en <strong>blanco</strong>
+        </mat-error>
+        <mat-error *ngIf="expForm.get('Position').hasError('pattern')">
+          no ingrese valores <strong>invalidos</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Fecha Inicio" formControlName="Inicio" [max]="maxDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="expForm.get('Inicio').hasError('required')">
+          formato <strong>invalido</strong>, use el icono para una mejor experiencia
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker1" placeholder="Fecha Fin" formControlName="Fin" [max]="maxDate">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="expForm.get('Fin').hasError('required')">
+          formato <strong>invalido</strong>, use el icono para una mejor experiencia
+        </mat-error>
+      </mat-form-field>
+    </form>

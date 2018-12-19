@@ -1,0 +1,23 @@
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.center-card {
+  max-width: 50%;
+  margin: auto;
+}
+.bodyContainer {
+  padding: 30px;
+}
+
+.encabezado {
+  margin-left: 15px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    /*width: 100% !important;*/
+}

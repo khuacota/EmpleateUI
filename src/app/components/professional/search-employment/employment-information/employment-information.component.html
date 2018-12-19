@@ -1,0 +1,32 @@
+<mat-card class="center-card">
+
+  <mat-card-header>
+    <mat-card-title><strong>EMPRESA:</strong> {{offer.companyName}} </mat-card-title>
+  </mat-card-header>
+
+  <p><strong> Profesion requerida:</strong>{{offer.profession}}</p>
+  <p><strong> Horario de trabajo:</strong>{{offer.startTime | slice:11:16}} - {{offer.endTime | slice:11:16}}</p>
+  <p><strong> Experiencia Minima:</strong>{{offer.minExperience }}</p>
+
+
+  <strong> Idiomas requeridos:</strong>
+  <label *ngFor="let language of offer.reqLanguages">{{language.language}}, </label><br /><br />
+
+  <strong> Habilidades requeridas:</strong>
+  <label *ngFor="let skill of offer.reqSkills">{{skill.skill}} </label><br /><br />
+
+  <span><strong>Descripcion:</strong> {{offer.description}}</span><br><br />
+  <span><strong>Fecha limite:</strong> {{offer.deadline | slice:0:10}}</span><br><br />
+
+<div *ngIf="router.url === '/empleado/InformacionTrabajo/' + offerId">
+  <div class="rigth-button">
+    <button mat-raised-button color="accent" class="btnSearch btnlocation " (click)='postulate()' mat-button [disabled]="isInvalid()">Postular</button>
+  </div>
+
+  <div class="left-button">
+    <button mat-raised-button color="accent" class="btnSearch btnlocation " mat-button routerLink="/empleado/SearchEmployment">Cancelar</button>
+  </div>
+  <br />
+  <br />
+</div>
+</mat-card>

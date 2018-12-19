@@ -1,5 +1,6 @@
+
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpParams, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams, HttpHeaders } from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/internal/operators';
 import { HttpErrorHandlerService } from './http-error-handler.service';
@@ -11,7 +12,7 @@ export abstract class BaseService {
 
   // protected apiUrl = 'http://.azurewebsites.net';
   protected apiUrl = 'https://localhost:44313';
-  private headers: HttpHeaders;
+  protected headers: HttpHeaders;
   
   constructor(
     protected httpClient: HttpClient,

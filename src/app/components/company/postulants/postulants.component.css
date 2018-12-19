@@ -1,0 +1,56 @@
+.searcher {
+  min-width: 150px;
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+.slinput .left-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.slinput .left-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.header-image {
+  background-image: url('https://sistemas.com/termino/wp-content/uploads/Usuario-Icono.jpg');
+  background-size: cover;
+}
+
+.slinput .fa {
+  color: #444;
+  font-size: 16px;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.center-card {
+  max-width: 40%;
+  margin: auto;
+}
+
+.center-card-big {
+  max-width: 50%;
+  margin: auto;
+}
+
+.btnSearch {
+  background-color: rgb(255, 87, 34);
+  color: white;
+}
+
+.btnlocation {
+  text-align: right;
+}

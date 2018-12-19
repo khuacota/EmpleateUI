@@ -1,0 +1,45 @@
+<mat-toolbar color="primary" class="navbar">
+  <mat-toolbar-row>
+    <span>Empleate</span>
+    <span class="example-spacer"></span>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/">Inicio</a>    
+    <a mat-raised-button color="accent" *ngIf="companyName == ''" class="encabezado" routerLink="/empresa/RegistroEmpresa">Registro Empresa</a>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/OfertaTrabajo">Oferta Trabajo</a>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/BuscarEmpleado">Buscar Empleado</a>
+    <a mat-raised-button color="accent" class="encabezado" (click)="logoutSer()">cerrar sesion</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<br><br><br>
+<router-outlet class="bodyContainer"></router-outlet>
+<div *ngIf="router.url === '/empresa'">
+	<div *ngIf="error === true" class="center">
+		<mat-card class="center-shortcard">
+      <span>no tiene empleos publicados...</span><br><br>
+      <a mat-raised-button color="accent" routerLink="/empresa/OfertaTrabajo">Publica uno ahora!</a>
+    </mat-card>
+	</div>
+  <div *ngIf="error===false" class="center">
+    <mat-card class="center-shortcard">
+      <mat-card-title>
+        Revisa tus ofertas de trabajo!
+      </mat-card-title>
+    </mat-card><br/><br /><br/>
+    <div *ngFor="let item of offers" class="center-shortcard">      
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Profesion: {{item.profession}}
+            </mat-panel-title>            
+          </mat-expansion-panel-header>
+        <div class="ontheleft">
+          <span>Descripcion: {{item.description | slice:0:100}}...</span><br>      
+          <span>Fecha maxima de postulacion: {{item.deadline | slice:0:10}}</span>
+          <button mat-raised-button color="accent" class="button" [routerLink]="['/empresa/Postulantes', item.id]">Ver mas</button><br><br>
+        </div>
+        </mat-expansion-panel><br>
+      </mat-accordion>
+      <div class="separator"></div>
+    </div>
+  </div>
+</div>
