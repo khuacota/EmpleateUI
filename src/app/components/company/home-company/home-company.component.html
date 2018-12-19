@@ -3,7 +3,7 @@
     <span>Empleate</span>
     <span class="example-spacer"></span>
     <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/">Inicio</a>    
-    <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/RegistroEmpresa">Registro Empresa</a>
+    <a mat-raised-button color="accent" *ngIf="companyName == ''" class="encabezado" routerLink="/empresa/RegistroEmpresa">Registro Empresa</a>
     <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/OfertaTrabajo">Oferta Trabajo</a>
     <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/BuscarEmpleado">Buscar Empleado</a>
   </mat-toolbar-row>

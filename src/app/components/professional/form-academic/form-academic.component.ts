@@ -12,6 +12,7 @@ import { OccupationEmp } from '../../../models/occupationEmp';
 import { SkillEmp } from '../../../models/skillEmp';
 import { AuthService } from '../../../services/auth/auth.service';
 import { Employee } from '../../../models/employee';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -26,14 +27,15 @@ export class FormAcademicComponent implements AfterViewInit {
   private myTitles: Array<any>;
   private myExperiences: Array<any>;
   private userId: number;
-  private languages: string[] = ['español', 'ingles'];
+  private languages: string[] = [];
   private alllanguages: string[] = ['español', 'ingles', 'frances', 'ruso'];
-  private skills: string[] = ['liderazgo'];
-  private occupations: string[] = ['liderazgo'];
+  private skills: string[] = [];
+  private occupations: string[] = [];
   private allskills: string[] = ['liderazgo', 'java', 'angular', 'linux'];
   private toPut: boolean;
+  private submiting: boolean = false;
 
-  constructor(private academicServ: AcademicService, public snackBar: MatSnackBar, private servAuth: AuthService) {
+  constructor(private route: Router, private academicServ: AcademicService, public snackBar: MatSnackBar, private servAuth: AuthService) {
     this.myTitles = [];
     this.myExperiences = [];
     this.userId = 1;
@@ -71,9 +73,16 @@ export class FormAcademicComponent implements AfterViewInit {
     this.myTitles.push(obj);
   }
 
+  removeTitle() {
+    this.myTitles.pop();
+  }
+
   addExperience() {
     let obj = { degree: "", description: "" };
     this.myExperiences.push(obj);
+  }
+  removeExperience() {
+    this.myExperiences.pop();
   }
 
   disabled() {
@@ -91,7 +100,7 @@ export class FormAcademicComponent implements AfterViewInit {
           res = res || (inputsChips[i].items.length < 1 && titles.length < 1);
         }
       }
-      return res || titles.some(e => e.academicForm.invalid) || exps.some(e => e.expForm.invalid);
+      return res || titles.some(e => e.academicForm.invalid) || exps.some(e => e.expForm.invalid) || this.submiting;
     }
     return true;
   }
@@ -99,6 +108,7 @@ export class FormAcademicComponent implements AfterViewInit {
   /**get all the information of the childs components and put it all in a Academic object for send it 
    * */
   submit() {
+    this.submiting = true;
     let titles = this.viewTitles.toArray();
     let exps = this.viewExps.toArray();
     let experiences: Experience[] = [];
@@ -164,7 +174,9 @@ export class FormAcademicComponent implements AfterViewInit {
         duration: 2000,
         panelClass: ['green-snackbar']
       });
+      this.route.navigate(['/empleado']);
     }, error => {
+      this.submiting = false;
       this.snackBar.open("error", "", {
         duration: 2000,
         panelClass: ['red-snackbar']
@@ -177,7 +189,9 @@ export class FormAcademicComponent implements AfterViewInit {
         duration: 2000,
         panelClass: ['green-snackbar']
       });
+      this.route.navigate(['/empleado']);
     }, error => {
+      this.submiting = false;
       this.snackBar.open("error", "", {
         duration: 2000,
         panelClass: ['red-snackbar']

@@ -3,8 +3,8 @@
     <span>Empleate</span>
     <span class="example-spacer"></span>
     <a mat-raised-button color="accent" class="encabezado" routerLink="/empleado">Inicio</a>
-    <a mat-raised-button color="accent" class="encabezado" routerLink="/empleado/InformacionBasica">Registro basico de usuario</a>
-    <a mat-raised-button color="accent" class="encabezado" routerLink="/empleado/InformacionAcademica">Informacion academica</a>       
+    <a mat-raised-button color="accent" *ngIf="employee == undefined" class="encabezado" routerLink="/empleado/InformacionBasica">Registro basico de usuario</a>
+    <a mat-raised-button color="accent" *ngIf="employee !== undefined" class="encabezado" routerLink="/empleado/InformacionAcademica">Informacion academica</a>       
     <a mat-raised-button color="accent" class="encabezado" routerLink="/empleado/SearchEmployment">Buscar Empleo</a>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -15,7 +15,7 @@
     <mat-card-title class='center'>
 		Ultimos empleos ofertados por empresas!
     </mat-card-title>
-  </mat-card>
+  </mat-card><br /><br />
 
   <div *ngFor="let item of recentOffers" class="center-shortcard">      
       <mat-accordion>
@@ -32,7 +32,7 @@
         <div class="ontheleft">
           <span>Descripcion: {{item.description | slice:0:100}}...</span><br>      
           <span>Fecha maxima de postulacion: {{item.deadline | slice:0:10}}</span>
-          <button mat-raised-button color="accent" class="button" [routerLink]="['/InformacionTrabajo', item.id]">Ver mas</button><br><br>
+          <button mat-raised-button color="accent" class="button" [routerLink]="['/empleado/InformacionTrabajo', item.id]">Ver mas</button><br><br>
         </div>
         </mat-expansion-panel><br>
       </mat-accordion>
