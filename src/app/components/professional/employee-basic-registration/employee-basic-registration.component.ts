@@ -4,6 +4,7 @@ import { BasicInformationService } from '../../../services/employee/basic-inform
 import { Employee } from '../../../models/employee';
 import { MatSnackBar } from '@angular/material';
 import { AuthService } from '../../../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,9 +15,9 @@ import { AuthService } from '../../../services/auth/auth.service';
 export class EmployeeBasicRegistrationComponent implements OnInit {
   isLinear = false;
   employeeForm: FormGroup;
+  submiting: boolean = false;
 
-
-  constructor(private _formBuilder: FormBuilder, private servAuth: AuthService, private service: BasicInformationService, public snackBar: MatSnackBar) {
+  constructor(private route: Router, private _formBuilder: FormBuilder, private servAuth: AuthService, private service: BasicInformationService, public snackBar: MatSnackBar) {
 
   }
 
@@ -64,10 +65,14 @@ export class EmployeeBasicRegistrationComponent implements OnInit {
      });
 
   }
+
+  disabled() {
+    return this.employeeForm.invalid || this.submiting;
+  }
   
  
   submit() {
-
+    this.submiting = true;
     let empleado = new Employee();
     empleado.Name = this.employeeForm.get('Name').value;
     empleado.LastName = this.employeeForm.get('LastName').value;
@@ -90,11 +95,13 @@ export class EmployeeBasicRegistrationComponent implements OnInit {
         duration: 2000,
         panelClass: ['green-snackbar']
       });
+      this.route.navigate(['/empleado/InformacionAcademica']);
     }, error => {
-      this.snackBar.open("error", "", {
+      this.snackBar.open("error " + error.originalError, "", {
         duration: 2000,
         panelClass: ['red-snackbar']
       });
+      this.submiting = false;
     });
   }
   onFileSelected(event) {

@@ -23,16 +23,16 @@ export class FormExpComponent implements OnInit {
         Validators.required,
         Validators.pattern(Regex.ALPHABETIC)
       ])],
-      Start: ['', Validators.required],
-      End: ['', Validators.required],
+      Inicio: ['', Validators.required],
+      Fin: ['', Validators.required],
     });
   }
 
   ngOnInit() {
     this.expForm.get('Place').setValue(this.experience.place);
     this.expForm.get('Position').setValue(this.experience.position);
-    this.expForm.get('Start').setValue(new Date(this.experience.start));
-    this.expForm.get('End').setValue(new Date(this.experience.end));
+    this.expForm.get('Inicio').setValue(new Date(this.experience.inicio));
+    this.expForm.get('Fin').setValue(new Date(this.experience.fin));
   }
 
 }
