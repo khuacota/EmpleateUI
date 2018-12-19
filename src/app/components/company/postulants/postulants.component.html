@@ -10,10 +10,9 @@
       <mat-card-header>
         <div mat-card-avatar class="header-image"></div>
         <mat-card-title><strong> Nombre:</strong> {{proffesional.name}} {{proffesional.lastName}}</mat-card-title>
-        <mat-card-subtitle><strong> Ciudad:</strong> {{proffesional.city}} <strong> Correo:</strong> {{proffesional.email}}</mat-card-subtitle>
+        <mat-card-subtitle><strong> Ciudad:</strong> {{proffesional.city}} </mat-card-subtitle>
+        <mat-card-subtitle><strong> Correo:</strong> {{proffesional.email}}</mat-card-subtitle>
       </mat-card-header>
-      <strong> Ocupaciones:</strong>
-      <label *ngFor="let occupation of proffesional.occupations"> {{occupation.occupation}},</label>
 
       <label></label>
       <br />
