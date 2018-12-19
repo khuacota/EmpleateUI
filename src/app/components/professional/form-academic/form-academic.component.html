@@ -21,7 +21,9 @@
       <div  *ngFor="let title of myTitles">
         <app-academic-title [title]="title"></app-academic-title>
       </div>
-      
+      <button mat-mini-fab color="warn" (click)="removeTitle()">
+        <mat-icon aria-label="icon-button">remove</mat-icon>
+      </button>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Experiencia</ng-template>
@@ -34,7 +36,9 @@
       <div *ngFor="let experience of myExperiences">
         <app-form-exp [experience]="experience"></app-form-exp>
       </div>
-      
+      <button mat-mini-fab color="warn" (click)="removeExperience()">
+        <mat-icon aria-label="icon-button">remove</mat-icon>
+      </button>
     </mat-step>
   </mat-horizontal-stepper>
     <mat-card-actions>

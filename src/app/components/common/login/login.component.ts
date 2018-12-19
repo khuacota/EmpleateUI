@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         this.route.navigate(['/empleado']);
       }
     }, error => {
-      this.snackBar.open("ocurrio un error"+error.originalError, "", {
+      this.snackBar.open("ocurrio un error "+error.originalError, "", {
         duration: 2000,
         panelClass: ['red-snackbar']
       });
