@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Company } from '../../../models/company';
@@ -6,6 +5,7 @@ import { CompanyService } from '../../../services/company/company.service';
 import { MatSnackBar } from '@angular/material';
 import { Regex } from '../../../models/regex';
 import { AuthService } from '../../../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-company-registration',
@@ -18,7 +18,7 @@ export class CompanyRegistrationComponent implements OnInit {
   entrys: string[] = ['Alimenticio','Automovilistico','Social','Software','Limpieza','Hardware'];
   companyForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private servAuth: AuthService, private service: CompanyService, public snackBar: MatSnackBar) {
+  constructor(private route: Router, private fb: FormBuilder, private servAuth: AuthService, private service: CompanyService, public snackBar: MatSnackBar) {
     this.companyForm = this.fb.group({
       Name: ['', Validators.compose([
         Validators.required,
@@ -89,7 +89,7 @@ export class CompanyRegistrationComponent implements OnInit {
       this.snackBar.open("registro completado correctamente", "", {
         duration: 2000,
         panelClass: ['green-snackbar']
-      });
+      });      
     }, error => {
       this.snackBar.open("error", "", {
         duration: 2000,
