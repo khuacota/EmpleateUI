@@ -110,7 +110,7 @@
   <div>
     <mat-card-actions>
       <span class="example-spacer"></span>
-      <button mat-raised-button color="accent">CANCELAR</button>
+      <button mat-raised-button color="accent" (click)="employeeForm.reset()">CANCELAR</button>
       <button mat-raised-button color="accent" (click)="submit()" [disabled]="employeeForm.invalid">ENVIAR</button>
     </mat-card-actions>
   </div>

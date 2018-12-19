@@ -82,7 +82,7 @@
         <button mat-raised-button color="accent" (click)="registrar()" [disabled]="companyForm.invalid">ENVIAR</button>
       </div>
       <div style='float: left;'>
-        <button mat-raised-button color="accent">CANCELAR</button>
+        <button mat-raised-button (click)="companyForm.reset()" color="accent">CANCELAR</button>
       </div>
     </div>
 

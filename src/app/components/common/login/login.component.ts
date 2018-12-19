@@ -20,8 +20,7 @@ export class LoginComponent implements OnInit {
       ])],
 
       Password: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(6)
+        Validators.required,     
       ])],
       
 
@@ -52,5 +51,4 @@ export class LoginComponent implements OnInit {
       });
     });
   }
-
 }

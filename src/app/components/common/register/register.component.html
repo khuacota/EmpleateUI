@@ -43,7 +43,7 @@
   <mat-card-actions>
     <div class='testt'>
       <div style='float: left;'>
-        <button mat-raised-button color="accent">Cancelar</button>
+        <button mat-raised-button (click)="RegisterForm.reset()" color="accent">Cancelar</button>
       </div>
       <div style='float: right;'>
         <button mat-raised-button color="accent" [disabled]="RegisterForm.invalid" (click)="register()">Iniciar sesion</button>

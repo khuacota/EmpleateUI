@@ -25,13 +25,13 @@
     <input type="password" matInput placeholder="Contraseña:" formControlName='Password' />
     <mat-error *ngIf="loginForm.get('Password').hasError('required')">
       este campo no puede quedar en <strong>blanco</strong>
-    </mat-error>
+    </mat-error>    
   </mat-form-field>
 
   <mat-card-actions>
     <div class='testt'>
       <div style='float: left;'>
-        <button mat-raised-button color="accent">Cancelar</button>
+        <button mat-raised-button (click)="loginForm.reset()" color="accent">Cancelar</button>
       </div>
       <div style='float: right;'>
         <button mat-raised-button color="accent" [disabled]="loginForm.invalid" (click)="login()">Iniciar sesion</button>
