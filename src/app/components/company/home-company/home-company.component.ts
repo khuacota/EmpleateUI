@@ -25,8 +25,10 @@ export class HomeCompanyComponent implements OnInit {
 
   ngOnInit() {
     this.servAuth.getCompany().subscribe((res: any) => {
-      this.companyName = res[0].name;
-      this.searchEmployment();
+      if (res[0]) {
+        this.companyName = res[0].name;
+        this.searchEmployment();
+      }
     })
     
   }
