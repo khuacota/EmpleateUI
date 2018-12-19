@@ -45,4 +45,8 @@ export class HomeCompanyComponent implements OnInit {
     );
   }
 
+  logoutSer(){
+    this.servAuth.logout();
+  }
+
 }
