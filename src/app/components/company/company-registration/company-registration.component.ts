@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Company } from '../../../models/company';
@@ -90,8 +89,7 @@ export class CompanyRegistrationComponent implements OnInit {
       this.snackBar.open("registro completado correctamente", "", {
         duration: 2000,
         panelClass: ['green-snackbar']
-      });
-      this.route.navigate(['http://localhost:4200/empleado']);      
+      });      
     }, error => {
       this.snackBar.open("error", "", {
         duration: 2000,

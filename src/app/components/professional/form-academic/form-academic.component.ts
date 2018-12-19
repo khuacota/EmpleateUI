@@ -189,7 +189,7 @@ export class FormAcademicComponent implements AfterViewInit {
         duration: 2000,
         panelClass: ['green-snackbar']
       });
-      this.route.navigate(['http://localhost:4200/empleado']);
+      this.route.navigate(['empleado']);
     }, error => {
       this.submiting = false;
       this.snackBar.open("error", "", {
