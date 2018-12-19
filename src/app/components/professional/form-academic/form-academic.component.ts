@@ -60,8 +60,8 @@ export class FormAcademicComponent implements AfterViewInit {
         for (let i = 0; i < res.skills.length; i++) {
           this.skills.push(res.skills[i].skill);
         }
-        this.toPut = this.myTitles.length > 0 && this.myExperiences.length > 0 &&
-          this.languages.length > 0 && this.occupations.length > 0 &&
+        this.toPut = this.myTitles.length > 0 || this.myExperiences.length > 0 ||
+          this.languages.length > 0 || this.occupations.length > 0 ||
           this.skills.length > 0;
       });
     });
@@ -160,7 +160,9 @@ export class FormAcademicComponent implements AfterViewInit {
     academic.Degrees = degrees;
     academic.Occupations = occupations;
     academic.Skills = skills;
+
     if (this.toPut) {
+      console.log("put");
       this.put(academic);
     }
     else {
