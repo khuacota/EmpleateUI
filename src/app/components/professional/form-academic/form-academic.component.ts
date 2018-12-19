@@ -73,9 +73,16 @@ export class FormAcademicComponent implements AfterViewInit {
     this.myTitles.push(obj);
   }
 
+  removeTitle() {
+    this.myTitles.pop();
+  }
+
   addExperience() {
     let obj = { degree: "", description: "" };
     this.myExperiences.push(obj);
+  }
+  removeExperience() {
+    this.myExperiences.pop();
   }
 
   disabled() {
