@@ -19,6 +19,7 @@ import { RegisterComponent } from './components/common/register/register.compone
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
    
