@@ -26,10 +26,10 @@ export class FormAcademicComponent implements AfterViewInit {
   private myTitles: Array<any>;
   private myExperiences: Array<any>;
   private userId: number;
-  private languages: string[] = ['español', 'ingles'];
+  private languages: string[] = [];
   private alllanguages: string[] = ['español', 'ingles', 'frances', 'ruso'];
-  private skills: string[] = ['liderazgo'];
-  private occupations: string[] = ['liderazgo'];
+  private skills: string[] = [];
+  private occupations: string[] = [];
   private allskills: string[] = ['liderazgo', 'java', 'angular', 'linux'];
   private toPut: boolean;
 
