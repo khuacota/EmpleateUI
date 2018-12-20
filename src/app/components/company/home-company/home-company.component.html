@@ -2,11 +2,11 @@
   <mat-toolbar-row>
     <span>Empleate</span>
     <span class="example-spacer"></span>
-    <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/">Inicio</a>    
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/">Inicio<mat-icon>home</mat-icon></a>    
     <a mat-raised-button color="accent" *ngIf="companyName == ''" class="encabezado" routerLink="/empresa/RegistroEmpresa">Registro Empresa</a>
-    <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/OfertaTrabajo">Oferta Trabajo</a>
-    <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/BuscarEmpleado">Buscar Empleado</a>
-    <a mat-raised-button color="accent" class="encabezado" (click)="logoutSer()">cerrar sesion</a>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/OfertaTrabajo">Oferta Trabajo <mat-icon>work</mat-icon></a>
+    <a mat-raised-button color="accent" class="encabezado" routerLink="/empresa/BuscarEmpleado">Buscar Empleado <mat-icon>search</mat-icon></a>
+    <a mat-raised-button color="accent" class="encabezado" (click)="logoutSer()">cerrar sesion <mat-icon>person_outline</mat-icon>  </a>
   </mat-toolbar-row>
 </mat-toolbar>
 <br><br><br>
