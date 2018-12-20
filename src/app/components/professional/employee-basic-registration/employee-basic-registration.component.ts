@@ -16,6 +16,9 @@ export class EmployeeBasicRegistrationComponent implements OnInit {
   isLinear = false;
   employeeForm: FormGroup;
   submiting: boolean = false;
+  today = new Date();
+  maxDate = new Date(this.today.setDate(this.today.getDate() - (18*366)));
+
 
   constructor(private route: Router, private _formBuilder: FormBuilder, private servAuth: AuthService, private service: BasicInformationService, public snackBar: MatSnackBar) {
 
