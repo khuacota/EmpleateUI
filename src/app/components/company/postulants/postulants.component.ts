@@ -38,13 +38,10 @@ export class PostulantsComponent implements OnInit {
         this.offerId = params.get('id')
       )
     ).subscribe(res => {
-      this.serviceEmployee.getpostulants(this.offerId).subscribe(res => {
-        this.proffesionals = res;
-        console.log(this.proffesionals)
-        
+        this.serviceEmployee.getpostulants(this.offerId).subscribe(result => {
+        this.proffesionals = result;        
       });
     });
-    }
-
+  }
 }
 
