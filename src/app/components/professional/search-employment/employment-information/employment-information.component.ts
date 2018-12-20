@@ -19,6 +19,7 @@ export class EmploymentInformationComponent implements OnInit {
   offer: any;
   employeeId: number;
   employee: AcademicEmploye;
+  submiting: boolean = false;
   constructor(public snackBar: MatSnackBar, private route: ActivatedRoute, private router: Router, private acService: AcademicService, private jobService: JobOfferService, private servAuth: AuthService) {
     this.employeeId = 1;
     this.offerId = '1';
@@ -37,9 +38,9 @@ export class EmploymentInformationComponent implements OnInit {
   }
 
   isInvalid() {
-    return this.employee.degrees.length == 0 && this.employee.experiences.length == 0 &&
+    return (this.employee.degrees.length == 0 && this.employee.experiences.length == 0 &&
       this.employee.languages.length == 0 && this.employee.occupations.length == 0 &&
-      this.employee.skills.length == 0;
+      this.employee.skills.length == 0) || this.submiting;
   }
 
   ngOnInit() {
@@ -56,6 +57,7 @@ export class EmploymentInformationComponent implements OnInit {
   
 
   postulate() {
+    this.submiting = true;
     let body = { OfferId: this.offerId, EmployeeId: this.employeeId };
     this.jobService.postulate(body).subscribe(res => {
       this.snackBar.open("postulacion exitosa", "", {
@@ -63,7 +65,7 @@ export class EmploymentInformationComponent implements OnInit {
         panelClass: ['green-snackbar']
       });
     }, error => {
-      this.snackBar.open("error" + error.originalError, "", {
+      this.snackBar.open("ya postulaste", "", {
                 duration: 2000,
             panelClass: ['red-snackbar']
           });
