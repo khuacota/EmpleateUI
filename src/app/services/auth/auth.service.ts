@@ -17,7 +17,7 @@ export class AuthService extends BaseService{
       errorHandler,
       'auth/signin'
     );
-    this.user = null;
+    this.user = new User();
   }
 
   logout() {
@@ -51,7 +51,7 @@ export class AuthService extends BaseService{
     );
   }
 
-  getEmploye() {
+  public getEmploye() {
     return this.httpClient.get(`${this.apiUrl}/empleados/user/${this.user.userId}`, { headers: this.headers }).pipe(
       catchError(this.errorHandler.handleError)
     );

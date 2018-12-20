@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShowCompleteInformationEmployeeComponent } from './show-complete-information-employee.component';
+import { MaterialModule } from '../../../../modules/material/material.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ShowCompleteInformationEmployeeComponent', () => {
   let component: ShowCompleteInformationEmployeeComponent;
@@ -8,6 +11,7 @@ describe('ShowCompleteInformationEmployeeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [MaterialModule, RouterTestingModule, HttpClientModule],
       declarations: [ ShowCompleteInformationEmployeeComponent ]
     })
     .compileComponents();

@@ -14,6 +14,12 @@ export class FormExpComponent implements OnInit {
   today = new Date();
   maxDate = new Date(this.today.setDate(this.today.getDate() - 1));
   constructor(private fb: FormBuilder) {
+    this.experience = {
+      place: "",
+      position: "",
+      inicio: "",
+      fin:""
+    };
     this.expForm = this.fb.group({
       Place: ['', Validators.compose([
         Validators.required,

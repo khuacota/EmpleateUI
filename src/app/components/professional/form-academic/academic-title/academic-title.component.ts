@@ -12,6 +12,10 @@ export class AcademicTitleComponent implements OnInit {
   private degrees = ['licenciatura', 'master', 'doctorado'];
   academicForm: FormGroup;
   constructor(private fb: FormBuilder) {
+    this.title = {
+      degree: "",
+      description:""
+    }
     this.academicForm = this.fb.group({
       Degree: ['', Validators.required],
       Description: ['', Validators.compose([

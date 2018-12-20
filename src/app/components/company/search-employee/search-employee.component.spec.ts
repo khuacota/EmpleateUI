@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BuscarEmpleadoComponent } from './search-employee.component';
+import { MaterialModule } from '../../../modules/material/material.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('BuscarEmpleadoComponent', () => {
   let component: BuscarEmpleadoComponent;
@@ -8,6 +11,7 @@ describe('BuscarEmpleadoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [MaterialModule, RouterTestingModule, HttpClientModule],
       declarations: [ BuscarEmpleadoComponent ]
     })
     .compileComponents();

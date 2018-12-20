@@ -1,5 +1,5 @@
 
-import { Injectable } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams, HttpHeaders } from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/internal/operators';
@@ -17,7 +17,7 @@ export abstract class BaseService {
   constructor(
     protected httpClient: HttpClient,
     protected errorHandler: HttpErrorHandlerService,
-    protected endpoint: string) {
+    @Optional() protected endpoint: string) {
     this.headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
   }
 

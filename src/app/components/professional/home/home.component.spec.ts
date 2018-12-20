@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import { MaterialModule } from '../../../modules/material/material.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from '../../../services/auth/auth.service';
+import { JobOfferService } from '../../../services/jobOffer/job-offer.service';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +13,9 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      imports: [MaterialModule, RouterTestingModule, HttpClientModule],
+      declarations: [HomeComponent],
+      providers: [AuthService, JobOfferService]
     })
     .compileComponents();
   }));

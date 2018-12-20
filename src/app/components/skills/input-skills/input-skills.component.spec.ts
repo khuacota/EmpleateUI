@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { InputSkillsComponent } from './input-skills.component'
+import { MaterialModule } from '../../../modules/material/material.module';
 
 describe('InputSkillsComponent', () => {
   let component: InputSkillsComponent;
@@ -7,6 +8,7 @@ describe('InputSkillsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [MaterialModule],
       declarations: [ InputSkillsComponent ]
     })
     .compileComponents();
